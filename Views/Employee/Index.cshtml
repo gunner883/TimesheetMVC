@@ -1,0 +1,74 @@
+﻿@model IEnumerable<TimesheetMVC.Models.Employee>
+
+@{
+    ViewBag.Title = "Employees";
+}
+<p>
+</p>
+@using (Html.BeginForm(new { @class = "well form-search" }))
+{
+    <div class="row">
+        <div class="span8">
+            Find by name: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, new { @class = "input-medium search-query"})  
+            <input type="submit" value="Search" class="btn btn-primary" />
+        </div>
+    </div>
+}
+
+<table class="table">
+<thead>
+    <tr>
+         <th>
+            Action Links
+        </th>
+        <th>
+            LogonID
+        </th>
+        <th>
+             @Html.ActionLink("Name", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            Title
+        </th>
+        <th>
+             @Html.ActionLink("Start Date", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            CellPhone
+        </th>
+        <th></th>
+    </tr>
+</thead>
+@foreach (var item in Model)
+{
+    <tbody><tr>
+         <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.EmployeeID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.EmployeeID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.EmployeeID })
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LogonID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastName),  @Html.DisplayFor(modelItem => item.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.JobTitleID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StartDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CellPhone)
+        </td>
+    </tr>
+    </tbody>
+}
+</table>
+
+@section sidebar {
+
+<h2>Employees</h2>
+<p class="wrap">Select a user to begin editing</p>
+}

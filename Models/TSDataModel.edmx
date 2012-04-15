@@ -1,0 +1,1533 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="TSDataModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="TSDataModelStoreContainer">
+          <EntitySet Name="Assignments" EntityType="TSDataModel.Store.Assignments" store:Type="Tables" store:Schema="dbo" store:Name="Assignments">
+            <DefiningQuery>SELECT 
+      [Assignments].[AssignmentID] AS [AssignmentID], 
+      [Assignments].[Assignment] AS [Assignment], 
+      [Assignments].[EmployeeID] AS [EmployeeID], 
+      [Assignments].[ProjectID] AS [ProjectID], 
+      [Assignments].[StartDate] AS [StartDate], 
+      [Assignments].[EndDate] AS [EndDate], 
+      [Assignments].[Active] AS [Active], 
+      [Assignments].[EmpPhone] AS [EmpPhone], 
+      [Assignments].[EmpEmail] AS [EmpEmail], 
+      [Assignments].[BillableExp] AS [BillableExp], 
+      [Assignments].[Comments] AS [Comments], 
+      [Assignments].[InvContactID] AS [InvContactID], 
+      [Assignments].[PONumber] AS [PONumber], 
+      [Assignments].[WorkOrder] AS [WorkOrder], 
+      [Assignments].[Designation1] AS [Designation1], 
+      [Assignments].[Designation2] AS [Designation2], 
+      [Assignments].[CreatedDate] AS [CreatedDate], 
+      [Assignments].[CreatedBy] AS [CreatedBy]
+      FROM [dbo].[Assignments] AS [Assignments]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ClientProjectView" EntityType="TSDataModel.Store.ClientProjectView" store:Type="Tables" store:Schema="dbo" store:Name="ClientProjectView">
+            <DefiningQuery>SELECT 
+      [ClientProjectView].[ClientProjID] AS [ClientProjID], 
+      [ClientProjectView].[ContactID] AS [ContactID], 
+      [ClientProjectView].[ProjectID] AS [ProjectID], 
+      [ClientProjectView].[CreatedDate] AS [CreatedDate], 
+      [ClientProjectView].[CreatedBy] AS [CreatedBy]
+      FROM [dbo].[ClientProjectView] AS [ClientProjectView]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Clients" EntityType="TSDataModel.Store.Clients" store:Type="Tables" store:Schema="dbo" store:Name="Clients">
+            <DefiningQuery>SELECT 
+      [Clients].[ClientID] AS [ClientID], 
+      [Clients].[Client] AS [Client], 
+      [Clients].[Street] AS [Street], 
+      [Clients].[City] AS [City], 
+      [Clients].[State] AS [State], 
+      [Clients].[Zip] AS [Zip], 
+      [Clients].[Country] AS [Country], 
+      [Clients].[Phone] AS [Phone], 
+      [Clients].[Fax] AS [Fax], 
+      [Clients].[Comments] AS [Comments], 
+      [Clients].[DirectorID] AS [DirectorID], 
+      [Clients].[Region] AS [Region], 
+      [Clients].[DefaultInvFrequency] AS [DefaultInvFrequency], 
+      [Clients].[QuickBookClientID] AS [QuickBookClientID], 
+      [Clients].[CreatedDate] AS [CreatedDate], 
+      [Clients].[CreatedBy] AS [CreatedBy], 
+      [Clients].[ClientShort] AS [ClientShort]
+      FROM [dbo].[Clients] AS [Clients]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Contacts" EntityType="TSDataModel.Store.Contacts" store:Type="Tables" store:Schema="dbo" store:Name="Contacts">
+            <DefiningQuery>SELECT 
+      [Contacts].[ContactID] AS [ContactID], 
+      [Contacts].[LastName] AS [LastName], 
+      [Contacts].[FirstName] AS [FirstName], 
+      [Contacts].[Title] AS [Title], 
+      [Contacts].[Suffix] AS [Suffix], 
+      [Contacts].[ClientID] AS [ClientID], 
+      [Contacts].[Street] AS [Street], 
+      [Contacts].[City] AS [City], 
+      [Contacts].[State] AS [State], 
+      [Contacts].[Zip] AS [Zip], 
+      [Contacts].[Country] AS [Country], 
+      [Contacts].[Phone] AS [Phone], 
+      [Contacts].[Fax] AS [Fax], 
+      [Contacts].[Email] AS [Email], 
+      [Contacts].[Comments] AS [Comments], 
+      [Contacts].[CreatedDate] AS [CreatedDate], 
+      [Contacts].[CreatedBy] AS [CreatedBy]
+      FROM [dbo].[Contacts] AS [Contacts]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Days" EntityType="TSDataModel.Store.Days" store:Type="Tables" store:Schema="dbo" store:Name="Days">
+            <DefiningQuery>SELECT 
+      [Days].[DateDay] AS [DateDay], 
+      [Days].[Holiday] AS [Holiday]
+      FROM [dbo].[Days] AS [Days]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="EmployeeAssignment" EntityType="TSDataModel.Store.EmployeeAssignment" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Employees" EntityType="TSDataModel.Store.Employees" store:Type="Tables" store:Schema="dbo" store:Name="Employees">
+            <DefiningQuery>SELECT 
+      [Employees].[EmployeeID] AS [EmployeeID], 
+      [Employees].[LogonID] AS [LogonID], 
+      [Employees].[LastName] AS [LastName], 
+      [Employees].[FirstName] AS [FirstName], 
+      [Employees].[MI] AS [MI], 
+      [Employees].[Title] AS [Title], 
+      [Employees].[Suffix] AS [Suffix], 
+      [Employees].[StartDate] AS [StartDate], 
+      [Employees].[LastReviewDate] AS [LastReviewDate], 
+      [Employees].[NextReviewDate] AS [NextReviewDate], 
+      [Employees].[Street] AS [Street], 
+      [Employees].[City] AS [City], 
+      [Employees].[State] AS [State], 
+      [Employees].[Zip] AS [Zip], 
+      [Employees].[Phone] AS [Phone], 
+      [Employees].[BirthDate] AS [BirthDate], 
+      [Employees].[Status] AS [Status], 
+      [Employees].[JobTitleID] AS [JobTitleID], 
+      [Employees].[ManagerID] AS [ManagerID], 
+      [Employees].[Salary] AS [Salary], 
+      [Employees].[Bonus] AS [Bonus], 
+      [Employees].[HealthCoverage] AS [HealthCoverage], 
+      [Employees].[DentalCoverage] AS [DentalCoverage], 
+      [Employees].[MoExp] AS [MoExp], 
+      [Employees].[Region] AS [Region], 
+      [Employees].[CreatedDate] AS [CreatedDate], 
+      [Employees].[CreatedBy] AS [CreatedBy], 
+      [Employees].[CurClientPhone] AS [CurClientPhone], 
+      [Employees].[CellPhone] AS [CellPhone]
+      FROM [dbo].[Employees] AS [Employees]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="HourlyRate" EntityType="TSDataModel.Store.HourlyRate" store:Type="Tables" store:Schema="dbo" store:Name="HourlyRate">
+            <DefiningQuery>SELECT 
+      [HourlyRate].[HourlyRateID] AS [HourlyRateID], 
+      [HourlyRate].[AssignmentID] AS [AssignmentID], 
+      [HourlyRate].[HourlyRate] AS [HourlyRate], 
+      [HourlyRate].[StartDate] AS [StartDate], 
+      [HourlyRate].[EndDate] AS [EndDate], 
+      [HourlyRate].[CreatedDate] AS [CreatedDate], 
+      [HourlyRate].[CreatedBy] AS [CreatedBy]
+      FROM [dbo].[HourlyRate] AS [HourlyRate]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Hours" EntityType="TSDataModel.Store.Hours" store:Type="Tables" store:Schema="dbo" store:Name="Hours">
+            <DefiningQuery>SELECT 
+      [Hours].[HoursID] AS [HoursID], 
+      [Hours].[AssignmentID] AS [AssignmentID], 
+      [Hours].[EmployeeID] AS [EmployeeID], 
+      [Hours].[HoursDate] AS [HoursDate], 
+      [Hours].[Hours] AS [Hours], 
+      [Hours].[AdjHours] AS [AdjHours], 
+      [Hours].[Comments] AS [Comments], 
+      [Hours].[Submitted] AS [Submitted], 
+      [Hours].[AcctMgrApprBy] AS [AcctMgrApprBy], 
+      [Hours].[AcctMgrApprDate] AS [AcctMgrApprDate], 
+      [Hours].[DirApprBy] AS [DirApprBy], 
+      [Hours].[DirApprDate] AS [DirApprDate], 
+      [Hours].[InvNumber] AS [InvNumber], 
+      [Hours].[CreatedDate] AS [CreatedDate], 
+      [Hours].[CreatedBy] AS [CreatedBy]
+      FROM [dbo].[Hours] AS [Hours]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="InvDetail" EntityType="TSDataModel.Store.InvDetail" store:Type="Tables" store:Schema="dbo" store:Name="InvDetail">
+            <DefiningQuery>SELECT 
+      [InvDetail].[InvDetailID] AS [InvDetailID], 
+      [InvDetail].[InvNumber] AS [InvNumber], 
+      [InvDetail].[Employee] AS [Employee], 
+      [InvDetail].[DetailDescr] AS [DetailDescr], 
+      [InvDetail].[Quantitiy] AS [Quantitiy], 
+      [InvDetail].[UnitPrice] AS [UnitPrice]
+      FROM [dbo].[InvDetail] AS [InvDetail]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="InvHeader" EntityType="TSDataModel.Store.InvHeader" store:Type="Tables" store:Schema="dbo" store:Name="InvHeader">
+            <DefiningQuery>SELECT 
+      [InvHeader].[InvNumber] AS [InvNumber], 
+      [InvHeader].[InvContactName] AS [InvContactName], 
+      [InvHeader].[Street] AS [Street], 
+      [InvHeader].[City] AS [City], 
+      [InvHeader].[State] AS [State], 
+      [InvHeader].[Zip] AS [Zip]
+      FROM [dbo].[InvHeader] AS [InvHeader]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Invoices" EntityType="TSDataModel.Store.Invoices" store:Type="Tables" store:Schema="dbo" store:Name="Invoices">
+            <DefiningQuery>SELECT 
+      [Invoices].[InvNumber] AS [InvNumber], 
+      [Invoices].[InvFrom] AS [InvFrom], 
+      [Invoices].[InvTo] AS [InvTo], 
+      [Invoices].[DirApprBy] AS [DirApprBy], 
+      [Invoices].[DirApprDate] AS [DirApprDate], 
+      [Invoices].[SentBy] AS [SentBy], 
+      [Invoices].[SentDate] AS [SentDate], 
+      [Invoices].[Paid] AS [Paid], 
+      [Invoices].[Footnote] AS [Footnote], 
+      [Invoices].[Emailed] AS [Emailed], 
+      [Invoices].[ClientInvNumber] AS [ClientInvNumber], 
+      [Invoices].[InvFrequency] AS [InvFrequency], 
+      [Invoices].[Internal] AS [Internal], 
+      [Invoices].[Deleted] AS [Deleted], 
+      [Invoices].[CreatedDate] AS [CreatedDate], 
+      [Invoices].[CreatedBy] AS [CreatedBy]
+      FROM [dbo].[Invoices] AS [Invoices]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="InvRemitAddress" EntityType="TSDataModel.Store.InvRemitAddress" store:Type="Tables" store:Schema="dbo" store:Name="InvRemitAddress">
+            <DefiningQuery>SELECT 
+      [InvRemitAddress].[Company] AS [Company], 
+      [InvRemitAddress].[Street] AS [Street], 
+      [InvRemitAddress].[City] AS [City], 
+      [InvRemitAddress].[State] AS [State], 
+      [InvRemitAddress].[Zip] AS [Zip]
+      FROM [dbo].[InvRemitAddress] AS [InvRemitAddress]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="JobTitles" EntityType="TSDataModel.Store.JobTitles" store:Type="Tables" store:Schema="dbo" store:Name="JobTitles">
+            <DefiningQuery>SELECT 
+      [JobTitles].[JobTitleID] AS [JobTitleID], 
+      [JobTitles].[JobTitle] AS [JobTitle], 
+      [JobTitles].[ReportGroupID] AS [ReportGroupID]
+      FROM [dbo].[JobTitles] AS [JobTitles]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="MenuGroups" EntityType="TSDataModel.Store.MenuGroups" store:Type="Tables" store:Schema="dbo" store:Name="MenuGroups">
+            <DefiningQuery>SELECT 
+      [MenuGroups].[MenuItemID] AS [MenuItemID], 
+      [MenuGroups].[ReportGroupID] AS [ReportGroupID]
+      FROM [dbo].[MenuGroups] AS [MenuGroups]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="MenuItems" EntityType="TSDataModel.Store.MenuItems" store:Type="Tables" store:Schema="dbo" store:Name="MenuItems">
+            <DefiningQuery>SELECT 
+      [MenuItems].[MenuItemID] AS [MenuItemID], 
+      [MenuItems].[SectionID] AS [SectionID], 
+      [MenuItems].[Item] AS [Item], 
+      [MenuItems].[Ahref] AS [Ahref], 
+      [MenuItems].[OrderList] AS [OrderList]
+      FROM [dbo].[MenuItems] AS [MenuItems]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="MenuSections" EntityType="TSDataModel.Store.MenuSections" store:Type="Tables" store:Schema="dbo" store:Name="MenuSections">
+            <DefiningQuery>SELECT 
+      [MenuSections].[SectionID] AS [SectionID], 
+      [MenuSections].[SectionName] AS [SectionName], 
+      [MenuSections].[OrderNumber] AS [OrderNumber]
+      FROM [dbo].[MenuSections] AS [MenuSections]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="OtherChargesCredits" EntityType="TSDataModel.Store.OtherChargesCredits" store:Type="Tables" store:Schema="dbo" store:Name="OtherChargesCredits">
+            <DefiningQuery>SELECT 
+      [OtherChargesCredits].[ChargeCreditID] AS [ChargeCreditID], 
+      [OtherChargesCredits].[AssignmentID] AS [AssignmentID], 
+      [OtherChargesCredits].[ChargeCredit] AS [ChargeCredit], 
+      [OtherChargesCredits].[ChargeCreditDescr] AS [ChargeCreditDescr], 
+      [OtherChargesCredits].[InvNumber] AS [InvNumber], 
+      [OtherChargesCredits].[CreatedDate] AS [CreatedDate], 
+      [OtherChargesCredits].[CreatedBy] AS [CreatedBy]
+      FROM [dbo].[OtherChargesCredits] AS [OtherChargesCredits]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="PayrollActivities" EntityType="TSDataModel.Store.PayrollActivities" store:Type="Tables" store:Schema="dbo" store:Name="PayrollActivities">
+            <DefiningQuery>SELECT 
+      [PayrollActivities].[ProjectID] AS [ProjectID], 
+      [PayrollActivities].[PayrollActivity] AS [PayrollActivity], 
+      [PayrollActivities].[Status] AS [Status]
+      FROM [dbo].[PayrollActivities] AS [PayrollActivities]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Projects" EntityType="TSDataModel.Store.Projects" store:Type="Tables" store:Schema="dbo" store:Name="Projects">
+            <DefiningQuery>SELECT 
+      [Projects].[ProjectID] AS [ProjectID], 
+      [Projects].[Project] AS [Project], 
+      [Projects].[ClientID] AS [ClientID], 
+      [Projects].[ProjectLeadID] AS [ProjectLeadID], 
+      [Projects].[ProjectDescr] AS [ProjectDescr], 
+      [Projects].[Status] AS [Status], 
+      [Projects].[AcctMngrID] AS [AcctMngrID], 
+      [Projects].[Budget] AS [Budget], 
+      [Projects].[Fixed] AS [Fixed], 
+      [Projects].[Prebilled] AS [Prebilled], 
+      [Projects].[TaxableState] AS [TaxableState], 
+      [Projects].[CreatedDate] AS [CreatedDate], 
+      [Projects].[CreatedBy] AS [CreatedBy]
+      FROM [dbo].[Projects] AS [Projects]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Reminders" EntityType="TSDataModel.Store.Reminders" store:Type="Tables" store:Schema="dbo" store:Name="Reminders">
+            <DefiningQuery>SELECT 
+      [Reminders].[ReminderID] AS [ReminderID], 
+      [Reminders].[ReminderDate] AS [ReminderDate], 
+      [Reminders].[Reminder] AS [Reminder], 
+      [Reminders].[CreatedDate] AS [CreatedDate], 
+      [Reminders].[CreatedBy] AS [CreatedBy]
+      FROM [dbo].[Reminders] AS [Reminders]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ReportANDGroup" EntityType="TSDataModel.Store.ReportANDGroup" store:Type="Tables" store:Schema="dbo" store:Name="ReportANDGroup">
+            <DefiningQuery>SELECT 
+      [ReportANDGroup].[ReportID] AS [ReportID], 
+      [ReportANDGroup].[ReportGroupID] AS [ReportGroupID]
+      FROM [dbo].[ReportANDGroup] AS [ReportANDGroup]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ReportGroups" EntityType="TSDataModel.Store.ReportGroups" store:Type="Tables" store:Schema="dbo" store:Name="ReportGroups">
+            <DefiningQuery>SELECT 
+      [ReportGroups].[ReportGroupID] AS [ReportGroupID], 
+      [ReportGroups].[ReportGroup] AS [ReportGroup]
+      FROM [dbo].[ReportGroups] AS [ReportGroups]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Reports" EntityType="TSDataModel.Store.Reports" store:Type="Tables" store:Schema="dbo" store:Name="Reports">
+            <DefiningQuery>SELECT 
+      [Reports].[ReportID] AS [ReportID], 
+      [Reports].[ReportName] AS [ReportName]
+      FROM [dbo].[Reports] AS [Reports]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="roperties" EntityType="TSDataModel.Store.roperties" store:Type="Tables" store:Schema="dbo" store:Name="roperties">
+            <DefiningQuery>SELECT 
+      [roperties].[id] AS [id], 
+      [roperties].[objectid] AS [objectid], 
+      [roperties].[property] AS [property], 
+      [roperties].[value] AS [value], 
+      [roperties].[uvalue] AS [uvalue], 
+      [roperties].[lvalue] AS [lvalue], 
+      [roperties].[version] AS [version]
+      FROM [dbo].[roperties] AS [roperties]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'tsdata.dbo.Assignments' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="Assignments">
+          <Key>
+            <PropertyRef Name="AssignmentID" />
+            <PropertyRef Name="Assignment" />
+            <PropertyRef Name="EmployeeID" />
+            <PropertyRef Name="ProjectID" />
+            <PropertyRef Name="StartDate" />
+            <PropertyRef Name="Active" />
+            <PropertyRef Name="BillableExp" />
+            <PropertyRef Name="CreatedBy" />
+          </Key>
+          <Property Name="AssignmentID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Assignment" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="EmployeeID" Type="int" Nullable="false" />
+          <Property Name="ProjectID" Type="int" Nullable="false" />
+          <Property Name="StartDate" Type="datetime" Nullable="false" />
+          <Property Name="EndDate" Type="datetime" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="EmpPhone" Type="varchar" MaxLength="50" />
+          <Property Name="EmpEmail" Type="varchar" MaxLength="50" />
+          <Property Name="BillableExp" Type="bit" Nullable="false" />
+          <Property Name="Comments" Type="varchar" MaxLength="255" />
+          <Property Name="InvContactID" Type="int" />
+          <Property Name="PONumber" Type="varchar" MaxLength="50" />
+          <Property Name="WorkOrder" Type="varchar" MaxLength="50" />
+          <Property Name="Designation1" Type="varchar" MaxLength="50" />
+          <Property Name="Designation2" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="varchar" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'tsdata.dbo.ClientProjectView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="ClientProjectView">
+          <Key>
+            <PropertyRef Name="ClientProjID" />
+            <PropertyRef Name="ContactID" />
+            <PropertyRef Name="ProjectID" />
+            <PropertyRef Name="CreatedDate" />
+            <PropertyRef Name="CreatedBy" />
+          </Key>
+          <Property Name="ClientProjID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ContactID" Type="int" Nullable="false" />
+          <Property Name="ProjectID" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="varchar" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'tsdata.dbo.Clients' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="Clients">
+          <Key>
+            <PropertyRef Name="ClientID" />
+            <PropertyRef Name="Client" />
+            <PropertyRef Name="Region" />
+            <PropertyRef Name="CreatedDate" />
+            <PropertyRef Name="CreatedBy" />
+          </Key>
+          <Property Name="ClientID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Client" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Street" Type="varchar" MaxLength="255" />
+          <Property Name="City" Type="varchar" MaxLength="50" />
+          <Property Name="State" Type="varchar" MaxLength="2" />
+          <Property Name="Zip" Type="varchar" MaxLength="11" />
+          <Property Name="Country" Type="varchar" MaxLength="50" />
+          <Property Name="Phone" Type="varchar" MaxLength="50" />
+          <Property Name="Fax" Type="varchar" MaxLength="50" />
+          <Property Name="Comments" Type="varchar" MaxLength="255" />
+          <Property Name="DirectorID" Type="int" />
+          <Property Name="Region" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="DefaultInvFrequency" Type="varchar" MaxLength="10" />
+          <Property Name="QuickBookClientID" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="ClientShort" Type="varchar" MaxLength="5" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'tsdata.dbo.Contacts' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="Contacts">
+          <Key>
+            <PropertyRef Name="ContactID" />
+            <PropertyRef Name="LastName" />
+            <PropertyRef Name="FirstName" />
+            <PropertyRef Name="ClientID" />
+            <PropertyRef Name="CreatedDate" />
+            <PropertyRef Name="CreatedBy" />
+          </Key>
+          <Property Name="ContactID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="LastName" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="FirstName" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Title" Type="varchar" MaxLength="50" />
+          <Property Name="Suffix" Type="varchar" MaxLength="50" />
+          <Property Name="ClientID" Type="int" Nullable="false" />
+          <Property Name="Street" Type="varchar" MaxLength="255" />
+          <Property Name="City" Type="varchar" MaxLength="50" />
+          <Property Name="State" Type="varchar" MaxLength="2" />
+          <Property Name="Zip" Type="varchar" MaxLength="11" />
+          <Property Name="Country" Type="varchar" MaxLength="50" />
+          <Property Name="Phone" Type="varchar" MaxLength="50" />
+          <Property Name="Fax" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Comments" Type="varchar" MaxLength="255" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="varchar" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'tsdata.dbo.Days' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="Days">
+          <Key>
+            <PropertyRef Name="DateDay" />
+          </Key>
+          <Property Name="DateDay" Type="datetime" Nullable="false" />
+          <Property Name="Holiday" Type="bit" />
+        </EntityType>
+        <EntityType Name="EmployeeAssignment">
+          <Key>
+            <PropertyRef Name="EmployeeAssignmentId" />
+          </Key>
+          <Property Name="EmployeeAssignmentId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeId" Type="int" Nullable="false" />
+          <Property Name="AssignmentId" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'tsdata.dbo.Employees' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="Employees">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+            <PropertyRef Name="Status" />
+            <PropertyRef Name="Region" />
+            <PropertyRef Name="CreatedDate" />
+            <PropertyRef Name="CreatedBy" />
+          </Key>
+          <Property Name="EmployeeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="LogonID" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="LastName" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="FirstName" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="MI" Type="varchar" MaxLength="1" />
+          <Property Name="Title" Type="varchar" MaxLength="5" />
+          <Property Name="Suffix" Type="varchar" MaxLength="10" />
+          <Property Name="StartDate" Type="datetime" />
+          <Property Name="LastReviewDate" Type="datetime" />
+          <Property Name="NextReviewDate" Type="datetime" />
+          <Property Name="Street" Type="varchar" MaxLength="255" />
+          <Property Name="City" Type="varchar" MaxLength="50" />
+          <Property Name="State" Type="varchar" MaxLength="2" />
+          <Property Name="Zip" Type="varchar" MaxLength="11" />
+          <Property Name="Phone" Type="varchar" MaxLength="50" />
+          <Property Name="BirthDate" Type="datetime" />
+          <Property Name="Status" Type="bit" Nullable="false" />
+          <Property Name="JobTitleID" Type="int" />
+          <Property Name="ManagerID" Type="int" />
+          <Property Name="Salary" Type="decimal" Scale="2" />
+          <Property Name="Bonus" Type="decimal" Scale="2" />
+          <Property Name="HealthCoverage" Type="varchar" MaxLength="50" />
+          <Property Name="DentalCoverage" Type="varchar" MaxLength="50" />
+          <Property Name="MoExp" Type="varchar" MaxLength="50" />
+          <Property Name="Region" Type="varchar" Nullable="false" MaxLength="2" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="CurClientPhone" Type="varchar" MaxLength="50" />
+          <Property Name="CellPhone" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'tsdata.dbo.HourlyRate' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="HourlyRate">
+          <Key>
+            <PropertyRef Name="HourlyRateID" />
+            <PropertyRef Name="AssignmentID" />
+            <PropertyRef Name="HourlyRate" />
+            <PropertyRef Name="StartDate" />
+            <PropertyRef Name="CreatedDate" />
+            <PropertyRef Name="CreatedBy" />
+          </Key>
+          <Property Name="HourlyRateID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="AssignmentID" Type="int" Nullable="false" />
+          <Property Name="HourlyRate" Type="numeric" Nullable="false" Scale="2" />
+          <Property Name="StartDate" Type="datetime" Nullable="false" />
+          <Property Name="EndDate" Type="datetime" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="varchar" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'tsdata.dbo.Hours' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="Hours">
+          <Key>
+            <PropertyRef Name="HoursID" />
+            <PropertyRef Name="AssignmentID" />
+            <PropertyRef Name="HoursDate" />
+            <PropertyRef Name="Hours" />
+            <PropertyRef Name="AdjHours" />
+            <PropertyRef Name="CreatedDate" />
+            <PropertyRef Name="CreatedBy" />
+          </Key>
+          <Property Name="HoursID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="AssignmentID" Type="int" Nullable="false" />
+          <Property Name="EmployeeID" Type="int" />
+          <Property Name="HoursDate" Type="datetime" Nullable="false" />
+          <Property Name="Hours" Type="float" Nullable="false" />
+          <Property Name="AdjHours" Type="float" Nullable="false" />
+          <Property Name="Comments" Type="varchar" MaxLength="255" />
+          <Property Name="Submitted" Type="datetime" />
+          <Property Name="AcctMgrApprBy" Type="varchar" MaxLength="20" />
+          <Property Name="AcctMgrApprDate" Type="datetime" />
+          <Property Name="DirApprBy" Type="varchar" MaxLength="20" />
+          <Property Name="DirApprDate" Type="datetime" />
+          <Property Name="InvNumber" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="varchar" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'tsdata.dbo.InvDetail' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="InvDetail">
+          <Key>
+            <PropertyRef Name="InvDetailID" />
+            <PropertyRef Name="InvNumber" />
+            <PropertyRef Name="DetailDescr" />
+            <PropertyRef Name="Quantitiy" />
+            <PropertyRef Name="UnitPrice" />
+          </Key>
+          <Property Name="InvDetailID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="InvNumber" Type="varchar" Nullable="false" MaxLength="11" />
+          <Property Name="Employee" Type="varchar" MaxLength="50" />
+          <Property Name="DetailDescr" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="Quantitiy" Type="int" Nullable="false" />
+          <Property Name="UnitPrice" Type="numeric" Nullable="false" Scale="2" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'tsdata.dbo.InvHeader' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="InvHeader">
+          <Key>
+            <PropertyRef Name="InvNumber" />
+            <PropertyRef Name="InvContactName" />
+            <PropertyRef Name="Street" />
+            <PropertyRef Name="City" />
+            <PropertyRef Name="State" />
+            <PropertyRef Name="Zip" />
+          </Key>
+          <Property Name="InvNumber" Type="varchar" Nullable="false" MaxLength="11" />
+          <Property Name="InvContactName" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Street" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="City" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="State" Type="char" Nullable="false" MaxLength="2" />
+          <Property Name="Zip" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'tsdata.dbo.Invoices' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="Invoices">
+          <Key>
+            <PropertyRef Name="InvNumber" />
+            <PropertyRef Name="InvFrom" />
+            <PropertyRef Name="InvTo" />
+            <PropertyRef Name="Paid" />
+            <PropertyRef Name="Emailed" />
+            <PropertyRef Name="Internal" />
+            <PropertyRef Name="Deleted" />
+            <PropertyRef Name="CreatedDate" />
+            <PropertyRef Name="CreatedBy" />
+          </Key>
+          <Property Name="InvNumber" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="InvFrom" Type="datetime" Nullable="false" />
+          <Property Name="InvTo" Type="datetime" Nullable="false" />
+          <Property Name="DirApprBy" Type="varchar" MaxLength="20" />
+          <Property Name="DirApprDate" Type="datetime" />
+          <Property Name="SentBy" Type="varchar" MaxLength="20" />
+          <Property Name="SentDate" Type="datetime" />
+          <Property Name="Paid" Type="bit" Nullable="false" />
+          <Property Name="Footnote" Type="nvarchar" MaxLength="255" />
+          <Property Name="Emailed" Type="bit" Nullable="false" />
+          <Property Name="ClientInvNumber" Type="varchar" MaxLength="50" />
+          <Property Name="InvFrequency" Type="varchar" MaxLength="10" />
+          <Property Name="Internal" Type="bit" Nullable="false" />
+          <Property Name="Deleted" Type="bit" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'tsdata.dbo.InvRemitAddress' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="InvRemitAddress">
+          <Key>
+            <PropertyRef Name="Company" />
+            <PropertyRef Name="Street" />
+            <PropertyRef Name="City" />
+            <PropertyRef Name="State" />
+            <PropertyRef Name="Zip" />
+          </Key>
+          <Property Name="Company" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Street" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="City" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="State" Type="varchar" Nullable="false" MaxLength="2" />
+          <Property Name="Zip" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'tsdata.dbo.JobTitles' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="JobTitles">
+          <Key>
+            <PropertyRef Name="JobTitleID" />
+            <PropertyRef Name="JobTitle" />
+          </Key>
+          <Property Name="JobTitleID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="JobTitle" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="ReportGroupID" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'tsdata.dbo.MenuGroups' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="MenuGroups">
+          <Key>
+            <PropertyRef Name="MenuItemID" />
+            <PropertyRef Name="ReportGroupID" />
+          </Key>
+          <Property Name="MenuItemID" Type="int" Nullable="false" />
+          <Property Name="ReportGroupID" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'tsdata.dbo.MenuItems' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="MenuItems">
+          <Key>
+            <PropertyRef Name="MenuItemID" />
+            <PropertyRef Name="Item" />
+          </Key>
+          <Property Name="MenuItemID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="SectionID" Type="int" />
+          <Property Name="Item" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Ahref" Type="varchar" MaxLength="255" />
+          <Property Name="OrderList" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'tsdata.dbo.MenuSections' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="MenuSections">
+          <Key>
+            <PropertyRef Name="SectionID" />
+            <PropertyRef Name="SectionName" />
+            <PropertyRef Name="OrderNumber" />
+          </Key>
+          <Property Name="SectionID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="SectionName" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="OrderNumber" Type="varchar" Nullable="false" MaxLength="5" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'tsdata.dbo.OtherChargesCredits' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="OtherChargesCredits">
+          <Key>
+            <PropertyRef Name="ChargeCreditID" />
+            <PropertyRef Name="AssignmentID" />
+            <PropertyRef Name="ChargeCredit" />
+            <PropertyRef Name="ChargeCreditDescr" />
+            <PropertyRef Name="CreatedDate" />
+            <PropertyRef Name="CreatedBy" />
+          </Key>
+          <Property Name="ChargeCreditID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="AssignmentID" Type="int" Nullable="false" />
+          <Property Name="ChargeCredit" Type="float" Nullable="false" />
+          <Property Name="ChargeCreditDescr" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="InvNumber" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="varchar" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'tsdata.dbo.PayrollActivities' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="PayrollActivities">
+          <Key>
+            <PropertyRef Name="ProjectID" />
+            <PropertyRef Name="PayrollActivity" />
+          </Key>
+          <Property Name="ProjectID" Type="int" Nullable="false" />
+          <Property Name="PayrollActivity" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Status" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'tsdata.dbo.Projects' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="Projects">
+          <Key>
+            <PropertyRef Name="ProjectID" />
+            <PropertyRef Name="Project" />
+            <PropertyRef Name="ClientID" />
+            <PropertyRef Name="AcctMngrID" />
+            <PropertyRef Name="Budget" />
+            <PropertyRef Name="Fixed" />
+            <PropertyRef Name="Prebilled" />
+            <PropertyRef Name="TaxableState" />
+            <PropertyRef Name="CreatedDate" />
+            <PropertyRef Name="CreatedBy" />
+          </Key>
+          <Property Name="ProjectID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Project" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="ClientID" Type="int" Nullable="false" />
+          <Property Name="ProjectLeadID" Type="int" />
+          <Property Name="ProjectDescr" Type="varchar" MaxLength="255" />
+          <Property Name="Status" Type="varchar" MaxLength="50" />
+          <Property Name="AcctMngrID" Type="int" Nullable="false" />
+          <Property Name="Budget" Type="decimal" Nullable="false" Scale="2" />
+          <Property Name="Fixed" Type="bit" Nullable="false" />
+          <Property Name="Prebilled" Type="bit" Nullable="false" />
+          <Property Name="TaxableState" Type="varchar" Nullable="false" MaxLength="2" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="varchar" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'tsdata.dbo.Reminders' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="Reminders">
+          <Key>
+            <PropertyRef Name="ReminderID" />
+            <PropertyRef Name="ReminderDate" />
+            <PropertyRef Name="Reminder" />
+            <PropertyRef Name="CreatedDate" />
+            <PropertyRef Name="CreatedBy" />
+          </Key>
+          <Property Name="ReminderID" Type="int" Nullable="false" />
+          <Property Name="ReminderDate" Type="datetime" Nullable="false" />
+          <Property Name="Reminder" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="varchar" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'tsdata.dbo.ReportANDGroup' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="ReportANDGroup">
+          <Key>
+            <PropertyRef Name="ReportID" />
+            <PropertyRef Name="ReportGroupID" />
+          </Key>
+          <Property Name="ReportID" Type="int" Nullable="false" />
+          <Property Name="ReportGroupID" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'tsdata.dbo.ReportGroups' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="ReportGroups">
+          <Key>
+            <PropertyRef Name="ReportGroupID" />
+            <PropertyRef Name="ReportGroup" />
+          </Key>
+          <Property Name="ReportGroupID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ReportGroup" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'tsdata.dbo.Reports' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="Reports">
+          <Key>
+            <PropertyRef Name="ReportID" />
+            <PropertyRef Name="ReportName" />
+          </Key>
+          <Property Name="ReportID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ReportName" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'tsdata.dbo.roperties' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="roperties">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="property" />
+            <PropertyRef Name="version" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="objectid" Type="int" />
+          <Property Name="property" Type="varchar" Nullable="false" MaxLength="64" />
+          <Property Name="value" Type="varchar" MaxLength="255" />
+          <Property Name="uvalue" Type="nvarchar" MaxLength="255" />
+          <Property Name="lvalue" Type="image" />
+          <Property Name="version" Type="int" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TSDataModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="TSDataEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Assignments" EntityType="TSDataModel.Assignment" />
+          <EntitySet Name="ClientProjectViews" EntityType="TSDataModel.ClientProjectView" />
+          <EntitySet Name="Clients" EntityType="TSDataModel.Client" />
+          <EntitySet Name="Contacts" EntityType="TSDataModel.Contact" />
+          <EntitySet Name="Days" EntityType="TSDataModel.Day" />
+          <EntitySet Name="EmployeeAssignments" EntityType="TSDataModel.EmployeeAssignment" />
+          <EntitySet Name="Employees" EntityType="TSDataModel.Employee" />
+          <EntitySet Name="HourlyRates" EntityType="TSDataModel.HourlyRate" />
+          <EntitySet Name="Hours" EntityType="TSDataModel.Hour" />
+          <EntitySet Name="InvDetails" EntityType="TSDataModel.InvDetail" />
+          <EntitySet Name="InvHeaders" EntityType="TSDataModel.InvHeader" />
+          <EntitySet Name="Invoices" EntityType="TSDataModel.Invoice" />
+          <EntitySet Name="InvRemitAddresses" EntityType="TSDataModel.InvRemitAddress" />
+          <EntitySet Name="JobTitles" EntityType="TSDataModel.JobTitle" />
+          <EntitySet Name="MenuGroups" EntityType="TSDataModel.MenuGroup" />
+          <EntitySet Name="MenuItems" EntityType="TSDataModel.MenuItem" />
+          <EntitySet Name="MenuSections" EntityType="TSDataModel.MenuSection" />
+          <EntitySet Name="OtherChargesCredits" EntityType="TSDataModel.OtherChargesCredit" />
+          <EntitySet Name="PayrollActivities" EntityType="TSDataModel.PayrollActivity" />
+          <EntitySet Name="Projects" EntityType="TSDataModel.Project" />
+          <EntitySet Name="Reminders" EntityType="TSDataModel.Reminder" />
+          <EntitySet Name="ReportANDGroups" EntityType="TSDataModel.ReportANDGroup" />
+          <EntitySet Name="ReportGroups" EntityType="TSDataModel.ReportGroup" />
+          <EntitySet Name="Reports" EntityType="TSDataModel.Report" />
+          <EntitySet Name="roperties" EntityType="TSDataModel.roperty" />
+        </EntityContainer>
+        <EntityType Name="Assignment">
+          <Key>
+            <PropertyRef Name="AssignmentID" />
+            <PropertyRef Name="Assignment1" />
+            <PropertyRef Name="EmployeeID" />
+            <PropertyRef Name="ProjectID" />
+            <PropertyRef Name="StartDate" />
+            <PropertyRef Name="Active" />
+            <PropertyRef Name="BillableExp" />
+            <PropertyRef Name="CreatedBy" />
+          </Key>
+          <Property Name="AssignmentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Assignment1" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="EmployeeID" Type="Int32" Nullable="false" />
+          <Property Name="ProjectID" Type="Int32" Nullable="false" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" />
+          <Property Name="EndDate" Type="DateTime" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="EmpPhone" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="EmpEmail" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="BillableExp" Type="Boolean" Nullable="false" />
+          <Property Name="Comments" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="InvContactID" Type="Int32" />
+          <Property Name="PONumber" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="WorkOrder" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Designation1" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Designation2" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="CreatedDate" Type="DateTime" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="ClientProjectView">
+          <Key>
+            <PropertyRef Name="ClientProjID" />
+            <PropertyRef Name="ContactID" />
+            <PropertyRef Name="ProjectID" />
+            <PropertyRef Name="CreatedDate" />
+            <PropertyRef Name="CreatedBy" />
+          </Key>
+          <Property Name="ClientProjID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ContactID" Type="Int32" Nullable="false" />
+          <Property Name="ProjectID" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="ClientID" />
+            <PropertyRef Name="Client1" />
+            <PropertyRef Name="Region" />
+            <PropertyRef Name="CreatedDate" />
+            <PropertyRef Name="CreatedBy" />
+          </Key>
+          <Property Name="ClientID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Client1" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Street" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="City" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="State" Type="String" MaxLength="2" Unicode="false" FixedLength="false" />
+          <Property Name="Zip" Type="String" MaxLength="11" Unicode="false" FixedLength="false" />
+          <Property Name="Country" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Phone" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Fax" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Comments" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="DirectorID" Type="Int32" />
+          <Property Name="Region" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="DefaultInvFrequency" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="QuickBookClientID" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="ClientShort" Type="String" MaxLength="5" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="ContactID" />
+            <PropertyRef Name="LastName" />
+            <PropertyRef Name="FirstName" />
+            <PropertyRef Name="ClientID" />
+            <PropertyRef Name="CreatedDate" />
+            <PropertyRef Name="CreatedBy" />
+          </Key>
+          <Property Name="ContactID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Title" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Suffix" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="ClientID" Type="Int32" Nullable="false" />
+          <Property Name="Street" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="City" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="State" Type="String" MaxLength="2" Unicode="false" FixedLength="false" />
+          <Property Name="Zip" Type="String" MaxLength="11" Unicode="false" FixedLength="false" />
+          <Property Name="Country" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Phone" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Fax" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Email" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Comments" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Day">
+          <Key>
+            <PropertyRef Name="DateDay" />
+          </Key>
+          <Property Name="DateDay" Type="DateTime" Nullable="false" />
+          <Property Name="Holiday" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="EmployeeAssignment">
+          <Key>
+            <PropertyRef Name="EmployeeAssignmentId" />
+          </Key>
+          <Property Name="EmployeeAssignmentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeId" Type="Int32" Nullable="false" />
+          <Property Name="AssignmentId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+            <PropertyRef Name="Status" />
+            <PropertyRef Name="Region" />
+            <PropertyRef Name="CreatedDate" />
+            <PropertyRef Name="CreatedBy" />
+          </Key>
+          <Property Name="EmployeeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LogonID" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="MI" Type="String" MaxLength="1" Unicode="false" FixedLength="false" />
+          <Property Name="Title" Type="String" MaxLength="5" Unicode="false" FixedLength="false" />
+          <Property Name="Suffix" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="StartDate" Type="DateTime" />
+          <Property Name="LastReviewDate" Type="DateTime" />
+          <Property Name="NextReviewDate" Type="DateTime" />
+          <Property Name="Street" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="City" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="State" Type="String" MaxLength="2" Unicode="false" FixedLength="false" />
+          <Property Name="Zip" Type="String" MaxLength="11" Unicode="false" FixedLength="false" />
+          <Property Name="Phone" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="BirthDate" Type="DateTime" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+          <Property Name="JobTitleID" Type="Int32" />
+          <Property Name="ManagerID" Type="Int32" />
+          <Property Name="Salary" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Bonus" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="HealthCoverage" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="DentalCoverage" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="MoExp" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Region" Type="String" Nullable="false" MaxLength="2" Unicode="false" FixedLength="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="CurClientPhone" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="CellPhone" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="HourlyRate">
+          <Key>
+            <PropertyRef Name="HourlyRateID" />
+            <PropertyRef Name="AssignmentID" />
+            <PropertyRef Name="HourlyRate1" />
+            <PropertyRef Name="StartDate" />
+            <PropertyRef Name="CreatedDate" />
+            <PropertyRef Name="CreatedBy" />
+          </Key>
+          <Property Name="HourlyRateID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AssignmentID" Type="Int32" Nullable="false" />
+          <Property Name="HourlyRate1" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" />
+          <Property Name="EndDate" Type="DateTime" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Hour">
+          <Key>
+            <PropertyRef Name="HoursID" />
+            <PropertyRef Name="AssignmentID" />
+            <PropertyRef Name="HoursDate" />
+            <PropertyRef Name="Hours" />
+            <PropertyRef Name="AdjHours" />
+            <PropertyRef Name="CreatedDate" />
+            <PropertyRef Name="CreatedBy" />
+          </Key>
+          <Property Name="HoursID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AssignmentID" Type="Int32" Nullable="false" />
+          <Property Name="EmployeeID" Type="Int32" />
+          <Property Name="HoursDate" Type="DateTime" Nullable="false" />
+          <Property Name="Hours" Type="Double" Nullable="false" />
+          <Property Name="AdjHours" Type="Double" Nullable="false" />
+          <Property Name="Comments" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="Submitted" Type="DateTime" />
+          <Property Name="AcctMgrApprBy" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="AcctMgrApprDate" Type="DateTime" />
+          <Property Name="DirApprBy" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="DirApprDate" Type="DateTime" />
+          <Property Name="InvNumber" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="InvDetail">
+          <Key>
+            <PropertyRef Name="InvDetailID" />
+            <PropertyRef Name="InvNumber" />
+            <PropertyRef Name="DetailDescr" />
+            <PropertyRef Name="Quantitiy" />
+            <PropertyRef Name="UnitPrice" />
+          </Key>
+          <Property Name="InvDetailID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="InvNumber" Type="String" Nullable="false" MaxLength="11" Unicode="false" FixedLength="false" />
+          <Property Name="Employee" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="DetailDescr" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="Quantitiy" Type="Int32" Nullable="false" />
+          <Property Name="UnitPrice" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="InvHeader">
+          <Key>
+            <PropertyRef Name="InvNumber" />
+            <PropertyRef Name="InvContactName" />
+            <PropertyRef Name="Street" />
+            <PropertyRef Name="City" />
+            <PropertyRef Name="State" />
+            <PropertyRef Name="Zip" />
+          </Key>
+          <Property Name="InvNumber" Type="String" Nullable="false" MaxLength="11" Unicode="false" FixedLength="false" />
+          <Property Name="InvContactName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Street" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="City" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="State" Type="String" Nullable="false" MaxLength="2" Unicode="false" FixedLength="true" />
+          <Property Name="Zip" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Invoice">
+          <Key>
+            <PropertyRef Name="InvNumber" />
+            <PropertyRef Name="InvFrom" />
+            <PropertyRef Name="InvTo" />
+            <PropertyRef Name="Paid" />
+            <PropertyRef Name="Emailed" />
+            <PropertyRef Name="Internal" />
+            <PropertyRef Name="Deleted" />
+            <PropertyRef Name="CreatedDate" />
+            <PropertyRef Name="CreatedBy" />
+          </Key>
+          <Property Name="InvNumber" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="InvFrom" Type="DateTime" Nullable="false" />
+          <Property Name="InvTo" Type="DateTime" Nullable="false" />
+          <Property Name="DirApprBy" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="DirApprDate" Type="DateTime" />
+          <Property Name="SentBy" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="SentDate" Type="DateTime" />
+          <Property Name="Paid" Type="Boolean" Nullable="false" />
+          <Property Name="Footnote" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Emailed" Type="Boolean" Nullable="false" />
+          <Property Name="ClientInvNumber" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="InvFrequency" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="Internal" Type="Boolean" Nullable="false" />
+          <Property Name="Deleted" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="InvRemitAddress">
+          <Key>
+            <PropertyRef Name="Company" />
+            <PropertyRef Name="Street" />
+            <PropertyRef Name="City" />
+            <PropertyRef Name="State" />
+            <PropertyRef Name="Zip" />
+          </Key>
+          <Property Name="Company" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Street" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="City" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="State" Type="String" Nullable="false" MaxLength="2" Unicode="false" FixedLength="false" />
+          <Property Name="Zip" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="JobTitle">
+          <Key>
+            <PropertyRef Name="JobTitleID" />
+            <PropertyRef Name="JobTitle1" />
+          </Key>
+          <Property Name="JobTitleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="JobTitle1" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="ReportGroupID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="MenuGroup">
+          <Key>
+            <PropertyRef Name="MenuItemID" />
+            <PropertyRef Name="ReportGroupID" />
+          </Key>
+          <Property Name="MenuItemID" Type="Int32" Nullable="false" />
+          <Property Name="ReportGroupID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MenuItem">
+          <Key>
+            <PropertyRef Name="MenuItemID" />
+            <PropertyRef Name="Item" />
+          </Key>
+          <Property Name="MenuItemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SectionID" Type="Int32" />
+          <Property Name="Item" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Ahref" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="OrderList" Type="Int32" />
+        </EntityType>
+        <EntityType Name="MenuSection">
+          <Key>
+            <PropertyRef Name="SectionID" />
+            <PropertyRef Name="SectionName" />
+            <PropertyRef Name="OrderNumber" />
+          </Key>
+          <Property Name="SectionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SectionName" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="OrderNumber" Type="String" Nullable="false" MaxLength="5" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="OtherChargesCredit">
+          <Key>
+            <PropertyRef Name="ChargeCreditID" />
+            <PropertyRef Name="AssignmentID" />
+            <PropertyRef Name="ChargeCredit" />
+            <PropertyRef Name="ChargeCreditDescr" />
+            <PropertyRef Name="CreatedDate" />
+            <PropertyRef Name="CreatedBy" />
+          </Key>
+          <Property Name="ChargeCreditID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AssignmentID" Type="Int32" Nullable="false" />
+          <Property Name="ChargeCredit" Type="Double" Nullable="false" />
+          <Property Name="ChargeCreditDescr" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="InvNumber" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="PayrollActivity">
+          <Key>
+            <PropertyRef Name="ProjectID" />
+            <PropertyRef Name="PayrollActivity1" />
+          </Key>
+          <Property Name="ProjectID" Type="Int32" Nullable="false" />
+          <Property Name="PayrollActivity1" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Status" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Project">
+          <Key>
+            <PropertyRef Name="ProjectID" />
+            <PropertyRef Name="Project1" />
+            <PropertyRef Name="ClientID" />
+            <PropertyRef Name="AcctMngrID" />
+            <PropertyRef Name="Budget" />
+            <PropertyRef Name="Fixed" />
+            <PropertyRef Name="Prebilled" />
+            <PropertyRef Name="TaxableState" />
+            <PropertyRef Name="CreatedDate" />
+            <PropertyRef Name="CreatedBy" />
+          </Key>
+          <Property Name="ProjectID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Project1" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="ClientID" Type="Int32" Nullable="false" />
+          <Property Name="ProjectLeadID" Type="Int32" />
+          <Property Name="ProjectDescr" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="Status" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="AcctMngrID" Type="Int32" Nullable="false" />
+          <Property Name="Budget" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="Fixed" Type="Boolean" Nullable="false" />
+          <Property Name="Prebilled" Type="Boolean" Nullable="false" />
+          <Property Name="TaxableState" Type="String" Nullable="false" MaxLength="2" Unicode="false" FixedLength="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Reminder">
+          <Key>
+            <PropertyRef Name="ReminderID" />
+            <PropertyRef Name="ReminderDate" />
+            <PropertyRef Name="Reminder1" />
+            <PropertyRef Name="CreatedDate" />
+            <PropertyRef Name="CreatedBy" />
+          </Key>
+          <Property Name="ReminderID" Type="Int32" Nullable="false" />
+          <Property Name="ReminderDate" Type="DateTime" Nullable="false" />
+          <Property Name="Reminder1" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="ReportANDGroup">
+          <Key>
+            <PropertyRef Name="ReportID" />
+            <PropertyRef Name="ReportGroupID" />
+          </Key>
+          <Property Name="ReportID" Type="Int32" Nullable="false" />
+          <Property Name="ReportGroupID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ReportGroup">
+          <Key>
+            <PropertyRef Name="ReportGroupID" />
+            <PropertyRef Name="ReportGroup1" />
+          </Key>
+          <Property Name="ReportGroupID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ReportGroup1" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Report">
+          <Key>
+            <PropertyRef Name="ReportID" />
+            <PropertyRef Name="ReportName" />
+          </Key>
+          <Property Name="ReportID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ReportName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="roperty">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="property" />
+            <PropertyRef Name="version" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="objectid" Type="Int32" />
+          <Property Name="property" Type="String" Nullable="false" MaxLength="64" Unicode="false" FixedLength="false" />
+          <Property Name="value" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="uvalue" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="lvalue" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="version" Type="Int32" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TSDataModelStoreContainer" CdmEntityContainer="TSDataEntities">
+          <EntitySetMapping Name="Assignments"><EntityTypeMapping TypeName="TSDataModel.Assignment"><MappingFragment StoreEntitySet="Assignments">
+            <ScalarProperty Name="AssignmentID" ColumnName="AssignmentID" />
+            <ScalarProperty Name="Assignment1" ColumnName="Assignment" />
+            <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+            <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+            <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+            <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+            <ScalarProperty Name="Active" ColumnName="Active" />
+            <ScalarProperty Name="EmpPhone" ColumnName="EmpPhone" />
+            <ScalarProperty Name="EmpEmail" ColumnName="EmpEmail" />
+            <ScalarProperty Name="BillableExp" ColumnName="BillableExp" />
+            <ScalarProperty Name="Comments" ColumnName="Comments" />
+            <ScalarProperty Name="InvContactID" ColumnName="InvContactID" />
+            <ScalarProperty Name="PONumber" ColumnName="PONumber" />
+            <ScalarProperty Name="WorkOrder" ColumnName="WorkOrder" />
+            <ScalarProperty Name="Designation1" ColumnName="Designation1" />
+            <ScalarProperty Name="Designation2" ColumnName="Designation2" />
+            <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+            <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="ClientProjectViews"><EntityTypeMapping TypeName="TSDataModel.ClientProjectView"><MappingFragment StoreEntitySet="ClientProjectView">
+            <ScalarProperty Name="ClientProjID" ColumnName="ClientProjID" />
+            <ScalarProperty Name="ContactID" ColumnName="ContactID" />
+            <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+            <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+            <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Clients"><EntityTypeMapping TypeName="TSDataModel.Client"><MappingFragment StoreEntitySet="Clients">
+            <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+            <ScalarProperty Name="Client1" ColumnName="Client" />
+            <ScalarProperty Name="Street" ColumnName="Street" />
+            <ScalarProperty Name="City" ColumnName="City" />
+            <ScalarProperty Name="State" ColumnName="State" />
+            <ScalarProperty Name="Zip" ColumnName="Zip" />
+            <ScalarProperty Name="Country" ColumnName="Country" />
+            <ScalarProperty Name="Phone" ColumnName="Phone" />
+            <ScalarProperty Name="Fax" ColumnName="Fax" />
+            <ScalarProperty Name="Comments" ColumnName="Comments" />
+            <ScalarProperty Name="DirectorID" ColumnName="DirectorID" />
+            <ScalarProperty Name="Region" ColumnName="Region" />
+            <ScalarProperty Name="DefaultInvFrequency" ColumnName="DefaultInvFrequency" />
+            <ScalarProperty Name="QuickBookClientID" ColumnName="QuickBookClientID" />
+            <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+            <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+            <ScalarProperty Name="ClientShort" ColumnName="ClientShort" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Contacts"><EntityTypeMapping TypeName="TSDataModel.Contact"><MappingFragment StoreEntitySet="Contacts">
+            <ScalarProperty Name="ContactID" ColumnName="ContactID" />
+            <ScalarProperty Name="LastName" ColumnName="LastName" />
+            <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+            <ScalarProperty Name="Title" ColumnName="Title" />
+            <ScalarProperty Name="Suffix" ColumnName="Suffix" />
+            <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+            <ScalarProperty Name="Street" ColumnName="Street" />
+            <ScalarProperty Name="City" ColumnName="City" />
+            <ScalarProperty Name="State" ColumnName="State" />
+            <ScalarProperty Name="Zip" ColumnName="Zip" />
+            <ScalarProperty Name="Country" ColumnName="Country" />
+            <ScalarProperty Name="Phone" ColumnName="Phone" />
+            <ScalarProperty Name="Fax" ColumnName="Fax" />
+            <ScalarProperty Name="Email" ColumnName="Email" />
+            <ScalarProperty Name="Comments" ColumnName="Comments" />
+            <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+            <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Days"><EntityTypeMapping TypeName="TSDataModel.Day"><MappingFragment StoreEntitySet="Days">
+            <ScalarProperty Name="DateDay" ColumnName="DateDay" />
+            <ScalarProperty Name="Holiday" ColumnName="Holiday" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="EmployeeAssignments"><EntityTypeMapping TypeName="TSDataModel.EmployeeAssignment"><MappingFragment StoreEntitySet="EmployeeAssignment">
+            <ScalarProperty Name="EmployeeAssignmentId" ColumnName="EmployeeAssignmentId" />
+            <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+            <ScalarProperty Name="AssignmentId" ColumnName="AssignmentId" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Employees"><EntityTypeMapping TypeName="TSDataModel.Employee"><MappingFragment StoreEntitySet="Employees">
+            <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+            <ScalarProperty Name="LogonID" ColumnName="LogonID" />
+            <ScalarProperty Name="LastName" ColumnName="LastName" />
+            <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+            <ScalarProperty Name="MI" ColumnName="MI" />
+            <ScalarProperty Name="Title" ColumnName="Title" />
+            <ScalarProperty Name="Suffix" ColumnName="Suffix" />
+            <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+            <ScalarProperty Name="LastReviewDate" ColumnName="LastReviewDate" />
+            <ScalarProperty Name="NextReviewDate" ColumnName="NextReviewDate" />
+            <ScalarProperty Name="Street" ColumnName="Street" />
+            <ScalarProperty Name="City" ColumnName="City" />
+            <ScalarProperty Name="State" ColumnName="State" />
+            <ScalarProperty Name="Zip" ColumnName="Zip" />
+            <ScalarProperty Name="Phone" ColumnName="Phone" />
+            <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+            <ScalarProperty Name="Status" ColumnName="Status" />
+            <ScalarProperty Name="JobTitleID" ColumnName="JobTitleID" />
+            <ScalarProperty Name="ManagerID" ColumnName="ManagerID" />
+            <ScalarProperty Name="Salary" ColumnName="Salary" />
+            <ScalarProperty Name="Bonus" ColumnName="Bonus" />
+            <ScalarProperty Name="HealthCoverage" ColumnName="HealthCoverage" />
+            <ScalarProperty Name="DentalCoverage" ColumnName="DentalCoverage" />
+            <ScalarProperty Name="MoExp" ColumnName="MoExp" />
+            <ScalarProperty Name="Region" ColumnName="Region" />
+            <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+            <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+            <ScalarProperty Name="CurClientPhone" ColumnName="CurClientPhone" />
+            <ScalarProperty Name="CellPhone" ColumnName="CellPhone" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="HourlyRates"><EntityTypeMapping TypeName="TSDataModel.HourlyRate"><MappingFragment StoreEntitySet="HourlyRate">
+            <ScalarProperty Name="HourlyRateID" ColumnName="HourlyRateID" />
+            <ScalarProperty Name="AssignmentID" ColumnName="AssignmentID" />
+            <ScalarProperty Name="HourlyRate1" ColumnName="HourlyRate" />
+            <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+            <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+            <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+            <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Hours"><EntityTypeMapping TypeName="TSDataModel.Hour"><MappingFragment StoreEntitySet="Hours">
+            <ScalarProperty Name="HoursID" ColumnName="HoursID" />
+            <ScalarProperty Name="AssignmentID" ColumnName="AssignmentID" />
+            <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+            <ScalarProperty Name="HoursDate" ColumnName="HoursDate" />
+            <ScalarProperty Name="Hours" ColumnName="Hours" />
+            <ScalarProperty Name="AdjHours" ColumnName="AdjHours" />
+            <ScalarProperty Name="Comments" ColumnName="Comments" />
+            <ScalarProperty Name="Submitted" ColumnName="Submitted" />
+            <ScalarProperty Name="AcctMgrApprBy" ColumnName="AcctMgrApprBy" />
+            <ScalarProperty Name="AcctMgrApprDate" ColumnName="AcctMgrApprDate" />
+            <ScalarProperty Name="DirApprBy" ColumnName="DirApprBy" />
+            <ScalarProperty Name="DirApprDate" ColumnName="DirApprDate" />
+            <ScalarProperty Name="InvNumber" ColumnName="InvNumber" />
+            <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+            <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="InvDetails"><EntityTypeMapping TypeName="TSDataModel.InvDetail"><MappingFragment StoreEntitySet="InvDetail">
+            <ScalarProperty Name="InvDetailID" ColumnName="InvDetailID" />
+            <ScalarProperty Name="InvNumber" ColumnName="InvNumber" />
+            <ScalarProperty Name="Employee" ColumnName="Employee" />
+            <ScalarProperty Name="DetailDescr" ColumnName="DetailDescr" />
+            <ScalarProperty Name="Quantitiy" ColumnName="Quantitiy" />
+            <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="InvHeaders"><EntityTypeMapping TypeName="TSDataModel.InvHeader"><MappingFragment StoreEntitySet="InvHeader">
+            <ScalarProperty Name="InvNumber" ColumnName="InvNumber" />
+            <ScalarProperty Name="InvContactName" ColumnName="InvContactName" />
+            <ScalarProperty Name="Street" ColumnName="Street" />
+            <ScalarProperty Name="City" ColumnName="City" />
+            <ScalarProperty Name="State" ColumnName="State" />
+            <ScalarProperty Name="Zip" ColumnName="Zip" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Invoices"><EntityTypeMapping TypeName="TSDataModel.Invoice"><MappingFragment StoreEntitySet="Invoices">
+            <ScalarProperty Name="InvNumber" ColumnName="InvNumber" />
+            <ScalarProperty Name="InvFrom" ColumnName="InvFrom" />
+            <ScalarProperty Name="InvTo" ColumnName="InvTo" />
+            <ScalarProperty Name="DirApprBy" ColumnName="DirApprBy" />
+            <ScalarProperty Name="DirApprDate" ColumnName="DirApprDate" />
+            <ScalarProperty Name="SentBy" ColumnName="SentBy" />
+            <ScalarProperty Name="SentDate" ColumnName="SentDate" />
+            <ScalarProperty Name="Paid" ColumnName="Paid" />
+            <ScalarProperty Name="Footnote" ColumnName="Footnote" />
+            <ScalarProperty Name="Emailed" ColumnName="Emailed" />
+            <ScalarProperty Name="ClientInvNumber" ColumnName="ClientInvNumber" />
+            <ScalarProperty Name="InvFrequency" ColumnName="InvFrequency" />
+            <ScalarProperty Name="Internal" ColumnName="Internal" />
+            <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+            <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+            <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="InvRemitAddresses"><EntityTypeMapping TypeName="TSDataModel.InvRemitAddress"><MappingFragment StoreEntitySet="InvRemitAddress">
+            <ScalarProperty Name="Company" ColumnName="Company" />
+            <ScalarProperty Name="Street" ColumnName="Street" />
+            <ScalarProperty Name="City" ColumnName="City" />
+            <ScalarProperty Name="State" ColumnName="State" />
+            <ScalarProperty Name="Zip" ColumnName="Zip" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="JobTitles"><EntityTypeMapping TypeName="TSDataModel.JobTitle"><MappingFragment StoreEntitySet="JobTitles">
+            <ScalarProperty Name="JobTitleID" ColumnName="JobTitleID" />
+            <ScalarProperty Name="JobTitle1" ColumnName="JobTitle" />
+            <ScalarProperty Name="ReportGroupID" ColumnName="ReportGroupID" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="MenuGroups"><EntityTypeMapping TypeName="TSDataModel.MenuGroup"><MappingFragment StoreEntitySet="MenuGroups">
+            <ScalarProperty Name="MenuItemID" ColumnName="MenuItemID" />
+            <ScalarProperty Name="ReportGroupID" ColumnName="ReportGroupID" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="MenuItems"><EntityTypeMapping TypeName="TSDataModel.MenuItem"><MappingFragment StoreEntitySet="MenuItems">
+            <ScalarProperty Name="MenuItemID" ColumnName="MenuItemID" />
+            <ScalarProperty Name="SectionID" ColumnName="SectionID" />
+            <ScalarProperty Name="Item" ColumnName="Item" />
+            <ScalarProperty Name="Ahref" ColumnName="Ahref" />
+            <ScalarProperty Name="OrderList" ColumnName="OrderList" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="MenuSections"><EntityTypeMapping TypeName="TSDataModel.MenuSection"><MappingFragment StoreEntitySet="MenuSections">
+            <ScalarProperty Name="SectionID" ColumnName="SectionID" />
+            <ScalarProperty Name="SectionName" ColumnName="SectionName" />
+            <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="OtherChargesCredits"><EntityTypeMapping TypeName="TSDataModel.OtherChargesCredit"><MappingFragment StoreEntitySet="OtherChargesCredits">
+            <ScalarProperty Name="ChargeCreditID" ColumnName="ChargeCreditID" />
+            <ScalarProperty Name="AssignmentID" ColumnName="AssignmentID" />
+            <ScalarProperty Name="ChargeCredit" ColumnName="ChargeCredit" />
+            <ScalarProperty Name="ChargeCreditDescr" ColumnName="ChargeCreditDescr" />
+            <ScalarProperty Name="InvNumber" ColumnName="InvNumber" />
+            <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+            <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="PayrollActivities"><EntityTypeMapping TypeName="TSDataModel.PayrollActivity"><MappingFragment StoreEntitySet="PayrollActivities">
+            <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+            <ScalarProperty Name="PayrollActivity1" ColumnName="PayrollActivity" />
+            <ScalarProperty Name="Status" ColumnName="Status" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Projects"><EntityTypeMapping TypeName="TSDataModel.Project"><MappingFragment StoreEntitySet="Projects">
+            <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+            <ScalarProperty Name="Project1" ColumnName="Project" />
+            <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+            <ScalarProperty Name="ProjectLeadID" ColumnName="ProjectLeadID" />
+            <ScalarProperty Name="ProjectDescr" ColumnName="ProjectDescr" />
+            <ScalarProperty Name="Status" ColumnName="Status" />
+            <ScalarProperty Name="AcctMngrID" ColumnName="AcctMngrID" />
+            <ScalarProperty Name="Budget" ColumnName="Budget" />
+            <ScalarProperty Name="Fixed" ColumnName="Fixed" />
+            <ScalarProperty Name="Prebilled" ColumnName="Prebilled" />
+            <ScalarProperty Name="TaxableState" ColumnName="TaxableState" />
+            <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+            <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Reminders"><EntityTypeMapping TypeName="TSDataModel.Reminder"><MappingFragment StoreEntitySet="Reminders">
+            <ScalarProperty Name="ReminderID" ColumnName="ReminderID" />
+            <ScalarProperty Name="ReminderDate" ColumnName="ReminderDate" />
+            <ScalarProperty Name="Reminder1" ColumnName="Reminder" />
+            <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+            <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="ReportANDGroups"><EntityTypeMapping TypeName="TSDataModel.ReportANDGroup"><MappingFragment StoreEntitySet="ReportANDGroup">
+            <ScalarProperty Name="ReportID" ColumnName="ReportID" />
+            <ScalarProperty Name="ReportGroupID" ColumnName="ReportGroupID" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="ReportGroups"><EntityTypeMapping TypeName="TSDataModel.ReportGroup"><MappingFragment StoreEntitySet="ReportGroups">
+            <ScalarProperty Name="ReportGroupID" ColumnName="ReportGroupID" />
+            <ScalarProperty Name="ReportGroup1" ColumnName="ReportGroup" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Reports"><EntityTypeMapping TypeName="TSDataModel.Report"><MappingFragment StoreEntitySet="Reports">
+            <ScalarProperty Name="ReportID" ColumnName="ReportID" />
+            <ScalarProperty Name="ReportName" ColumnName="ReportName" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="roperties"><EntityTypeMapping TypeName="TSDataModel.roperty"><MappingFragment StoreEntitySet="roperties">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="objectid" ColumnName="objectid" />
+            <ScalarProperty Name="property" ColumnName="property" />
+            <ScalarProperty Name="value" ColumnName="value" />
+            <ScalarProperty Name="uvalue" ColumnName="uvalue" />
+            <ScalarProperty Name="lvalue" ColumnName="lvalue" />
+            <ScalarProperty Name="version" ColumnName="version" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="TSDataModel">
+        <EntityTypeShape EntityType="TSDataModel.Assignment" Width="1.5" PointX="0.75" PointY="0.75" Height="4.480205078125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TSDataModel.ClientProjectView" Width="1.5" PointX="2.75" PointY="0.75" Height="1.9802864583333335" IsExpanded="true" />
+        <EntityTypeShape EntityType="TSDataModel.Client" Width="1.5" PointX="2.75" PointY="3.75" Height="4.2879036458333335" IsExpanded="true" />
+        <EntityTypeShape EntityType="TSDataModel.Contact" Width="1.5" PointX="4.75" PointY="0.75" Height="4.2879036458333335" IsExpanded="true" />
+        <EntityTypeShape EntityType="TSDataModel.Day" Width="1.5" PointX="6.75" PointY="0.75" Height="1.4033821614583317" IsExpanded="true" />
+        <EntityTypeShape EntityType="TSDataModel.EmployeeAssignment" Width="1.5" PointX="6.75" PointY="3.75" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="TSDataModel.Employee" Width="1.5" PointX="4.75" PointY="6.75" Height="6.5955208333333317" IsExpanded="true" />
+        <EntityTypeShape EntityType="TSDataModel.HourlyRate" Width="1.5" PointX="6.75" PointY="6.75" Height="2.3648893229166674" IsExpanded="true" />
+        <EntityTypeShape EntityType="TSDataModel.Hour" Width="1.5" PointX="8.75" PointY="0.75" Height="3.9033007812499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="TSDataModel.InvDetail" Width="1.5" PointX="8.75" PointY="5.75" Height="2.1725878906249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="TSDataModel.InvHeader" Width="1.5" PointX="8.75" PointY="8.75" Height="2.1725878906250031" IsExpanded="true" />
+        <EntityTypeShape EntityType="TSDataModel.Invoice" Width="1.5" PointX="0.75" PointY="9.75" Height="4.0956022135416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="TSDataModel.InvRemitAddress" Width="1.5" PointX="10.75" PointY="0.75" Height="1.9802864583333388" IsExpanded="true" />
+        <EntityTypeShape EntityType="TSDataModel.JobTitle" Width="1.5" PointX="10.75" PointY="3.75" Height="1.5956835937500031" IsExpanded="true" />
+        <EntityTypeShape EntityType="TSDataModel.MenuGroup" Width="1.5" PointX="10.75" PointY="6.75" Height="1.4033821614583388" IsExpanded="true" />
+        <EntityTypeShape EntityType="TSDataModel.MenuItem" Width="1.5" PointX="10.75" PointY="9.75" Height="1.9802864583333388" IsExpanded="true" />
+        <EntityTypeShape EntityType="TSDataModel.MenuSection" Width="1.5" PointX="6.75" PointY="11.75" Height="1.5956835937500031" IsExpanded="true" />
+        <EntityTypeShape EntityType="TSDataModel.OtherChargesCredit" Width="1.5" PointX="12.75" PointY="0.75" Height="2.3648893229166674" IsExpanded="true" />
+        <EntityTypeShape EntityType="TSDataModel.PayrollActivity" Width="1.5" PointX="12.75" PointY="4.75" Height="1.5956835937500031" IsExpanded="true" />
+        <EntityTypeShape EntityType="TSDataModel.Project" Width="1.5" PointX="12.75" PointY="7.75" Height="3.5186979166666674" IsExpanded="true" />
+        <EntityTypeShape EntityType="TSDataModel.Reminder" Width="1.5" PointX="8.75" PointY="12.75" Height="1.9802864583333388" IsExpanded="true" />
+        <EntityTypeShape EntityType="TSDataModel.ReportANDGroup" Width="1.5" PointX="10.75" PointY="12.75" Height="1.4033821614583282" IsExpanded="true" />
+        <EntityTypeShape EntityType="TSDataModel.ReportGroup" Width="1.5" PointX="12.75" PointY="12.75" Height="1.4033821614583246" IsExpanded="true" />
+        <EntityTypeShape EntityType="TSDataModel.Report" Width="1.5" PointX="14.75" PointY="0.75" Height="1.4033821614583246" IsExpanded="true" />
+        <EntityTypeShape EntityType="TSDataModel.roperty" Width="1.5" PointX="0.75" PointY="14.75" Height="2.3648893229166674" IsExpanded="true" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

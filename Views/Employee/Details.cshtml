@@ -1,0 +1,141 @@
+﻿@model TimesheetMVC.Models.Employee
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Employee</legend>
+
+    <div class="display-label">LogonID</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LogonID)
+    </div>
+
+    <div class="display-label">LastName</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LastName)
+    </div>
+
+    <div class="display-label">FirstName</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FirstName)
+    </div>
+
+    <div class="display-label">MI</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MI)
+    </div>
+
+    <div class="display-label">Title</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Title)
+    </div>
+
+    <div class="display-label">Suffix</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Suffix)
+    </div>
+
+    <div class="display-label">StartDate</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.StartDate)
+    </div>
+
+    <div class="display-label">LastReviewDate</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LastReviewDate)
+    </div>
+
+    <div class="display-label">NextReviewDate</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NextReviewDate)
+    </div>
+
+    <div class="display-label">Street</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Street)
+    </div>
+
+    <div class="display-label">City</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.City)
+    </div>
+
+    <div class="display-label">State</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.State)
+    </div>
+
+    <div class="display-label">Zip</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Zip)
+    </div>
+
+    <div class="display-label">Phone</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Phone)
+    </div>
+
+    <div class="display-label">BirthDate</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.BirthDate)
+    </div>
+
+    <div class="display-label">JobTitleID</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.JobTitleID)
+    </div>
+
+    <div class="display-label">ManagerID</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ManagerID)
+    </div>
+
+    <div class="display-label">Salary</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Salary)
+    </div>
+
+    <div class="display-label">Bonus</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Bonus)
+    </div>
+
+    <div class="display-label">HealthCoverage</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.HealthCoverage)
+    </div>
+
+    <div class="display-label">DentalCoverage</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DentalCoverage)
+    </div>
+
+    <div class="display-label">MoExp</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MoExp)
+    </div>
+
+    <div class="display-label">CurClientPhone</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CurClientPhone)
+    </div>
+
+    <div class="display-label">CellPhone</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CellPhone)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+@section sidebar {
+
+<h2>Employees</h2>
+<p class="wrap">Select a user to begin editing</p>
+}

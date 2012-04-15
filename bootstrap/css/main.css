@@ -1,0 +1,16 @@
+﻿.wrapping .container {
+  width: 940px;
+  background-color:#ffffff;
+  min-height: 900px;
+}
+
+.navbar 
+{
+    margin-bottom: 10px;
+}
+
+.wrapping 
+{
+    background-color:#bfbfbf;
+
+}

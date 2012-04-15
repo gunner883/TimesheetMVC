@@ -1,0 +1,440 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TSDataModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="TSDataEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Assignments" EntityType="TSDataModel.Assignment" />
+    <EntitySet Name="ClientProjectViews" EntityType="TSDataModel.ClientProjectView" />
+    <EntitySet Name="Clients" EntityType="TSDataModel.Client" />
+    <EntitySet Name="Contacts" EntityType="TSDataModel.Contact" />
+    <EntitySet Name="Days" EntityType="TSDataModel.Day" />
+    <EntitySet Name="EmployeeAssignments" EntityType="TSDataModel.EmployeeAssignment" />
+    <EntitySet Name="Employees" EntityType="TSDataModel.Employee" />
+    <EntitySet Name="HourlyRates" EntityType="TSDataModel.HourlyRate" />
+    <EntitySet Name="Hours" EntityType="TSDataModel.Hour" />
+    <EntitySet Name="InvDetails" EntityType="TSDataModel.InvDetail" />
+    <EntitySet Name="InvHeaders" EntityType="TSDataModel.InvHeader" />
+    <EntitySet Name="Invoices" EntityType="TSDataModel.Invoice" />
+    <EntitySet Name="InvRemitAddresses" EntityType="TSDataModel.InvRemitAddress" />
+    <EntitySet Name="JobTitles" EntityType="TSDataModel.JobTitle" />
+    <EntitySet Name="MenuGroups" EntityType="TSDataModel.MenuGroup" />
+    <EntitySet Name="MenuItems" EntityType="TSDataModel.MenuItem" />
+    <EntitySet Name="MenuSections" EntityType="TSDataModel.MenuSection" />
+    <EntitySet Name="OtherChargesCredits" EntityType="TSDataModel.OtherChargesCredit" />
+    <EntitySet Name="PayrollActivities" EntityType="TSDataModel.PayrollActivity" />
+    <EntitySet Name="Projects" EntityType="TSDataModel.Project" />
+    <EntitySet Name="Reminders" EntityType="TSDataModel.Reminder" />
+    <EntitySet Name="ReportANDGroups" EntityType="TSDataModel.ReportANDGroup" />
+    <EntitySet Name="ReportGroups" EntityType="TSDataModel.ReportGroup" />
+    <EntitySet Name="Reports" EntityType="TSDataModel.Report" />
+    <EntitySet Name="roperties" EntityType="TSDataModel.roperty" />
+  </EntityContainer>
+  <EntityType Name="Assignment">
+    <Key>
+      <PropertyRef Name="AssignmentID" />
+      <PropertyRef Name="Assignment1" />
+      <PropertyRef Name="EmployeeID" />
+      <PropertyRef Name="ProjectID" />
+      <PropertyRef Name="StartDate" />
+      <PropertyRef Name="Active" />
+      <PropertyRef Name="BillableExp" />
+      <PropertyRef Name="CreatedBy" />
+    </Key>
+    <Property Name="AssignmentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Assignment1" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="EmployeeID" Type="Int32" Nullable="false" />
+    <Property Name="ProjectID" Type="Int32" Nullable="false" />
+    <Property Name="StartDate" Type="DateTime" Nullable="false" />
+    <Property Name="EndDate" Type="DateTime" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="EmpPhone" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="EmpEmail" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="BillableExp" Type="Boolean" Nullable="false" />
+    <Property Name="Comments" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="InvContactID" Type="Int32" />
+    <Property Name="PONumber" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="WorkOrder" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Designation1" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Designation2" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="CreatedDate" Type="DateTime" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="ClientProjectView">
+    <Key>
+      <PropertyRef Name="ClientProjID" />
+      <PropertyRef Name="ContactID" />
+      <PropertyRef Name="ProjectID" />
+      <PropertyRef Name="CreatedDate" />
+      <PropertyRef Name="CreatedBy" />
+    </Key>
+    <Property Name="ClientProjID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ContactID" Type="Int32" Nullable="false" />
+    <Property Name="ProjectID" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="ClientID" />
+      <PropertyRef Name="Client1" />
+      <PropertyRef Name="Region" />
+      <PropertyRef Name="CreatedDate" />
+      <PropertyRef Name="CreatedBy" />
+    </Key>
+    <Property Name="ClientID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Client1" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Street" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="City" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="State" Type="String" MaxLength="2" Unicode="false" FixedLength="false" />
+    <Property Name="Zip" Type="String" MaxLength="11" Unicode="false" FixedLength="false" />
+    <Property Name="Country" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Phone" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Fax" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Comments" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="DirectorID" Type="Int32" />
+    <Property Name="Region" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="DefaultInvFrequency" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="QuickBookClientID" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="ClientShort" Type="String" MaxLength="5" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Contact">
+    <Key>
+      <PropertyRef Name="ContactID" />
+      <PropertyRef Name="LastName" />
+      <PropertyRef Name="FirstName" />
+      <PropertyRef Name="ClientID" />
+      <PropertyRef Name="CreatedDate" />
+      <PropertyRef Name="CreatedBy" />
+    </Key>
+    <Property Name="ContactID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Title" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Suffix" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="ClientID" Type="Int32" Nullable="false" />
+    <Property Name="Street" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="City" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="State" Type="String" MaxLength="2" Unicode="false" FixedLength="false" />
+    <Property Name="Zip" Type="String" MaxLength="11" Unicode="false" FixedLength="false" />
+    <Property Name="Country" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Phone" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Fax" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Email" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Comments" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Day">
+    <Key>
+      <PropertyRef Name="DateDay" />
+    </Key>
+    <Property Name="DateDay" Type="DateTime" Nullable="false" />
+    <Property Name="Holiday" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="EmployeeAssignment">
+    <Key>
+      <PropertyRef Name="EmployeeAssignmentId" />
+    </Key>
+    <Property Name="EmployeeAssignmentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeId" Type="Int32" Nullable="false" />
+    <Property Name="AssignmentId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="EmployeeID" />
+      <PropertyRef Name="Status" />
+      <PropertyRef Name="Region" />
+      <PropertyRef Name="CreatedDate" />
+      <PropertyRef Name="CreatedBy" />
+    </Key>
+    <Property Name="EmployeeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LogonID" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="MI" Type="String" MaxLength="1" Unicode="false" FixedLength="false" />
+    <Property Name="Title" Type="String" MaxLength="5" Unicode="false" FixedLength="false" />
+    <Property Name="Suffix" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="StartDate" Type="DateTime" />
+    <Property Name="LastReviewDate" Type="DateTime" />
+    <Property Name="NextReviewDate" Type="DateTime" />
+    <Property Name="Street" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="City" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="State" Type="String" MaxLength="2" Unicode="false" FixedLength="false" />
+    <Property Name="Zip" Type="String" MaxLength="11" Unicode="false" FixedLength="false" />
+    <Property Name="Phone" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="BirthDate" Type="DateTime" />
+    <Property Name="Status" Type="Boolean" Nullable="false" />
+    <Property Name="JobTitleID" Type="Int32" />
+    <Property Name="ManagerID" Type="Int32" />
+    <Property Name="Salary" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Bonus" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="HealthCoverage" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="DentalCoverage" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="MoExp" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Region" Type="String" Nullable="false" MaxLength="2" Unicode="false" FixedLength="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="CurClientPhone" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="CellPhone" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="HourlyRate">
+    <Key>
+      <PropertyRef Name="HourlyRateID" />
+      <PropertyRef Name="AssignmentID" />
+      <PropertyRef Name="HourlyRate1" />
+      <PropertyRef Name="StartDate" />
+      <PropertyRef Name="CreatedDate" />
+      <PropertyRef Name="CreatedBy" />
+    </Key>
+    <Property Name="HourlyRateID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AssignmentID" Type="Int32" Nullable="false" />
+    <Property Name="HourlyRate1" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="StartDate" Type="DateTime" Nullable="false" />
+    <Property Name="EndDate" Type="DateTime" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Hour">
+    <Key>
+      <PropertyRef Name="HoursID" />
+      <PropertyRef Name="AssignmentID" />
+      <PropertyRef Name="HoursDate" />
+      <PropertyRef Name="Hours" />
+      <PropertyRef Name="AdjHours" />
+      <PropertyRef Name="CreatedDate" />
+      <PropertyRef Name="CreatedBy" />
+    </Key>
+    <Property Name="HoursID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AssignmentID" Type="Int32" Nullable="false" />
+    <Property Name="EmployeeID" Type="Int32" />
+    <Property Name="HoursDate" Type="DateTime" Nullable="false" />
+    <Property Name="Hours" Type="Double" Nullable="false" />
+    <Property Name="AdjHours" Type="Double" Nullable="false" />
+    <Property Name="Comments" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="Submitted" Type="DateTime" />
+    <Property Name="AcctMgrApprBy" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="AcctMgrApprDate" Type="DateTime" />
+    <Property Name="DirApprBy" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="DirApprDate" Type="DateTime" />
+    <Property Name="InvNumber" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="InvDetail">
+    <Key>
+      <PropertyRef Name="InvDetailID" />
+      <PropertyRef Name="InvNumber" />
+      <PropertyRef Name="DetailDescr" />
+      <PropertyRef Name="Quantitiy" />
+      <PropertyRef Name="UnitPrice" />
+    </Key>
+    <Property Name="InvDetailID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="InvNumber" Type="String" Nullable="false" MaxLength="11" Unicode="false" FixedLength="false" />
+    <Property Name="Employee" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="DetailDescr" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="Quantitiy" Type="Int32" Nullable="false" />
+    <Property Name="UnitPrice" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="InvHeader">
+    <Key>
+      <PropertyRef Name="InvNumber" />
+      <PropertyRef Name="InvContactName" />
+      <PropertyRef Name="Street" />
+      <PropertyRef Name="City" />
+      <PropertyRef Name="State" />
+      <PropertyRef Name="Zip" />
+    </Key>
+    <Property Name="InvNumber" Type="String" Nullable="false" MaxLength="11" Unicode="false" FixedLength="false" />
+    <Property Name="InvContactName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Street" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="City" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="State" Type="String" Nullable="false" MaxLength="2" Unicode="false" FixedLength="true" />
+    <Property Name="Zip" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Invoice">
+    <Key>
+      <PropertyRef Name="InvNumber" />
+      <PropertyRef Name="InvFrom" />
+      <PropertyRef Name="InvTo" />
+      <PropertyRef Name="Paid" />
+      <PropertyRef Name="Emailed" />
+      <PropertyRef Name="Internal" />
+      <PropertyRef Name="Deleted" />
+      <PropertyRef Name="CreatedDate" />
+      <PropertyRef Name="CreatedBy" />
+    </Key>
+    <Property Name="InvNumber" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="InvFrom" Type="DateTime" Nullable="false" />
+    <Property Name="InvTo" Type="DateTime" Nullable="false" />
+    <Property Name="DirApprBy" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="DirApprDate" Type="DateTime" />
+    <Property Name="SentBy" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="SentDate" Type="DateTime" />
+    <Property Name="Paid" Type="Boolean" Nullable="false" />
+    <Property Name="Footnote" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Emailed" Type="Boolean" Nullable="false" />
+    <Property Name="ClientInvNumber" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="InvFrequency" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="Internal" Type="Boolean" Nullable="false" />
+    <Property Name="Deleted" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="InvRemitAddress">
+    <Key>
+      <PropertyRef Name="Company" />
+      <PropertyRef Name="Street" />
+      <PropertyRef Name="City" />
+      <PropertyRef Name="State" />
+      <PropertyRef Name="Zip" />
+    </Key>
+    <Property Name="Company" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Street" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="City" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="State" Type="String" Nullable="false" MaxLength="2" Unicode="false" FixedLength="false" />
+    <Property Name="Zip" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="JobTitle">
+    <Key>
+      <PropertyRef Name="JobTitleID" />
+      <PropertyRef Name="JobTitle1" />
+    </Key>
+    <Property Name="JobTitleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="JobTitle1" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="ReportGroupID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="MenuGroup">
+    <Key>
+      <PropertyRef Name="MenuItemID" />
+      <PropertyRef Name="ReportGroupID" />
+    </Key>
+    <Property Name="MenuItemID" Type="Int32" Nullable="false" />
+    <Property Name="ReportGroupID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MenuItem">
+    <Key>
+      <PropertyRef Name="MenuItemID" />
+      <PropertyRef Name="Item" />
+    </Key>
+    <Property Name="MenuItemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SectionID" Type="Int32" />
+    <Property Name="Item" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Ahref" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="OrderList" Type="Int32" />
+  </EntityType>
+  <EntityType Name="MenuSection">
+    <Key>
+      <PropertyRef Name="SectionID" />
+      <PropertyRef Name="SectionName" />
+      <PropertyRef Name="OrderNumber" />
+    </Key>
+    <Property Name="SectionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SectionName" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+    <Property Name="OrderNumber" Type="String" Nullable="false" MaxLength="5" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="OtherChargesCredit">
+    <Key>
+      <PropertyRef Name="ChargeCreditID" />
+      <PropertyRef Name="AssignmentID" />
+      <PropertyRef Name="ChargeCredit" />
+      <PropertyRef Name="ChargeCreditDescr" />
+      <PropertyRef Name="CreatedDate" />
+      <PropertyRef Name="CreatedBy" />
+    </Key>
+    <Property Name="ChargeCreditID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AssignmentID" Type="Int32" Nullable="false" />
+    <Property Name="ChargeCredit" Type="Double" Nullable="false" />
+    <Property Name="ChargeCreditDescr" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="InvNumber" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="PayrollActivity">
+    <Key>
+      <PropertyRef Name="ProjectID" />
+      <PropertyRef Name="PayrollActivity1" />
+    </Key>
+    <Property Name="ProjectID" Type="Int32" Nullable="false" />
+    <Property Name="PayrollActivity1" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Status" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Project">
+    <Key>
+      <PropertyRef Name="ProjectID" />
+      <PropertyRef Name="Project1" />
+      <PropertyRef Name="ClientID" />
+      <PropertyRef Name="AcctMngrID" />
+      <PropertyRef Name="Budget" />
+      <PropertyRef Name="Fixed" />
+      <PropertyRef Name="Prebilled" />
+      <PropertyRef Name="TaxableState" />
+      <PropertyRef Name="CreatedDate" />
+      <PropertyRef Name="CreatedBy" />
+    </Key>
+    <Property Name="ProjectID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Project1" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="ClientID" Type="Int32" Nullable="false" />
+    <Property Name="ProjectLeadID" Type="Int32" />
+    <Property Name="ProjectDescr" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="Status" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="AcctMngrID" Type="Int32" Nullable="false" />
+    <Property Name="Budget" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Fixed" Type="Boolean" Nullable="false" />
+    <Property Name="Prebilled" Type="Boolean" Nullable="false" />
+    <Property Name="TaxableState" Type="String" Nullable="false" MaxLength="2" Unicode="false" FixedLength="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Reminder">
+    <Key>
+      <PropertyRef Name="ReminderID" />
+      <PropertyRef Name="ReminderDate" />
+      <PropertyRef Name="Reminder1" />
+      <PropertyRef Name="CreatedDate" />
+      <PropertyRef Name="CreatedBy" />
+    </Key>
+    <Property Name="ReminderID" Type="Int32" Nullable="false" />
+    <Property Name="ReminderDate" Type="DateTime" Nullable="false" />
+    <Property Name="Reminder1" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="ReportANDGroup">
+    <Key>
+      <PropertyRef Name="ReportID" />
+      <PropertyRef Name="ReportGroupID" />
+    </Key>
+    <Property Name="ReportID" Type="Int32" Nullable="false" />
+    <Property Name="ReportGroupID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ReportGroup">
+    <Key>
+      <PropertyRef Name="ReportGroupID" />
+      <PropertyRef Name="ReportGroup1" />
+    </Key>
+    <Property Name="ReportGroupID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ReportGroup1" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Report">
+    <Key>
+      <PropertyRef Name="ReportID" />
+      <PropertyRef Name="ReportName" />
+    </Key>
+    <Property Name="ReportID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ReportName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="roperty">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="property" />
+      <PropertyRef Name="version" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="objectid" Type="Int32" />
+    <Property Name="property" Type="String" Nullable="false" MaxLength="64" Unicode="false" FixedLength="false" />
+    <Property Name="value" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="uvalue" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="lvalue" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="version" Type="Int32" Nullable="false" />
+  </EntityType>
+</Schema>
