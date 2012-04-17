@@ -14,9 +14,14 @@ using System.Data.EntityClient;
 using System.ComponentModel;
 using System.Xml.Serialization;
 using System.Runtime.Serialization;
-using System.ComponentModel.DataAnnotations;
 
 [assembly: EdmSchemaAttribute()]
+#region EDM Relationship Metadata
+
+[assembly: EdmRelationshipAttribute("TSDataModel", "FK__EmployeeA__Assig__300424B4", "Assignment", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(TimesheetMVC.Models.Assignment), "EmployeeAssignment", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(TimesheetMVC.Models.EmployeeAssignment), true)]
+[assembly: EdmRelationshipAttribute("TSDataModel", "FK__EmployeeA__Emplo__2F10007B", "Employee", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(TimesheetMVC.Models.Employee), "EmployeeAssignment", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(TimesheetMVC.Models.EmployeeAssignment), true)]
+
+#endregion
 
 namespace TimesheetMVC.Models
 {
@@ -65,22 +70,6 @@ namespace TimesheetMVC.Models
         #endregion
     
         #region ObjectSet Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<Assignment> Assignments
-        {
-            get
-            {
-                if ((_Assignments == null))
-                {
-                    _Assignments = base.CreateObjectSet<Assignment>("Assignments");
-                }
-                return _Assignments;
-            }
-        }
-        private ObjectSet<Assignment> _Assignments;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -145,38 +134,6 @@ namespace TimesheetMVC.Models
             }
         }
         private ObjectSet<Day> _Days;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<EmployeeAssignment> EmployeeAssignments
-        {
-            get
-            {
-                if ((_EmployeeAssignments == null))
-                {
-                    _EmployeeAssignments = base.CreateObjectSet<EmployeeAssignment>("EmployeeAssignments");
-                }
-                return _EmployeeAssignments;
-            }
-        }
-        private ObjectSet<EmployeeAssignment> _EmployeeAssignments;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<Employee> Employees
-        {
-            get
-            {
-                if ((_Employees == null))
-                {
-                    _Employees = base.CreateObjectSet<Employee>("Employees");
-                }
-                return _Employees;
-            }
-        }
-        private ObjectSet<Employee> _Employees;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -465,17 +422,57 @@ namespace TimesheetMVC.Models
             }
         }
         private ObjectSet<roperty> _roperties;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Assignment> Assignments
+        {
+            get
+            {
+                if ((_Assignments == null))
+                {
+                    _Assignments = base.CreateObjectSet<Assignment>("Assignments");
+                }
+                return _Assignments;
+            }
+        }
+        private ObjectSet<Assignment> _Assignments;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<EmployeeAssignment> EmployeeAssignments
+        {
+            get
+            {
+                if ((_EmployeeAssignments == null))
+                {
+                    _EmployeeAssignments = base.CreateObjectSet<EmployeeAssignment>("EmployeeAssignments");
+                }
+                return _EmployeeAssignments;
+            }
+        }
+        private ObjectSet<EmployeeAssignment> _EmployeeAssignments;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Employee> Employees
+        {
+            get
+            {
+                if ((_Employees == null))
+                {
+                    _Employees = base.CreateObjectSet<Employee>("Employees");
+                }
+                return _Employees;
+            }
+        }
+        private ObjectSet<Employee> _Employees;
 
         #endregion
         #region AddTo Methods
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the Assignments EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToAssignments(Assignment assignment)
-        {
-            base.AddObject("Assignments", assignment);
-        }
     
         /// <summary>
         /// Deprecated Method for adding a new object to the ClientProjectViews EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
@@ -507,22 +504,6 @@ namespace TimesheetMVC.Models
         public void AddToDays(Day day)
         {
             base.AddObject("Days", day);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the EmployeeAssignments EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToEmployeeAssignments(EmployeeAssignment employeeAssignment)
-        {
-            base.AddObject("EmployeeAssignments", employeeAssignment);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the Employees EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToEmployees(Employee employee)
-        {
-            base.AddObject("Employees", employee);
         }
     
         /// <summary>
@@ -668,6 +649,30 @@ namespace TimesheetMVC.Models
         {
             base.AddObject("roperties", roperty);
         }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Assignments EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToAssignments(Assignment assignment)
+        {
+            base.AddObject("Assignments", assignment);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the EmployeeAssignments EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToEmployeeAssignments(EmployeeAssignment employeeAssignment)
+        {
+            base.AddObject("EmployeeAssignments", employeeAssignment);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Employees EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToEmployees(Employee employee)
+        {
+            base.AddObject("Employees", employee);
+        }
 
         #endregion
     }
@@ -745,7 +750,7 @@ namespace TimesheetMVC.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Assignment1
         {
@@ -755,14 +760,11 @@ namespace TimesheetMVC.Models
             }
             set
             {
-                if (_Assignment1 != value)
-                {
-                    OnAssignment1Changing(value);
-                    ReportPropertyChanging("Assignment1");
-                    _Assignment1 = StructuralObject.SetValidValue(value, false);
-                    ReportPropertyChanged("Assignment1");
-                    OnAssignment1Changed();
-                }
+                OnAssignment1Changing(value);
+                ReportPropertyChanging("Assignment1");
+                _Assignment1 = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Assignment1");
+                OnAssignment1Changed();
             }
         }
         private global::System.String _Assignment1;
@@ -772,7 +774,7 @@ namespace TimesheetMVC.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 EmployeeID
         {
@@ -782,14 +784,11 @@ namespace TimesheetMVC.Models
             }
             set
             {
-                if (_EmployeeID != value)
-                {
-                    OnEmployeeIDChanging(value);
-                    ReportPropertyChanging("EmployeeID");
-                    _EmployeeID = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("EmployeeID");
-                    OnEmployeeIDChanged();
-                }
+                OnEmployeeIDChanging(value);
+                ReportPropertyChanging("EmployeeID");
+                _EmployeeID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("EmployeeID");
+                OnEmployeeIDChanged();
             }
         }
         private global::System.Int32 _EmployeeID;
@@ -799,7 +798,7 @@ namespace TimesheetMVC.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 ProjectID
         {
@@ -809,14 +808,11 @@ namespace TimesheetMVC.Models
             }
             set
             {
-                if (_ProjectID != value)
-                {
-                    OnProjectIDChanging(value);
-                    ReportPropertyChanging("ProjectID");
-                    _ProjectID = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("ProjectID");
-                    OnProjectIDChanged();
-                }
+                OnProjectIDChanging(value);
+                ReportPropertyChanging("ProjectID");
+                _ProjectID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ProjectID");
+                OnProjectIDChanged();
             }
         }
         private global::System.Int32 _ProjectID;
@@ -826,7 +822,7 @@ namespace TimesheetMVC.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.DateTime StartDate
         {
@@ -836,14 +832,11 @@ namespace TimesheetMVC.Models
             }
             set
             {
-                if (_StartDate != value)
-                {
-                    OnStartDateChanging(value);
-                    ReportPropertyChanging("StartDate");
-                    _StartDate = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("StartDate");
-                    OnStartDateChanged();
-                }
+                OnStartDateChanging(value);
+                ReportPropertyChanging("StartDate");
+                _StartDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("StartDate");
+                OnStartDateChanged();
             }
         }
         private global::System.DateTime _StartDate;
@@ -877,7 +870,7 @@ namespace TimesheetMVC.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean Active
         {
@@ -887,14 +880,11 @@ namespace TimesheetMVC.Models
             }
             set
             {
-                if (_Active != value)
-                {
-                    OnActiveChanging(value);
-                    ReportPropertyChanging("Active");
-                    _Active = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("Active");
-                    OnActiveChanged();
-                }
+                OnActiveChanging(value);
+                ReportPropertyChanging("Active");
+                _Active = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Active");
+                OnActiveChanged();
             }
         }
         private global::System.Boolean _Active;
@@ -952,7 +942,7 @@ namespace TimesheetMVC.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean BillableExp
         {
@@ -962,14 +952,11 @@ namespace TimesheetMVC.Models
             }
             set
             {
-                if (_BillableExp != value)
-                {
-                    OnBillableExpChanging(value);
-                    ReportPropertyChanging("BillableExp");
-                    _BillableExp = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("BillableExp");
-                    OnBillableExpChanged();
-                }
+                OnBillableExpChanging(value);
+                ReportPropertyChanging("BillableExp");
+                _BillableExp = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("BillableExp");
+                OnBillableExpChanged();
             }
         }
         private global::System.Boolean _BillableExp;
@@ -1147,7 +1134,7 @@ namespace TimesheetMVC.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String CreatedBy
         {
@@ -1157,14 +1144,11 @@ namespace TimesheetMVC.Models
             }
             set
             {
-                if (_CreatedBy != value)
-                {
-                    OnCreatedByChanging(value);
-                    ReportPropertyChanging("CreatedBy");
-                    _CreatedBy = StructuralObject.SetValidValue(value, false);
-                    ReportPropertyChanged("CreatedBy");
-                    OnCreatedByChanged();
-                }
+                OnCreatedByChanging(value);
+                ReportPropertyChanging("CreatedBy");
+                _CreatedBy = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("CreatedBy");
+                OnCreatedByChanged();
             }
         }
         private global::System.String _CreatedBy;
@@ -1173,6 +1157,31 @@ namespace TimesheetMVC.Models
 
         #endregion
     
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("TSDataModel", "FK__EmployeeA__Assig__300424B4", "EmployeeAssignment")]
+        public EntityCollection<EmployeeAssignment> EmployeeAssignments
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<EmployeeAssignment>("TSDataModel.FK__EmployeeA__Assig__300424B4", "EmployeeAssignment");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<EmployeeAssignment>("TSDataModel.FK__EmployeeA__Assig__300424B4", "EmployeeAssignment", value);
+                }
+            }
+        }
+
+        #endregion
     }
     
     /// <summary>
@@ -2562,7 +2571,6 @@ namespace TimesheetMVC.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
         public Nullable<global::System.DateTime> StartDate
         {
             get
@@ -2777,7 +2785,7 @@ namespace TimesheetMVC.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean Status
         {
@@ -2787,14 +2795,11 @@ namespace TimesheetMVC.Models
             }
             set
             {
-                if (_Status != value)
-                {
-                    OnStatusChanging(value);
-                    ReportPropertyChanging("Status");
-                    _Status = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("Status");
-                    OnStatusChanged();
-                }
+                OnStatusChanging(value);
+                ReportPropertyChanging("Status");
+                _Status = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Status");
+                OnStatusChanged();
             }
         }
         private global::System.Boolean _Status;
@@ -2972,7 +2977,7 @@ namespace TimesheetMVC.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Region
         {
@@ -2982,14 +2987,11 @@ namespace TimesheetMVC.Models
             }
             set
             {
-                if (_Region != value)
-                {
-                    OnRegionChanging(value);
-                    ReportPropertyChanging("Region");
-                    _Region = StructuralObject.SetValidValue(value, false);
-                    ReportPropertyChanged("Region");
-                    OnRegionChanged();
-                }
+                OnRegionChanging(value);
+                ReportPropertyChanging("Region");
+                _Region = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Region");
+                OnRegionChanged();
             }
         }
         private global::System.String _Region;
@@ -2999,7 +3001,7 @@ namespace TimesheetMVC.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.DateTime CreatedDate
         {
@@ -3009,14 +3011,11 @@ namespace TimesheetMVC.Models
             }
             set
             {
-                if (_CreatedDate != value)
-                {
-                    OnCreatedDateChanging(value);
-                    ReportPropertyChanging("CreatedDate");
-                    _CreatedDate = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("CreatedDate");
-                    OnCreatedDateChanged();
-                }
+                OnCreatedDateChanging(value);
+                ReportPropertyChanging("CreatedDate");
+                _CreatedDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("CreatedDate");
+                OnCreatedDateChanged();
             }
         }
         private global::System.DateTime _CreatedDate;
@@ -3026,7 +3025,7 @@ namespace TimesheetMVC.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String CreatedBy
         {
@@ -3036,14 +3035,11 @@ namespace TimesheetMVC.Models
             }
             set
             {
-                if (_CreatedBy != value)
-                {
-                    OnCreatedByChanging(value);
-                    ReportPropertyChanging("CreatedBy");
-                    _CreatedBy = StructuralObject.SetValidValue(value, false);
-                    ReportPropertyChanged("CreatedBy");
-                    OnCreatedByChanged();
-                }
+                OnCreatedByChanging(value);
+                ReportPropertyChanging("CreatedBy");
+                _CreatedBy = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("CreatedBy");
+                OnCreatedByChanged();
             }
         }
         private global::System.String _CreatedBy;
@@ -3100,6 +3096,31 @@ namespace TimesheetMVC.Models
 
         #endregion
     
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("TSDataModel", "FK__EmployeeA__Emplo__2F10007B", "EmployeeAssignment")]
+        public EntityCollection<EmployeeAssignment> EmployeeAssignments
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<EmployeeAssignment>("TSDataModel.FK__EmployeeA__Emplo__2F10007B", "EmployeeAssignment");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<EmployeeAssignment>("TSDataModel.FK__EmployeeA__Emplo__2F10007B", "EmployeeAssignment", value);
+                }
+            }
+        }
+
+        #endregion
     }
     
     /// <summary>
@@ -3115,15 +3136,11 @@ namespace TimesheetMVC.Models
         /// <summary>
         /// Create a new EmployeeAssignment object.
         /// </summary>
-        /// <param name="employeeAssignmentId">Initial value of the EmployeeAssignmentId property.</param>
-        /// <param name="employeeId">Initial value of the EmployeeId property.</param>
-        /// <param name="assignmentId">Initial value of the AssignmentId property.</param>
-        public static EmployeeAssignment CreateEmployeeAssignment(global::System.Int32 employeeAssignmentId, global::System.Int32 employeeId, global::System.Int32 assignmentId)
+        /// <param name="employeeAssignmentID">Initial value of the EmployeeAssignmentID property.</param>
+        public static EmployeeAssignment CreateEmployeeAssignment(global::System.Int32 employeeAssignmentID)
         {
             EmployeeAssignment employeeAssignment = new EmployeeAssignment();
-            employeeAssignment.EmployeeAssignmentId = employeeAssignmentId;
-            employeeAssignment.EmployeeId = employeeId;
-            employeeAssignment.AssignmentId = assignmentId;
+            employeeAssignment.EmployeeAssignmentID = employeeAssignmentID;
             return employeeAssignment;
         }
 
@@ -3135,78 +3152,157 @@ namespace TimesheetMVC.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 EmployeeAssignmentId
+        public global::System.Int32 EmployeeAssignmentID
         {
             get
             {
-                return _EmployeeAssignmentId;
+                return _EmployeeAssignmentID;
             }
             set
             {
-                if (_EmployeeAssignmentId != value)
+                if (_EmployeeAssignmentID != value)
                 {
-                    OnEmployeeAssignmentIdChanging(value);
-                    ReportPropertyChanging("EmployeeAssignmentId");
-                    _EmployeeAssignmentId = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("EmployeeAssignmentId");
-                    OnEmployeeAssignmentIdChanged();
+                    OnEmployeeAssignmentIDChanging(value);
+                    ReportPropertyChanging("EmployeeAssignmentID");
+                    _EmployeeAssignmentID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("EmployeeAssignmentID");
+                    OnEmployeeAssignmentIDChanged();
                 }
             }
         }
-        private global::System.Int32 _EmployeeAssignmentId;
-        partial void OnEmployeeAssignmentIdChanging(global::System.Int32 value);
-        partial void OnEmployeeAssignmentIdChanged();
+        private global::System.Int32 _EmployeeAssignmentID;
+        partial void OnEmployeeAssignmentIDChanging(global::System.Int32 value);
+        partial void OnEmployeeAssignmentIDChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.Int32 EmployeeId
+        public Nullable<global::System.Int32> EmployeeID
         {
             get
             {
-                return _EmployeeId;
+                return _EmployeeID;
             }
             set
             {
-                OnEmployeeIdChanging(value);
-                ReportPropertyChanging("EmployeeId");
-                _EmployeeId = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("EmployeeId");
-                OnEmployeeIdChanged();
+                OnEmployeeIDChanging(value);
+                ReportPropertyChanging("EmployeeID");
+                _EmployeeID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("EmployeeID");
+                OnEmployeeIDChanged();
             }
         }
-        private global::System.Int32 _EmployeeId;
-        partial void OnEmployeeIdChanging(global::System.Int32 value);
-        partial void OnEmployeeIdChanged();
+        private Nullable<global::System.Int32> _EmployeeID;
+        partial void OnEmployeeIDChanging(Nullable<global::System.Int32> value);
+        partial void OnEmployeeIDChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.Int32 AssignmentId
+        public Nullable<global::System.Int32> Assignmentid
         {
             get
             {
-                return _AssignmentId;
+                return _Assignmentid;
             }
             set
             {
-                OnAssignmentIdChanging(value);
-                ReportPropertyChanging("AssignmentId");
-                _AssignmentId = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("AssignmentId");
-                OnAssignmentIdChanged();
+                OnAssignmentidChanging(value);
+                ReportPropertyChanging("Assignmentid");
+                _Assignmentid = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Assignmentid");
+                OnAssignmentidChanged();
             }
         }
-        private global::System.Int32 _AssignmentId;
-        partial void OnAssignmentIdChanging(global::System.Int32 value);
-        partial void OnAssignmentIdChanged();
+        private Nullable<global::System.Int32> _Assignmentid;
+        partial void OnAssignmentidChanging(Nullable<global::System.Int32> value);
+        partial void OnAssignmentidChanged();
 
         #endregion
     
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("TSDataModel", "FK__EmployeeA__Assig__300424B4", "Assignment")]
+        public Assignment Assignment
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Assignment>("TSDataModel.FK__EmployeeA__Assig__300424B4", "Assignment").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Assignment>("TSDataModel.FK__EmployeeA__Assig__300424B4", "Assignment").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Assignment> AssignmentReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Assignment>("TSDataModel.FK__EmployeeA__Assig__300424B4", "Assignment");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Assignment>("TSDataModel.FK__EmployeeA__Assig__300424B4", "Assignment", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("TSDataModel", "FK__EmployeeA__Emplo__2F10007B", "Employee")]
+        public Employee Employee
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Employee>("TSDataModel.FK__EmployeeA__Emplo__2F10007B", "Employee").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Employee>("TSDataModel.FK__EmployeeA__Emplo__2F10007B", "Employee").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Employee> EmployeeReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Employee>("TSDataModel.FK__EmployeeA__Emplo__2F10007B", "Employee");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Employee>("TSDataModel.FK__EmployeeA__Emplo__2F10007B", "Employee", value);
+                }
+            }
+        }
+
+        #endregion
     }
     
     /// <summary>

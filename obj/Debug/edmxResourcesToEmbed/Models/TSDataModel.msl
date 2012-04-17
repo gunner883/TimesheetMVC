@@ -1,30 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="TSDataModelStoreContainer" CdmEntityContainer="TSDataEntities">
-    <EntitySetMapping Name="Assignments">
-      <EntityTypeMapping TypeName="TSDataModel.Assignment">
-        <MappingFragment StoreEntitySet="Assignments">
-          <ScalarProperty Name="AssignmentID" ColumnName="AssignmentID" />
-          <ScalarProperty Name="Assignment1" ColumnName="Assignment" />
-          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
-          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
-          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
-          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
-          <ScalarProperty Name="Active" ColumnName="Active" />
-          <ScalarProperty Name="EmpPhone" ColumnName="EmpPhone" />
-          <ScalarProperty Name="EmpEmail" ColumnName="EmpEmail" />
-          <ScalarProperty Name="BillableExp" ColumnName="BillableExp" />
-          <ScalarProperty Name="Comments" ColumnName="Comments" />
-          <ScalarProperty Name="InvContactID" ColumnName="InvContactID" />
-          <ScalarProperty Name="PONumber" ColumnName="PONumber" />
-          <ScalarProperty Name="WorkOrder" ColumnName="WorkOrder" />
-          <ScalarProperty Name="Designation1" ColumnName="Designation1" />
-          <ScalarProperty Name="Designation2" ColumnName="Designation2" />
-          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="ClientProjectViews">
       <EntityTypeMapping TypeName="TSDataModel.ClientProjectView">
         <MappingFragment StoreEntitySet="ClientProjectView">
@@ -87,50 +63,6 @@
         <MappingFragment StoreEntitySet="Days">
           <ScalarProperty Name="DateDay" ColumnName="DateDay" />
           <ScalarProperty Name="Holiday" ColumnName="Holiday" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="EmployeeAssignments">
-      <EntityTypeMapping TypeName="TSDataModel.EmployeeAssignment">
-        <MappingFragment StoreEntitySet="EmployeeAssignment">
-          <ScalarProperty Name="EmployeeAssignmentId" ColumnName="EmployeeAssignmentId" />
-          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
-          <ScalarProperty Name="AssignmentId" ColumnName="AssignmentId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Employees">
-      <EntityTypeMapping TypeName="TSDataModel.Employee">
-        <MappingFragment StoreEntitySet="Employees">
-          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
-          <ScalarProperty Name="LogonID" ColumnName="LogonID" />
-          <ScalarProperty Name="LastName" ColumnName="LastName" />
-          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-          <ScalarProperty Name="MI" ColumnName="MI" />
-          <ScalarProperty Name="Title" ColumnName="Title" />
-          <ScalarProperty Name="Suffix" ColumnName="Suffix" />
-          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
-          <ScalarProperty Name="LastReviewDate" ColumnName="LastReviewDate" />
-          <ScalarProperty Name="NextReviewDate" ColumnName="NextReviewDate" />
-          <ScalarProperty Name="Street" ColumnName="Street" />
-          <ScalarProperty Name="City" ColumnName="City" />
-          <ScalarProperty Name="State" ColumnName="State" />
-          <ScalarProperty Name="Zip" ColumnName="Zip" />
-          <ScalarProperty Name="Phone" ColumnName="Phone" />
-          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
-          <ScalarProperty Name="Status" ColumnName="Status" />
-          <ScalarProperty Name="JobTitleID" ColumnName="JobTitleID" />
-          <ScalarProperty Name="ManagerID" ColumnName="ManagerID" />
-          <ScalarProperty Name="Salary" ColumnName="Salary" />
-          <ScalarProperty Name="Bonus" ColumnName="Bonus" />
-          <ScalarProperty Name="HealthCoverage" ColumnName="HealthCoverage" />
-          <ScalarProperty Name="DentalCoverage" ColumnName="DentalCoverage" />
-          <ScalarProperty Name="MoExp" ColumnName="MoExp" />
-          <ScalarProperty Name="Region" ColumnName="Region" />
-          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-          <ScalarProperty Name="CurClientPhone" ColumnName="CurClientPhone" />
-          <ScalarProperty Name="CellPhone" ColumnName="CellPhone" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -348,6 +280,74 @@
           <ScalarProperty Name="uvalue" ColumnName="uvalue" />
           <ScalarProperty Name="lvalue" ColumnName="lvalue" />
           <ScalarProperty Name="version" ColumnName="version" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Assignments">
+      <EntityTypeMapping TypeName="TSDataModel.Assignment">
+        <MappingFragment StoreEntitySet="Assignments">
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Designation2" ColumnName="Designation2" />
+          <ScalarProperty Name="Designation1" ColumnName="Designation1" />
+          <ScalarProperty Name="WorkOrder" ColumnName="WorkOrder" />
+          <ScalarProperty Name="PONumber" ColumnName="PONumber" />
+          <ScalarProperty Name="InvContactID" ColumnName="InvContactID" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="BillableExp" ColumnName="BillableExp" />
+          <ScalarProperty Name="EmpEmail" ColumnName="EmpEmail" />
+          <ScalarProperty Name="EmpPhone" ColumnName="EmpPhone" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="Assignment1" ColumnName="Assignment" />
+          <ScalarProperty Name="AssignmentID" ColumnName="AssignmentID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmployeeAssignments">
+      <EntityTypeMapping TypeName="TSDataModel.EmployeeAssignment">
+        <MappingFragment StoreEntitySet="EmployeeAssignment">
+          <ScalarProperty Name="Assignmentid" ColumnName="Assignmentid" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="EmployeeAssignmentID" ColumnName="EmployeeAssignmentID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="TSDataModel.Employee">
+        <MappingFragment StoreEntitySet="Employees">
+          <ScalarProperty Name="CellPhone" ColumnName="CellPhone" />
+          <ScalarProperty Name="CurClientPhone" ColumnName="CurClientPhone" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="MoExp" ColumnName="MoExp" />
+          <ScalarProperty Name="DentalCoverage" ColumnName="DentalCoverage" />
+          <ScalarProperty Name="HealthCoverage" ColumnName="HealthCoverage" />
+          <ScalarProperty Name="Bonus" ColumnName="Bonus" />
+          <ScalarProperty Name="Salary" ColumnName="Salary" />
+          <ScalarProperty Name="ManagerID" ColumnName="ManagerID" />
+          <ScalarProperty Name="JobTitleID" ColumnName="JobTitleID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Zip" ColumnName="Zip" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Street" ColumnName="Street" />
+          <ScalarProperty Name="NextReviewDate" ColumnName="NextReviewDate" />
+          <ScalarProperty Name="LastReviewDate" ColumnName="LastReviewDate" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="Suffix" ColumnName="Suffix" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="MI" ColumnName="MI" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="LogonID" ColumnName="LogonID" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

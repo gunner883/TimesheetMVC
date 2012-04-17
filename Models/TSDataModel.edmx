@@ -4,30 +4,9 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="TSDataModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="TSDataModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="TSDataModelStoreContainer">
-          <EntitySet Name="Assignments" EntityType="TSDataModel.Store.Assignments" store:Type="Tables" store:Schema="dbo" store:Name="Assignments">
-            <DefiningQuery>SELECT 
-      [Assignments].[AssignmentID] AS [AssignmentID], 
-      [Assignments].[Assignment] AS [Assignment], 
-      [Assignments].[EmployeeID] AS [EmployeeID], 
-      [Assignments].[ProjectID] AS [ProjectID], 
-      [Assignments].[StartDate] AS [StartDate], 
-      [Assignments].[EndDate] AS [EndDate], 
-      [Assignments].[Active] AS [Active], 
-      [Assignments].[EmpPhone] AS [EmpPhone], 
-      [Assignments].[EmpEmail] AS [EmpEmail], 
-      [Assignments].[BillableExp] AS [BillableExp], 
-      [Assignments].[Comments] AS [Comments], 
-      [Assignments].[InvContactID] AS [InvContactID], 
-      [Assignments].[PONumber] AS [PONumber], 
-      [Assignments].[WorkOrder] AS [WorkOrder], 
-      [Assignments].[Designation1] AS [Designation1], 
-      [Assignments].[Designation2] AS [Designation2], 
-      [Assignments].[CreatedDate] AS [CreatedDate], 
-      [Assignments].[CreatedBy] AS [CreatedBy]
-      FROM [dbo].[Assignments] AS [Assignments]</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="Assignments" EntityType="TSDataModel.Store.Assignments" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="ClientProjectView" EntityType="TSDataModel.Store.ClientProjectView" store:Type="Tables" store:Schema="dbo" store:Name="ClientProjectView">
             <DefiningQuery>SELECT 
       [ClientProjectView].[ClientProjID] AS [ClientProjID], 
@@ -86,39 +65,7 @@
       FROM [dbo].[Days] AS [Days]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="EmployeeAssignment" EntityType="TSDataModel.Store.EmployeeAssignment" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Employees" EntityType="TSDataModel.Store.Employees" store:Type="Tables" store:Schema="dbo" store:Name="Employees">
-            <DefiningQuery>SELECT 
-      [Employees].[EmployeeID] AS [EmployeeID], 
-      [Employees].[LogonID] AS [LogonID], 
-      [Employees].[LastName] AS [LastName], 
-      [Employees].[FirstName] AS [FirstName], 
-      [Employees].[MI] AS [MI], 
-      [Employees].[Title] AS [Title], 
-      [Employees].[Suffix] AS [Suffix], 
-      [Employees].[StartDate] AS [StartDate], 
-      [Employees].[LastReviewDate] AS [LastReviewDate], 
-      [Employees].[NextReviewDate] AS [NextReviewDate], 
-      [Employees].[Street] AS [Street], 
-      [Employees].[City] AS [City], 
-      [Employees].[State] AS [State], 
-      [Employees].[Zip] AS [Zip], 
-      [Employees].[Phone] AS [Phone], 
-      [Employees].[BirthDate] AS [BirthDate], 
-      [Employees].[Status] AS [Status], 
-      [Employees].[JobTitleID] AS [JobTitleID], 
-      [Employees].[ManagerID] AS [ManagerID], 
-      [Employees].[Salary] AS [Salary], 
-      [Employees].[Bonus] AS [Bonus], 
-      [Employees].[HealthCoverage] AS [HealthCoverage], 
-      [Employees].[DentalCoverage] AS [DentalCoverage], 
-      [Employees].[MoExp] AS [MoExp], 
-      [Employees].[Region] AS [Region], 
-      [Employees].[CreatedDate] AS [CreatedDate], 
-      [Employees].[CreatedBy] AS [CreatedBy], 
-      [Employees].[CurClientPhone] AS [CurClientPhone], 
-      [Employees].[CellPhone] AS [CellPhone]
-      FROM [dbo].[Employees] AS [Employees]</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="Employees" EntityType="TSDataModel.Store.Employees" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="HourlyRate" EntityType="TSDataModel.Store.HourlyRate" store:Type="Tables" store:Schema="dbo" store:Name="HourlyRate">
             <DefiningQuery>SELECT 
       [HourlyRate].[HourlyRateID] AS [HourlyRateID], 
@@ -300,20 +247,18 @@
       [roperties].[version] AS [version]
       FROM [dbo].[roperties] AS [roperties]</DefiningQuery>
           </EntitySet>
+          <AssociationSet Name="FK__EmployeeA__Assig__300424B4" Association="TSDataModel.Store.FK__EmployeeA__Assig__300424B4">
+            <End Role="Assignments" EntitySet="Assignments" />
+            <End Role="EmployeeAssignment" EntitySet="EmployeeAssignment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EmployeeA__Emplo__2F10007B" Association="TSDataModel.Store.FK__EmployeeA__Emplo__2F10007B">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="EmployeeAssignment" EntitySet="EmployeeAssignment" />
+          </AssociationSet>
         </EntityContainer>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'tsdata.dbo.Assignments' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
         <EntityType Name="Assignments">
           <Key>
             <PropertyRef Name="AssignmentID" />
-            <PropertyRef Name="Assignment" />
-            <PropertyRef Name="EmployeeID" />
-            <PropertyRef Name="ProjectID" />
-            <PropertyRef Name="StartDate" />
-            <PropertyRef Name="Active" />
-            <PropertyRef Name="BillableExp" />
-            <PropertyRef Name="CreatedBy" />
           </Key>
           <Property Name="AssignmentID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Assignment" Type="varchar" Nullable="false" MaxLength="255" />
@@ -422,22 +367,15 @@
         </EntityType>
         <EntityType Name="EmployeeAssignment">
           <Key>
-            <PropertyRef Name="EmployeeAssignmentId" />
+            <PropertyRef Name="EmployeeAssignmentID" />
           </Key>
-          <Property Name="EmployeeAssignmentId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="EmployeeId" Type="int" Nullable="false" />
-          <Property Name="AssignmentId" Type="int" Nullable="false" />
+          <Property Name="EmployeeAssignmentID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeID" Type="int" />
+          <Property Name="Assignmentid" Type="int" />
         </EntityType>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'tsdata.dbo.Employees' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
         <EntityType Name="Employees">
           <Key>
             <PropertyRef Name="EmployeeID" />
-            <PropertyRef Name="Status" />
-            <PropertyRef Name="Region" />
-            <PropertyRef Name="CreatedDate" />
-            <PropertyRef Name="CreatedBy" />
           </Key>
           <Property Name="EmployeeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="LogonID" Type="varchar" Nullable="false" MaxLength="20" />
@@ -783,19 +721,39 @@
           <Property Name="lvalue" Type="image" />
           <Property Name="version" Type="int" Nullable="false" />
         </EntityType>
-      </Schema>
-    </edmx:StorageModels>
+        <Association Name="FK__EmployeeA__Assig__300424B4">
+          <End Role="Assignments" Type="TSDataModel.Store.Assignments" Multiplicity="0..1" />
+          <End Role="EmployeeAssignment" Type="TSDataModel.Store.EmployeeAssignment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Assignments">
+              <PropertyRef Name="AssignmentID" />
+            </Principal>
+            <Dependent Role="EmployeeAssignment">
+              <PropertyRef Name="Assignmentid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EmployeeA__Emplo__2F10007B">
+          <End Role="Employees" Type="TSDataModel.Store.Employees" Multiplicity="0..1" />
+          <End Role="EmployeeAssignment" Type="TSDataModel.Store.EmployeeAssignment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="EmployeeAssignment">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="TSDataModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
         <EntityContainer Name="TSDataEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Assignments" EntityType="TSDataModel.Assignment" />
           <EntitySet Name="ClientProjectViews" EntityType="TSDataModel.ClientProjectView" />
           <EntitySet Name="Clients" EntityType="TSDataModel.Client" />
           <EntitySet Name="Contacts" EntityType="TSDataModel.Contact" />
           <EntitySet Name="Days" EntityType="TSDataModel.Day" />
-          <EntitySet Name="EmployeeAssignments" EntityType="TSDataModel.EmployeeAssignment" />
-          <EntitySet Name="Employees" EntityType="TSDataModel.Employee" />
           <EntitySet Name="HourlyRates" EntityType="TSDataModel.HourlyRate" />
           <EntitySet Name="Hours" EntityType="TSDataModel.Hour" />
           <EntitySet Name="InvDetails" EntityType="TSDataModel.InvDetail" />
@@ -814,37 +772,18 @@
           <EntitySet Name="ReportGroups" EntityType="TSDataModel.ReportGroup" />
           <EntitySet Name="Reports" EntityType="TSDataModel.Report" />
           <EntitySet Name="roperties" EntityType="TSDataModel.roperty" />
+          <EntitySet Name="Assignments" EntityType="TSDataModel.Assignment" />
+          <EntitySet Name="EmployeeAssignments" EntityType="TSDataModel.EmployeeAssignment" />
+          <EntitySet Name="Employees" EntityType="TSDataModel.Employee" />
+          <AssociationSet Name="FK__EmployeeA__Assig__300424B4" Association="TSDataModel.FK__EmployeeA__Assig__300424B4">
+            <End Role="Assignment" EntitySet="Assignments" />
+            <End Role="EmployeeAssignment" EntitySet="EmployeeAssignments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EmployeeA__Emplo__2F10007B" Association="TSDataModel.FK__EmployeeA__Emplo__2F10007B">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="EmployeeAssignment" EntitySet="EmployeeAssignments" />
+          </AssociationSet>
         </EntityContainer>
-        <EntityType Name="Assignment">
-          <Key>
-            <PropertyRef Name="AssignmentID" />
-            <PropertyRef Name="Assignment1" />
-            <PropertyRef Name="EmployeeID" />
-            <PropertyRef Name="ProjectID" />
-            <PropertyRef Name="StartDate" />
-            <PropertyRef Name="Active" />
-            <PropertyRef Name="BillableExp" />
-            <PropertyRef Name="CreatedBy" />
-          </Key>
-          <Property Name="AssignmentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Assignment1" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
-          <Property Name="EmployeeID" Type="Int32" Nullable="false" />
-          <Property Name="ProjectID" Type="Int32" Nullable="false" />
-          <Property Name="StartDate" Type="DateTime" Nullable="false" />
-          <Property Name="EndDate" Type="DateTime" />
-          <Property Name="Active" Type="Boolean" Nullable="false" />
-          <Property Name="EmpPhone" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
-          <Property Name="EmpEmail" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
-          <Property Name="BillableExp" Type="Boolean" Nullable="false" />
-          <Property Name="Comments" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-          <Property Name="InvContactID" Type="Int32" />
-          <Property Name="PONumber" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
-          <Property Name="WorkOrder" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
-          <Property Name="Designation1" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
-          <Property Name="Designation2" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
-          <Property Name="CreatedDate" Type="DateTime" />
-          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
-        </EntityType>
         <EntityType Name="ClientProjectView">
           <Key>
             <PropertyRef Name="ClientProjID" />
@@ -918,52 +857,6 @@
           </Key>
           <Property Name="DateDay" Type="DateTime" Nullable="false" />
           <Property Name="Holiday" Type="Boolean" />
-        </EntityType>
-        <EntityType Name="EmployeeAssignment">
-          <Key>
-            <PropertyRef Name="EmployeeAssignmentId" />
-          </Key>
-          <Property Name="EmployeeAssignmentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="EmployeeId" Type="Int32" Nullable="false" />
-          <Property Name="AssignmentId" Type="Int32" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Employee">
-          <Key>
-            <PropertyRef Name="EmployeeID" />
-            <PropertyRef Name="Status" />
-            <PropertyRef Name="Region" />
-            <PropertyRef Name="CreatedDate" />
-            <PropertyRef Name="CreatedBy" />
-          </Key>
-          <Property Name="EmployeeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="LogonID" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
-          <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
-          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
-          <Property Name="MI" Type="String" MaxLength="1" Unicode="false" FixedLength="false" />
-          <Property Name="Title" Type="String" MaxLength="5" Unicode="false" FixedLength="false" />
-          <Property Name="Suffix" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
-          <Property Name="StartDate" Type="DateTime" />
-          <Property Name="LastReviewDate" Type="DateTime" />
-          <Property Name="NextReviewDate" Type="DateTime" />
-          <Property Name="Street" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-          <Property Name="City" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
-          <Property Name="State" Type="String" MaxLength="2" Unicode="false" FixedLength="false" />
-          <Property Name="Zip" Type="String" MaxLength="11" Unicode="false" FixedLength="false" />
-          <Property Name="Phone" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
-          <Property Name="BirthDate" Type="DateTime" />
-          <Property Name="Status" Type="Boolean" Nullable="false" />
-          <Property Name="JobTitleID" Type="Int32" />
-          <Property Name="ManagerID" Type="Int32" />
-          <Property Name="Salary" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="Bonus" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="HealthCoverage" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
-          <Property Name="DentalCoverage" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
-          <Property Name="MoExp" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
-          <Property Name="Region" Type="String" Nullable="false" MaxLength="2" Unicode="false" FixedLength="false" />
-          <Property Name="CreatedDate" Type="DateTime" Nullable="false" />
-          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
-          <Property Name="CurClientPhone" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
-          <Property Name="CellPhone" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
         </EntityType>
         <EntityType Name="HourlyRate">
           <Key>
@@ -1225,32 +1118,105 @@
           <Property Name="lvalue" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="version" Type="Int32" Nullable="false" />
         </EntityType>
+        <EntityType Name="Assignment">
+          <Key>
+            <PropertyRef Name="AssignmentID" />
+          </Key>
+          <Property Type="Int32" Name="AssignmentID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Assignment1" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="EmployeeID" Nullable="false" />
+          <Property Type="Int32" Name="ProjectID" Nullable="false" />
+          <Property Type="DateTime" Name="StartDate" Nullable="false" />
+          <Property Type="DateTime" Name="EndDate" />
+          <Property Type="Boolean" Name="Active" Nullable="false" />
+          <Property Type="String" Name="EmpPhone" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="EmpEmail" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="BillableExp" Nullable="false" />
+          <Property Type="String" Name="Comments" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="InvContactID" />
+          <Property Type="String" Name="PONumber" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="WorkOrder" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Designation1" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Designation2" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="CreatedDate" />
+          <Property Type="String" Name="CreatedBy" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="EmployeeAssignments" Relationship="TSDataModel.FK__EmployeeA__Assig__300424B4" FromRole="Assignment" ToRole="EmployeeAssignment" />
+        </EntityType>
+        <EntityType Name="EmployeeAssignment">
+          <Key>
+            <PropertyRef Name="EmployeeAssignmentID" />
+          </Key>
+          <Property Type="Int32" Name="EmployeeAssignmentID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="EmployeeID" />
+          <Property Type="Int32" Name="Assignmentid" />
+          <NavigationProperty Name="Assignment" Relationship="TSDataModel.FK__EmployeeA__Assig__300424B4" FromRole="EmployeeAssignment" ToRole="Assignment" />
+          <NavigationProperty Name="Employee" Relationship="TSDataModel.FK__EmployeeA__Emplo__2F10007B" FromRole="EmployeeAssignment" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Type="Int32" Name="EmployeeID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="LogonID" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="LastName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="MI" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Title" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Suffix" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="StartDate" />
+          <Property Type="DateTime" Name="LastReviewDate" />
+          <Property Type="DateTime" Name="NextReviewDate" />
+          <Property Type="String" Name="Street" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="City" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="State" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Zip" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Phone" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="BirthDate" />
+          <Property Type="Boolean" Name="Status" Nullable="false" />
+          <Property Type="Int32" Name="JobTitleID" />
+          <Property Type="Int32" Name="ManagerID" />
+          <Property Type="Decimal" Name="Salary" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="Bonus" Precision="18" Scale="2" />
+          <Property Type="String" Name="HealthCoverage" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="DentalCoverage" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="MoExp" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Region" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="false" />
+          <Property Type="String" Name="CreatedBy" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CurClientPhone" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CellPhone" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="EmployeeAssignments" Relationship="TSDataModel.FK__EmployeeA__Emplo__2F10007B" FromRole="Employee" ToRole="EmployeeAssignment" />
+        </EntityType>
+        <Association Name="FK__EmployeeA__Assig__300424B4">
+          <End Type="TSDataModel.Assignment" Role="Assignment" Multiplicity="0..1" />
+          <End Type="TSDataModel.EmployeeAssignment" Role="EmployeeAssignment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Assignment">
+              <PropertyRef Name="AssignmentID" />
+            </Principal>
+            <Dependent Role="EmployeeAssignment">
+              <PropertyRef Name="Assignmentid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EmployeeA__Emplo__2F10007B">
+          <End Type="TSDataModel.Employee" Role="Employee" Multiplicity="0..1" />
+          <End Type="TSDataModel.EmployeeAssignment" Role="EmployeeAssignment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="EmployeeAssignment">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="TSDataModelStoreContainer" CdmEntityContainer="TSDataEntities">
-          <EntitySetMapping Name="Assignments"><EntityTypeMapping TypeName="TSDataModel.Assignment"><MappingFragment StoreEntitySet="Assignments">
-            <ScalarProperty Name="AssignmentID" ColumnName="AssignmentID" />
-            <ScalarProperty Name="Assignment1" ColumnName="Assignment" />
-            <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
-            <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
-            <ScalarProperty Name="StartDate" ColumnName="StartDate" />
-            <ScalarProperty Name="EndDate" ColumnName="EndDate" />
-            <ScalarProperty Name="Active" ColumnName="Active" />
-            <ScalarProperty Name="EmpPhone" ColumnName="EmpPhone" />
-            <ScalarProperty Name="EmpEmail" ColumnName="EmpEmail" />
-            <ScalarProperty Name="BillableExp" ColumnName="BillableExp" />
-            <ScalarProperty Name="Comments" ColumnName="Comments" />
-            <ScalarProperty Name="InvContactID" ColumnName="InvContactID" />
-            <ScalarProperty Name="PONumber" ColumnName="PONumber" />
-            <ScalarProperty Name="WorkOrder" ColumnName="WorkOrder" />
-            <ScalarProperty Name="Designation1" ColumnName="Designation1" />
-            <ScalarProperty Name="Designation2" ColumnName="Designation2" />
-            <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-            <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="ClientProjectViews"><EntityTypeMapping TypeName="TSDataModel.ClientProjectView"><MappingFragment StoreEntitySet="ClientProjectView">
             <ScalarProperty Name="ClientProjID" ColumnName="ClientProjID" />
             <ScalarProperty Name="ContactID" ColumnName="ContactID" />
@@ -1299,42 +1265,6 @@
           <EntitySetMapping Name="Days"><EntityTypeMapping TypeName="TSDataModel.Day"><MappingFragment StoreEntitySet="Days">
             <ScalarProperty Name="DateDay" ColumnName="DateDay" />
             <ScalarProperty Name="Holiday" ColumnName="Holiday" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="EmployeeAssignments"><EntityTypeMapping TypeName="TSDataModel.EmployeeAssignment"><MappingFragment StoreEntitySet="EmployeeAssignment">
-            <ScalarProperty Name="EmployeeAssignmentId" ColumnName="EmployeeAssignmentId" />
-            <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
-            <ScalarProperty Name="AssignmentId" ColumnName="AssignmentId" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="Employees"><EntityTypeMapping TypeName="TSDataModel.Employee"><MappingFragment StoreEntitySet="Employees">
-            <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
-            <ScalarProperty Name="LogonID" ColumnName="LogonID" />
-            <ScalarProperty Name="LastName" ColumnName="LastName" />
-            <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-            <ScalarProperty Name="MI" ColumnName="MI" />
-            <ScalarProperty Name="Title" ColumnName="Title" />
-            <ScalarProperty Name="Suffix" ColumnName="Suffix" />
-            <ScalarProperty Name="StartDate" ColumnName="StartDate" />
-            <ScalarProperty Name="LastReviewDate" ColumnName="LastReviewDate" />
-            <ScalarProperty Name="NextReviewDate" ColumnName="NextReviewDate" />
-            <ScalarProperty Name="Street" ColumnName="Street" />
-            <ScalarProperty Name="City" ColumnName="City" />
-            <ScalarProperty Name="State" ColumnName="State" />
-            <ScalarProperty Name="Zip" ColumnName="Zip" />
-            <ScalarProperty Name="Phone" ColumnName="Phone" />
-            <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
-            <ScalarProperty Name="Status" ColumnName="Status" />
-            <ScalarProperty Name="JobTitleID" ColumnName="JobTitleID" />
-            <ScalarProperty Name="ManagerID" ColumnName="ManagerID" />
-            <ScalarProperty Name="Salary" ColumnName="Salary" />
-            <ScalarProperty Name="Bonus" ColumnName="Bonus" />
-            <ScalarProperty Name="HealthCoverage" ColumnName="HealthCoverage" />
-            <ScalarProperty Name="DentalCoverage" ColumnName="DentalCoverage" />
-            <ScalarProperty Name="MoExp" ColumnName="MoExp" />
-            <ScalarProperty Name="Region" ColumnName="Region" />
-            <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-            <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-            <ScalarProperty Name="CurClientPhone" ColumnName="CurClientPhone" />
-            <ScalarProperty Name="CellPhone" ColumnName="CellPhone" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="HourlyRates"><EntityTypeMapping TypeName="TSDataModel.HourlyRate"><MappingFragment StoreEntitySet="HourlyRate">
             <ScalarProperty Name="HourlyRateID" ColumnName="HourlyRateID" />
@@ -1481,6 +1411,74 @@
             <ScalarProperty Name="lvalue" ColumnName="lvalue" />
             <ScalarProperty Name="version" ColumnName="version" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Assignments">
+            <EntityTypeMapping TypeName="TSDataModel.Assignment">
+              <MappingFragment StoreEntitySet="Assignments">
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Designation2" ColumnName="Designation2" />
+                <ScalarProperty Name="Designation1" ColumnName="Designation1" />
+                <ScalarProperty Name="WorkOrder" ColumnName="WorkOrder" />
+                <ScalarProperty Name="PONumber" ColumnName="PONumber" />
+                <ScalarProperty Name="InvContactID" ColumnName="InvContactID" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="BillableExp" ColumnName="BillableExp" />
+                <ScalarProperty Name="EmpEmail" ColumnName="EmpEmail" />
+                <ScalarProperty Name="EmpPhone" ColumnName="EmpPhone" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="Assignment1" ColumnName="Assignment" />
+                <ScalarProperty Name="AssignmentID" ColumnName="AssignmentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmployeeAssignments">
+            <EntityTypeMapping TypeName="TSDataModel.EmployeeAssignment">
+              <MappingFragment StoreEntitySet="EmployeeAssignment">
+                <ScalarProperty Name="Assignmentid" ColumnName="Assignmentid" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="EmployeeAssignmentID" ColumnName="EmployeeAssignmentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="TSDataModel.Employee">
+              <MappingFragment StoreEntitySet="Employees">
+                <ScalarProperty Name="CellPhone" ColumnName="CellPhone" />
+                <ScalarProperty Name="CurClientPhone" ColumnName="CurClientPhone" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="MoExp" ColumnName="MoExp" />
+                <ScalarProperty Name="DentalCoverage" ColumnName="DentalCoverage" />
+                <ScalarProperty Name="HealthCoverage" ColumnName="HealthCoverage" />
+                <ScalarProperty Name="Bonus" ColumnName="Bonus" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+                <ScalarProperty Name="ManagerID" ColumnName="ManagerID" />
+                <ScalarProperty Name="JobTitleID" ColumnName="JobTitleID" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Zip" ColumnName="Zip" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Street" ColumnName="Street" />
+                <ScalarProperty Name="NextReviewDate" ColumnName="NextReviewDate" />
+                <ScalarProperty Name="LastReviewDate" ColumnName="LastReviewDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="Suffix" ColumnName="Suffix" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="MI" ColumnName="MI" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="LogonID" ColumnName="LogonID" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -1502,18 +1500,15 @@
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram Name="TSDataModel">
-        <EntityTypeShape EntityType="TSDataModel.Assignment" Width="1.5" PointX="0.75" PointY="0.75" Height="4.480205078125" IsExpanded="true" />
         <EntityTypeShape EntityType="TSDataModel.ClientProjectView" Width="1.5" PointX="2.75" PointY="0.75" Height="1.9802864583333335" IsExpanded="true" />
         <EntityTypeShape EntityType="TSDataModel.Client" Width="1.5" PointX="2.75" PointY="3.75" Height="4.2879036458333335" IsExpanded="true" />
         <EntityTypeShape EntityType="TSDataModel.Contact" Width="1.5" PointX="4.75" PointY="0.75" Height="4.2879036458333335" IsExpanded="true" />
         <EntityTypeShape EntityType="TSDataModel.Day" Width="1.5" PointX="6.75" PointY="0.75" Height="1.4033821614583317" IsExpanded="true" />
-        <EntityTypeShape EntityType="TSDataModel.EmployeeAssignment" Width="1.5" PointX="6.75" PointY="3.75" Height="1.5956835937499996" IsExpanded="true" />
-        <EntityTypeShape EntityType="TSDataModel.Employee" Width="1.5" PointX="4.75" PointY="6.75" Height="6.5955208333333317" IsExpanded="true" />
         <EntityTypeShape EntityType="TSDataModel.HourlyRate" Width="1.5" PointX="6.75" PointY="6.75" Height="2.3648893229166674" IsExpanded="true" />
         <EntityTypeShape EntityType="TSDataModel.Hour" Width="1.5" PointX="8.75" PointY="0.75" Height="3.9033007812499996" IsExpanded="true" />
         <EntityTypeShape EntityType="TSDataModel.InvDetail" Width="1.5" PointX="8.75" PointY="5.75" Height="2.1725878906249996" IsExpanded="true" />
         <EntityTypeShape EntityType="TSDataModel.InvHeader" Width="1.5" PointX="8.75" PointY="8.75" Height="2.1725878906250031" IsExpanded="true" />
-        <EntityTypeShape EntityType="TSDataModel.Invoice" Width="1.5" PointX="0.75" PointY="9.75" Height="4.0956022135416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="TSDataModel.Invoice" Width="1.5" PointX="4.875" PointY="6.5" Height="4.0956022135416674" IsExpanded="true" />
         <EntityTypeShape EntityType="TSDataModel.InvRemitAddress" Width="1.5" PointX="10.75" PointY="0.75" Height="1.9802864583333388" IsExpanded="true" />
         <EntityTypeShape EntityType="TSDataModel.JobTitle" Width="1.5" PointX="10.75" PointY="3.75" Height="1.5956835937500031" IsExpanded="true" />
         <EntityTypeShape EntityType="TSDataModel.MenuGroup" Width="1.5" PointX="10.75" PointY="6.75" Height="1.4033821614583388" IsExpanded="true" />
@@ -1527,6 +1522,18 @@
         <EntityTypeShape EntityType="TSDataModel.ReportGroup" Width="1.5" PointX="12.75" PointY="12.75" Height="1.4033821614583246" IsExpanded="true" />
         <EntityTypeShape EntityType="TSDataModel.Report" Width="1.5" PointX="14.75" PointY="0.75" Height="1.4033821614583246" IsExpanded="true" />
         <EntityTypeShape EntityType="TSDataModel.roperty" Width="1.5" PointX="0.75" PointY="14.75" Height="2.3648893229166674" IsExpanded="true" />
+        <EntityTypeShape EntityType="TSDataModel.Assignment" Width="1.875" PointX="15.375" PointY="4" Height="4.6725065104166674" />
+        <EntityTypeShape EntityType="TSDataModel.EmployeeAssignment" Width="1.5" PointX="18.875" PointY="4.625" Height="1.9802864583333388" />
+        <EntityTypeShape EntityType="TSDataModel.Employee" Width="2.625" PointX="15.375" PointY="9.125" Height="6.787822265624996" />
+        <AssociationConnector Association="TSDataModel.FK__EmployeeA__Assig__300424B4" >
+          <ConnectorPoint PointX="17.25" PointY="5.6151432291666694" />
+          <ConnectorPoint PointX="18.875" PointY="5.6151432291666694" />
+        </AssociationConnector>
+        <AssociationConnector Association="TSDataModel.FK__EmployeeA__Emplo__2F10007B" >
+          <ConnectorPoint PointX="18" PointY="12.518911132812498" />
+          <ConnectorPoint PointX="19.625" PointY="12.518911132812498" />
+          <ConnectorPoint PointX="19.625" PointY="6.6052864583333388" />
+        </AssociationConnector>
       </Diagram>
     </Diagrams>
   </Designer>
