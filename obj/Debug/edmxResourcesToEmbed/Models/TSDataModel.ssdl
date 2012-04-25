@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="TSDataModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
-  <EntityContainer Name="TSDataModelStoreContainer">
-    <EntitySet Name="Assignments" EntityType="TSDataModel.Store.Assignments" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="ClientProjectView" EntityType="TSDataModel.Store.ClientProjectView" store:Type="Tables" store:Schema="dbo" store:Name="ClientProjectView">
+<Schema Namespace="tsdataModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="tsdataModelStoreContainer">
+    <EntitySet Name="Assignments" EntityType="tsdataModel.Store.Assignments" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ClientProjectView" EntityType="tsdataModel.Store.ClientProjectView" store:Type="Tables" store:Schema="dbo" store:Name="ClientProjectView">
       <DefiningQuery>SELECT 
       [ClientProjectView].[ClientProjID] AS [ClientProjID], 
       [ClientProjectView].[ContactID] AS [ContactID], 
@@ -11,7 +11,7 @@
       [ClientProjectView].[CreatedBy] AS [CreatedBy]
       FROM [dbo].[ClientProjectView] AS [ClientProjectView]</DefiningQuery>
     </EntitySet>
-    <EntitySet Name="Clients" EntityType="TSDataModel.Store.Clients" store:Type="Tables" store:Schema="dbo" store:Name="Clients">
+    <EntitySet Name="Clients" EntityType="tsdataModel.Store.Clients" store:Type="Tables" store:Schema="dbo" store:Name="Clients">
       <DefiningQuery>SELECT 
       [Clients].[ClientID] AS [ClientID], 
       [Clients].[Client] AS [Client], 
@@ -32,7 +32,7 @@
       [Clients].[ClientShort] AS [ClientShort]
       FROM [dbo].[Clients] AS [Clients]</DefiningQuery>
     </EntitySet>
-    <EntitySet Name="Contacts" EntityType="TSDataModel.Store.Contacts" store:Type="Tables" store:Schema="dbo" store:Name="Contacts">
+    <EntitySet Name="Contacts" EntityType="tsdataModel.Store.Contacts" store:Type="Tables" store:Schema="dbo" store:Name="Contacts">
       <DefiningQuery>SELECT 
       [Contacts].[ContactID] AS [ContactID], 
       [Contacts].[LastName] AS [LastName], 
@@ -53,15 +53,14 @@
       [Contacts].[CreatedBy] AS [CreatedBy]
       FROM [dbo].[Contacts] AS [Contacts]</DefiningQuery>
     </EntitySet>
-    <EntitySet Name="Days" EntityType="TSDataModel.Store.Days" store:Type="Tables" store:Schema="dbo" store:Name="Days">
+    <EntitySet Name="Days" EntityType="tsdataModel.Store.Days" store:Type="Tables" store:Schema="dbo" store:Name="Days">
       <DefiningQuery>SELECT 
       [Days].[DateDay] AS [DateDay], 
       [Days].[Holiday] AS [Holiday]
       FROM [dbo].[Days] AS [Days]</DefiningQuery>
     </EntitySet>
-    <EntitySet Name="EmployeeAssignment" EntityType="TSDataModel.Store.EmployeeAssignment" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Employees" EntityType="TSDataModel.Store.Employees" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="HourlyRate" EntityType="TSDataModel.Store.HourlyRate" store:Type="Tables" store:Schema="dbo" store:Name="HourlyRate">
+    <EntitySet Name="Employees" EntityType="tsdataModel.Store.Employees" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="HourlyRate" EntityType="tsdataModel.Store.HourlyRate" store:Type="Tables" store:Schema="dbo" store:Name="HourlyRate">
       <DefiningQuery>SELECT 
       [HourlyRate].[HourlyRateID] AS [HourlyRateID], 
       [HourlyRate].[AssignmentID] AS [AssignmentID], 
@@ -72,7 +71,7 @@
       [HourlyRate].[CreatedBy] AS [CreatedBy]
       FROM [dbo].[HourlyRate] AS [HourlyRate]</DefiningQuery>
     </EntitySet>
-    <EntitySet Name="Hours" EntityType="TSDataModel.Store.Hours" store:Type="Tables" store:Schema="dbo" store:Name="Hours">
+    <EntitySet Name="Hours" EntityType="tsdataModel.Store.Hours" store:Type="Tables" store:Schema="dbo" store:Name="Hours">
       <DefiningQuery>SELECT 
       [Hours].[HoursID] AS [HoursID], 
       [Hours].[AssignmentID] AS [AssignmentID], 
@@ -91,7 +90,7 @@
       [Hours].[CreatedBy] AS [CreatedBy]
       FROM [dbo].[Hours] AS [Hours]</DefiningQuery>
     </EntitySet>
-    <EntitySet Name="InvDetail" EntityType="TSDataModel.Store.InvDetail" store:Type="Tables" store:Schema="dbo" store:Name="InvDetail">
+    <EntitySet Name="InvDetail" EntityType="tsdataModel.Store.InvDetail" store:Type="Tables" store:Schema="dbo" store:Name="InvDetail">
       <DefiningQuery>SELECT 
       [InvDetail].[InvDetailID] AS [InvDetailID], 
       [InvDetail].[InvNumber] AS [InvNumber], 
@@ -101,7 +100,7 @@
       [InvDetail].[UnitPrice] AS [UnitPrice]
       FROM [dbo].[InvDetail] AS [InvDetail]</DefiningQuery>
     </EntitySet>
-    <EntitySet Name="InvHeader" EntityType="TSDataModel.Store.InvHeader" store:Type="Tables" store:Schema="dbo" store:Name="InvHeader">
+    <EntitySet Name="InvHeader" EntityType="tsdataModel.Store.InvHeader" store:Type="Tables" store:Schema="dbo" store:Name="InvHeader">
       <DefiningQuery>SELECT 
       [InvHeader].[InvNumber] AS [InvNumber], 
       [InvHeader].[InvContactName] AS [InvContactName], 
@@ -111,7 +110,7 @@
       [InvHeader].[Zip] AS [Zip]
       FROM [dbo].[InvHeader] AS [InvHeader]</DefiningQuery>
     </EntitySet>
-    <EntitySet Name="Invoices" EntityType="TSDataModel.Store.Invoices" store:Type="Tables" store:Schema="dbo" store:Name="Invoices">
+    <EntitySet Name="Invoices" EntityType="tsdataModel.Store.Invoices" store:Type="Tables" store:Schema="dbo" store:Name="Invoices">
       <DefiningQuery>SELECT 
       [Invoices].[InvNumber] AS [InvNumber], 
       [Invoices].[InvFrom] AS [InvFrom], 
@@ -131,7 +130,7 @@
       [Invoices].[CreatedBy] AS [CreatedBy]
       FROM [dbo].[Invoices] AS [Invoices]</DefiningQuery>
     </EntitySet>
-    <EntitySet Name="InvRemitAddress" EntityType="TSDataModel.Store.InvRemitAddress" store:Type="Tables" store:Schema="dbo" store:Name="InvRemitAddress">
+    <EntitySet Name="InvRemitAddress" EntityType="tsdataModel.Store.InvRemitAddress" store:Type="Tables" store:Schema="dbo" store:Name="InvRemitAddress">
       <DefiningQuery>SELECT 
       [InvRemitAddress].[Company] AS [Company], 
       [InvRemitAddress].[Street] AS [Street], 
@@ -140,20 +139,20 @@
       [InvRemitAddress].[Zip] AS [Zip]
       FROM [dbo].[InvRemitAddress] AS [InvRemitAddress]</DefiningQuery>
     </EntitySet>
-    <EntitySet Name="JobTitles" EntityType="TSDataModel.Store.JobTitles" store:Type="Tables" store:Schema="dbo" store:Name="JobTitles">
+    <EntitySet Name="JobTitles" EntityType="tsdataModel.Store.JobTitles" store:Type="Tables" store:Schema="dbo" store:Name="JobTitles">
       <DefiningQuery>SELECT 
       [JobTitles].[JobTitleID] AS [JobTitleID], 
       [JobTitles].[JobTitle] AS [JobTitle], 
       [JobTitles].[ReportGroupID] AS [ReportGroupID]
       FROM [dbo].[JobTitles] AS [JobTitles]</DefiningQuery>
     </EntitySet>
-    <EntitySet Name="MenuGroups" EntityType="TSDataModel.Store.MenuGroups" store:Type="Tables" store:Schema="dbo" store:Name="MenuGroups">
+    <EntitySet Name="MenuGroups" EntityType="tsdataModel.Store.MenuGroups" store:Type="Tables" store:Schema="dbo" store:Name="MenuGroups">
       <DefiningQuery>SELECT 
       [MenuGroups].[MenuItemID] AS [MenuItemID], 
       [MenuGroups].[ReportGroupID] AS [ReportGroupID]
       FROM [dbo].[MenuGroups] AS [MenuGroups]</DefiningQuery>
     </EntitySet>
-    <EntitySet Name="MenuItems" EntityType="TSDataModel.Store.MenuItems" store:Type="Tables" store:Schema="dbo" store:Name="MenuItems">
+    <EntitySet Name="MenuItems" EntityType="tsdataModel.Store.MenuItems" store:Type="Tables" store:Schema="dbo" store:Name="MenuItems">
       <DefiningQuery>SELECT 
       [MenuItems].[MenuItemID] AS [MenuItemID], 
       [MenuItems].[SectionID] AS [SectionID], 
@@ -162,14 +161,14 @@
       [MenuItems].[OrderList] AS [OrderList]
       FROM [dbo].[MenuItems] AS [MenuItems]</DefiningQuery>
     </EntitySet>
-    <EntitySet Name="MenuSections" EntityType="TSDataModel.Store.MenuSections" store:Type="Tables" store:Schema="dbo" store:Name="MenuSections">
+    <EntitySet Name="MenuSections" EntityType="tsdataModel.Store.MenuSections" store:Type="Tables" store:Schema="dbo" store:Name="MenuSections">
       <DefiningQuery>SELECT 
       [MenuSections].[SectionID] AS [SectionID], 
       [MenuSections].[SectionName] AS [SectionName], 
       [MenuSections].[OrderNumber] AS [OrderNumber]
       FROM [dbo].[MenuSections] AS [MenuSections]</DefiningQuery>
     </EntitySet>
-    <EntitySet Name="OtherChargesCredits" EntityType="TSDataModel.Store.OtherChargesCredits" store:Type="Tables" store:Schema="dbo" store:Name="OtherChargesCredits">
+    <EntitySet Name="OtherChargesCredits" EntityType="tsdataModel.Store.OtherChargesCredits" store:Type="Tables" store:Schema="dbo" store:Name="OtherChargesCredits">
       <DefiningQuery>SELECT 
       [OtherChargesCredits].[ChargeCreditID] AS [ChargeCreditID], 
       [OtherChargesCredits].[AssignmentID] AS [AssignmentID], 
@@ -180,31 +179,15 @@
       [OtherChargesCredits].[CreatedBy] AS [CreatedBy]
       FROM [dbo].[OtherChargesCredits] AS [OtherChargesCredits]</DefiningQuery>
     </EntitySet>
-    <EntitySet Name="PayrollActivities" EntityType="TSDataModel.Store.PayrollActivities" store:Type="Tables" store:Schema="dbo" store:Name="PayrollActivities">
+    <EntitySet Name="PayrollActivities" EntityType="tsdataModel.Store.PayrollActivities" store:Type="Tables" store:Schema="dbo" store:Name="PayrollActivities">
       <DefiningQuery>SELECT 
       [PayrollActivities].[ProjectID] AS [ProjectID], 
       [PayrollActivities].[PayrollActivity] AS [PayrollActivity], 
       [PayrollActivities].[Status] AS [Status]
       FROM [dbo].[PayrollActivities] AS [PayrollActivities]</DefiningQuery>
     </EntitySet>
-    <EntitySet Name="Projects" EntityType="TSDataModel.Store.Projects" store:Type="Tables" store:Schema="dbo" store:Name="Projects">
-      <DefiningQuery>SELECT 
-      [Projects].[ProjectID] AS [ProjectID], 
-      [Projects].[Project] AS [Project], 
-      [Projects].[ClientID] AS [ClientID], 
-      [Projects].[ProjectLeadID] AS [ProjectLeadID], 
-      [Projects].[ProjectDescr] AS [ProjectDescr], 
-      [Projects].[Status] AS [Status], 
-      [Projects].[AcctMngrID] AS [AcctMngrID], 
-      [Projects].[Budget] AS [Budget], 
-      [Projects].[Fixed] AS [Fixed], 
-      [Projects].[Prebilled] AS [Prebilled], 
-      [Projects].[TaxableState] AS [TaxableState], 
-      [Projects].[CreatedDate] AS [CreatedDate], 
-      [Projects].[CreatedBy] AS [CreatedBy]
-      FROM [dbo].[Projects] AS [Projects]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="Reminders" EntityType="TSDataModel.Store.Reminders" store:Type="Tables" store:Schema="dbo" store:Name="Reminders">
+    <EntitySet Name="Projects" EntityType="tsdataModel.Store.Projects" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Reminders" EntityType="tsdataModel.Store.Reminders" store:Type="Tables" store:Schema="dbo" store:Name="Reminders">
       <DefiningQuery>SELECT 
       [Reminders].[ReminderID] AS [ReminderID], 
       [Reminders].[ReminderDate] AS [ReminderDate], 
@@ -213,42 +196,31 @@
       [Reminders].[CreatedBy] AS [CreatedBy]
       FROM [dbo].[Reminders] AS [Reminders]</DefiningQuery>
     </EntitySet>
-    <EntitySet Name="ReportANDGroup" EntityType="TSDataModel.Store.ReportANDGroup" store:Type="Tables" store:Schema="dbo" store:Name="ReportANDGroup">
+    <EntitySet Name="ReportANDGroup" EntityType="tsdataModel.Store.ReportANDGroup" store:Type="Tables" store:Schema="dbo" store:Name="ReportANDGroup">
       <DefiningQuery>SELECT 
       [ReportANDGroup].[ReportID] AS [ReportID], 
       [ReportANDGroup].[ReportGroupID] AS [ReportGroupID]
       FROM [dbo].[ReportANDGroup] AS [ReportANDGroup]</DefiningQuery>
     </EntitySet>
-    <EntitySet Name="ReportGroups" EntityType="TSDataModel.Store.ReportGroups" store:Type="Tables" store:Schema="dbo" store:Name="ReportGroups">
+    <EntitySet Name="ReportGroups" EntityType="tsdataModel.Store.ReportGroups" store:Type="Tables" store:Schema="dbo" store:Name="ReportGroups">
       <DefiningQuery>SELECT 
       [ReportGroups].[ReportGroupID] AS [ReportGroupID], 
       [ReportGroups].[ReportGroup] AS [ReportGroup]
       FROM [dbo].[ReportGroups] AS [ReportGroups]</DefiningQuery>
     </EntitySet>
-    <EntitySet Name="Reports" EntityType="TSDataModel.Store.Reports" store:Type="Tables" store:Schema="dbo" store:Name="Reports">
+    <EntitySet Name="Reports" EntityType="tsdataModel.Store.Reports" store:Type="Tables" store:Schema="dbo" store:Name="Reports">
       <DefiningQuery>SELECT 
       [Reports].[ReportID] AS [ReportID], 
       [Reports].[ReportName] AS [ReportName]
       FROM [dbo].[Reports] AS [Reports]</DefiningQuery>
     </EntitySet>
-    <EntitySet Name="roperties" EntityType="TSDataModel.Store.roperties" store:Type="Tables" store:Schema="dbo" store:Name="roperties">
-      <DefiningQuery>SELECT 
-      [roperties].[id] AS [id], 
-      [roperties].[objectid] AS [objectid], 
-      [roperties].[property] AS [property], 
-      [roperties].[value] AS [value], 
-      [roperties].[uvalue] AS [uvalue], 
-      [roperties].[lvalue] AS [lvalue], 
-      [roperties].[version] AS [version]
-      FROM [dbo].[roperties] AS [roperties]</DefiningQuery>
-    </EntitySet>
-    <AssociationSet Name="FK__EmployeeA__Assig__300424B4" Association="TSDataModel.Store.FK__EmployeeA__Assig__300424B4">
-      <End Role="Assignments" EntitySet="Assignments" />
-      <End Role="EmployeeAssignment" EntitySet="EmployeeAssignment" />
-    </AssociationSet>
-    <AssociationSet Name="FK__EmployeeA__Emplo__2F10007B" Association="TSDataModel.Store.FK__EmployeeA__Emplo__2F10007B">
+    <AssociationSet Name="FK__Assignmen__Emplo__182C9B23" Association="tsdataModel.Store.FK__Assignmen__Emplo__182C9B23">
       <End Role="Employees" EntitySet="Employees" />
-      <End Role="EmployeeAssignment" EntitySet="EmployeeAssignment" />
+      <End Role="Assignments" EntitySet="Assignments" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Assignmen__Proje__1920BF5C" Association="tsdataModel.Store.FK__Assignmen__Proje__1920BF5C">
+      <End Role="Projects" EntitySet="Projects" />
+      <End Role="Assignments" EntitySet="Assignments" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="Assignments">
@@ -359,14 +331,6 @@
     </Key>
     <Property Name="DateDay" Type="datetime" Nullable="false" />
     <Property Name="Holiday" Type="bit" />
-  </EntityType>
-  <EntityType Name="EmployeeAssignment">
-    <Key>
-      <PropertyRef Name="EmployeeAssignmentID" />
-    </Key>
-    <Property Name="EmployeeAssignmentID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="EmployeeID" Type="int" />
-    <Property Name="Assignmentid" Type="int" />
   </EntityType>
   <EntityType Name="Employees">
     <Key>
@@ -619,21 +583,9 @@
     <Property Name="PayrollActivity" Type="varchar" Nullable="false" MaxLength="50" />
     <Property Name="Status" Type="varchar" MaxLength="10" />
   </EntityType>
-  <!--Errors Found During Generation:
-      warning 6002: The table/view 'tsdata.dbo.Projects' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
   <EntityType Name="Projects">
     <Key>
       <PropertyRef Name="ProjectID" />
-      <PropertyRef Name="Project" />
-      <PropertyRef Name="ClientID" />
-      <PropertyRef Name="AcctMngrID" />
-      <PropertyRef Name="Budget" />
-      <PropertyRef Name="Fixed" />
-      <PropertyRef Name="Prebilled" />
-      <PropertyRef Name="TaxableState" />
-      <PropertyRef Name="CreatedDate" />
-      <PropertyRef Name="CreatedBy" />
     </Key>
     <Property Name="ProjectID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="Project" Type="varchar" Nullable="false" MaxLength="50" />
@@ -699,44 +651,27 @@
     <Property Name="ReportID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="ReportName" Type="varchar" Nullable="false" MaxLength="50" />
   </EntityType>
-  <!--Errors Found During Generation:
-      warning 6002: The table/view 'tsdata.dbo.roperties' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
-  <EntityType Name="roperties">
-    <Key>
-      <PropertyRef Name="id" />
-      <PropertyRef Name="property" />
-      <PropertyRef Name="version" />
-    </Key>
-    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="objectid" Type="int" />
-    <Property Name="property" Type="varchar" Nullable="false" MaxLength="64" />
-    <Property Name="value" Type="varchar" MaxLength="255" />
-    <Property Name="uvalue" Type="nvarchar" MaxLength="255" />
-    <Property Name="lvalue" Type="image" />
-    <Property Name="version" Type="int" Nullable="false" />
-  </EntityType>
-  <Association Name="FK__EmployeeA__Assig__300424B4">
-    <End Role="Assignments" Type="TSDataModel.Store.Assignments" Multiplicity="0..1" />
-    <End Role="EmployeeAssignment" Type="TSDataModel.Store.EmployeeAssignment" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Assignments">
-        <PropertyRef Name="AssignmentID" />
-      </Principal>
-      <Dependent Role="EmployeeAssignment">
-        <PropertyRef Name="Assignmentid" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__EmployeeA__Emplo__2F10007B">
-    <End Role="Employees" Type="TSDataModel.Store.Employees" Multiplicity="0..1" />
-    <End Role="EmployeeAssignment" Type="TSDataModel.Store.EmployeeAssignment" Multiplicity="*" />
+  <Association Name="FK__Assignmen__Emplo__182C9B23">
+    <End Role="Employees" Type="tsdataModel.Store.Employees" Multiplicity="1" />
+    <End Role="Assignments" Type="tsdataModel.Store.Assignments" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Employees">
         <PropertyRef Name="EmployeeID" />
       </Principal>
-      <Dependent Role="EmployeeAssignment">
+      <Dependent Role="Assignments">
         <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Assignmen__Proje__1920BF5C">
+    <End Role="Projects" Type="tsdataModel.Store.Projects" Multiplicity="1" />
+    <End Role="Assignments" Type="tsdataModel.Store.Assignments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Projects">
+        <PropertyRef Name="ProjectID" />
+      </Principal>
+      <Dependent Role="Assignments">
+        <PropertyRef Name="ProjectID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

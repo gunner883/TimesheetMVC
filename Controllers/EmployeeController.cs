@@ -12,7 +12,7 @@ namespace TimesheetMVC.Controllers
 { 
     public class EmployeeController : Controller
     {
-        private TSDataEntities db = new TSDataEntities();
+        private tsdataEntities db = new tsdataEntities();
 
         //
         // GET: /Employee/

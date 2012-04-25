@@ -1,0 +1,100 @@
+﻿@model TimesheetMVC.Models.Assignment
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>tblAssignment</legend>
+
+    <div class="display-label">Assignment</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Assignment)
+    </div>
+
+    <div class="display-label">EmployeeID</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EmployeeID)
+    </div>
+
+    <div class="display-label">ProjectID</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ProjectID)
+    </div>
+
+    <div class="display-label">StartDate</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.StartDate)
+    </div>
+
+    <div class="display-label">EndDate</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EndDate)
+    </div>
+
+    <div class="display-label">Active</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Active)
+    </div>
+
+    <div class="display-label">EmpPhone</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EmpPhone)
+    </div>
+
+    <div class="display-label">EmpEmail</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EmpEmail)
+    </div>
+
+    <div class="display-label">BillableExp</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.BillableExp)
+    </div>
+
+    <div class="display-label">Comments</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Comments)
+    </div>
+
+    <div class="display-label">InvContactID</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.InvContactID)
+    </div>
+
+    <div class="display-label">PONumber</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PONumber)
+    </div>
+
+    <div class="display-label">WorkOrder</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.WorkOrder)
+    </div>
+
+    <div class="display-label">Designation1</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Designation1)
+    </div>
+
+    <div class="display-label">Designation2</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Designation2)
+    </div>
+
+    <div class="display-label">CreatedDate</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CreatedDate)
+    </div>
+
+    <div class="display-label">CreatedBy</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CreatedBy)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.AssignmentID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

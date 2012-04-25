@@ -1,0 +1,163 @@
+﻿@model TimesheetMVC.Models.Assignment
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>tblAssignment</legend>
+
+        @Html.HiddenFor(model => model.AssignmentID)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Assignment)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Assignment)
+            @Html.ValidationMessageFor(model => model.Assignment)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EmployeeID)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.EmployeeID)
+            @Html.ValidationMessageFor(model => model.EmployeeID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ProjectID)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ProjectID)
+            @Html.ValidationMessageFor(model => model.ProjectID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.StartDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.StartDate)
+            @Html.ValidationMessageFor(model => model.StartDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EndDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.EndDate)
+            @Html.ValidationMessageFor(model => model.EndDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Active)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Active)
+            @Html.ValidationMessageFor(model => model.Active)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EmpPhone)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.EmpPhone)
+            @Html.ValidationMessageFor(model => model.EmpPhone)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EmpEmail)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.EmpEmail)
+            @Html.ValidationMessageFor(model => model.EmpEmail)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.BillableExp)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.BillableExp)
+            @Html.ValidationMessageFor(model => model.BillableExp)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Comments)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Comments)
+            @Html.ValidationMessageFor(model => model.Comments)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.InvContactID)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.InvContactID)
+            @Html.ValidationMessageFor(model => model.InvContactID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PONumber)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PONumber)
+            @Html.ValidationMessageFor(model => model.PONumber)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.WorkOrder)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.WorkOrder)
+            @Html.ValidationMessageFor(model => model.WorkOrder)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Designation1)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Designation1)
+            @Html.ValidationMessageFor(model => model.Designation1)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Designation2)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Designation2)
+            @Html.ValidationMessageFor(model => model.Designation2)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CreatedDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CreatedDate)
+            @Html.ValidationMessageFor(model => model.CreatedDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CreatedBy)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CreatedBy)
+            @Html.ValidationMessageFor(model => model.CreatedBy)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

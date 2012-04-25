@@ -1,40 +1,63 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="TSDataModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
-  <EntityContainer Name="TSDataEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="ClientProjectViews" EntityType="TSDataModel.ClientProjectView" />
-    <EntitySet Name="Clients" EntityType="TSDataModel.Client" />
-    <EntitySet Name="Contacts" EntityType="TSDataModel.Contact" />
-    <EntitySet Name="Days" EntityType="TSDataModel.Day" />
-    <EntitySet Name="HourlyRates" EntityType="TSDataModel.HourlyRate" />
-    <EntitySet Name="Hours" EntityType="TSDataModel.Hour" />
-    <EntitySet Name="InvDetails" EntityType="TSDataModel.InvDetail" />
-    <EntitySet Name="InvHeaders" EntityType="TSDataModel.InvHeader" />
-    <EntitySet Name="Invoices" EntityType="TSDataModel.Invoice" />
-    <EntitySet Name="InvRemitAddresses" EntityType="TSDataModel.InvRemitAddress" />
-    <EntitySet Name="JobTitles" EntityType="TSDataModel.JobTitle" />
-    <EntitySet Name="MenuGroups" EntityType="TSDataModel.MenuGroup" />
-    <EntitySet Name="MenuItems" EntityType="TSDataModel.MenuItem" />
-    <EntitySet Name="MenuSections" EntityType="TSDataModel.MenuSection" />
-    <EntitySet Name="OtherChargesCredits" EntityType="TSDataModel.OtherChargesCredit" />
-    <EntitySet Name="PayrollActivities" EntityType="TSDataModel.PayrollActivity" />
-    <EntitySet Name="Projects" EntityType="TSDataModel.Project" />
-    <EntitySet Name="Reminders" EntityType="TSDataModel.Reminder" />
-    <EntitySet Name="ReportANDGroups" EntityType="TSDataModel.ReportANDGroup" />
-    <EntitySet Name="ReportGroups" EntityType="TSDataModel.ReportGroup" />
-    <EntitySet Name="Reports" EntityType="TSDataModel.Report" />
-    <EntitySet Name="roperties" EntityType="TSDataModel.roperty" />
-    <EntitySet Name="Assignments" EntityType="TSDataModel.Assignment" />
-    <EntitySet Name="EmployeeAssignments" EntityType="TSDataModel.EmployeeAssignment" />
-    <EntitySet Name="Employees" EntityType="TSDataModel.Employee" />
-    <AssociationSet Name="FK__EmployeeA__Assig__300424B4" Association="TSDataModel.FK__EmployeeA__Assig__300424B4">
-      <End Role="Assignment" EntitySet="Assignments" />
-      <End Role="EmployeeAssignment" EntitySet="EmployeeAssignments" />
+<Schema Namespace="tsdataModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="tsdataEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Assignments" EntityType="tsdataModel.Assignment" />
+    <EntitySet Name="ClientProjectViews" EntityType="tsdataModel.ClientProjectView" />
+    <EntitySet Name="Clients" EntityType="tsdataModel.Client" />
+    <EntitySet Name="Contacts" EntityType="tsdataModel.Contact" />
+    <EntitySet Name="Days" EntityType="tsdataModel.Day" />
+    <EntitySet Name="Employees" EntityType="tsdataModel.Employee" />
+    <EntitySet Name="HourlyRates" EntityType="tsdataModel.HourlyRate" />
+    <EntitySet Name="Hours" EntityType="tsdataModel.Hour" />
+    <EntitySet Name="InvDetails" EntityType="tsdataModel.InvDetail" />
+    <EntitySet Name="InvHeaders" EntityType="tsdataModel.InvHeader" />
+    <EntitySet Name="Invoices" EntityType="tsdataModel.Invoice" />
+    <EntitySet Name="InvRemitAddresses" EntityType="tsdataModel.InvRemitAddress" />
+    <EntitySet Name="JobTitles" EntityType="tsdataModel.JobTitle" />
+    <EntitySet Name="MenuGroups" EntityType="tsdataModel.MenuGroup" />
+    <EntitySet Name="MenuItems" EntityType="tsdataModel.MenuItem" />
+    <EntitySet Name="MenuSections" EntityType="tsdataModel.MenuSection" />
+    <EntitySet Name="OtherChargesCredits" EntityType="tsdataModel.OtherChargesCredit" />
+    <EntitySet Name="PayrollActivities" EntityType="tsdataModel.PayrollActivity" />
+    <EntitySet Name="Projects" EntityType="tsdataModel.Project" />
+    <EntitySet Name="Reminders" EntityType="tsdataModel.Reminder" />
+    <EntitySet Name="ReportANDGroups" EntityType="tsdataModel.ReportANDGroup" />
+    <EntitySet Name="ReportGroups" EntityType="tsdataModel.ReportGroup" />
+    <EntitySet Name="Reports" EntityType="tsdataModel.Report" />
+    <AssociationSet Name="FK__Assignmen__Emplo__182C9B23" Association="tsdataModel.FK__Assignmen__Emplo__182C9B23">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="Assignments" EntitySet="Assignments" />
     </AssociationSet>
-    <AssociationSet Name="FK__EmployeeA__Emplo__2F10007B" Association="TSDataModel.FK__EmployeeA__Emplo__2F10007B">
-      <End Role="Employee" EntitySet="Employees" />
-      <End Role="EmployeeAssignment" EntitySet="EmployeeAssignments" />
+    <AssociationSet Name="FK__Assignmen__Proje__1920BF5C" Association="tsdataModel.FK__Assignmen__Proje__1920BF5C">
+      <End Role="Projects" EntitySet="Projects" />
+      <End Role="Assignments" EntitySet="Assignments" />
     </AssociationSet>
   </EntityContainer>
+  <EntityType Name="Assignment">
+    <Key>
+      <PropertyRef Name="AssignmentID" />
+    </Key>
+    <Property Name="AssignmentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Assignment1" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="EmployeeID" Type="Int32" Nullable="false" />
+    <Property Name="ProjectID" Type="Int32" Nullable="false" />
+    <Property Name="StartDate" Type="DateTime" Nullable="false" />
+    <Property Name="EndDate" Type="DateTime" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="EmpPhone" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="EmpEmail" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="BillableExp" Type="Boolean" Nullable="false" />
+    <Property Name="Comments" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="InvContactID" Type="Int32" />
+    <Property Name="PONumber" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="WorkOrder" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Designation1" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Designation2" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="CreatedDate" Type="DateTime" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Employee" Relationship="tsdataModel.FK__Assignmen__Emplo__182C9B23" FromRole="Assignments" ToRole="Employees" />
+    <NavigationProperty Name="Project" Relationship="tsdataModel.FK__Assignmen__Proje__1920BF5C" FromRole="Assignments" ToRole="Projects" />
+  </EntityType>
   <EntityType Name="ClientProjectView">
     <Key>
       <PropertyRef Name="ClientProjID" />
@@ -108,6 +131,41 @@
     </Key>
     <Property Name="DateDay" Type="DateTime" Nullable="false" />
     <Property Name="Holiday" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="EmployeeID" />
+    </Key>
+    <Property Name="EmployeeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LogonID" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="MI" Type="String" MaxLength="1" Unicode="false" FixedLength="false" />
+    <Property Name="Title" Type="String" MaxLength="5" Unicode="false" FixedLength="false" />
+    <Property Name="Suffix" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="StartDate" Type="DateTime" />
+    <Property Name="LastReviewDate" Type="DateTime" />
+    <Property Name="NextReviewDate" Type="DateTime" />
+    <Property Name="Street" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="City" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="State" Type="String" MaxLength="2" Unicode="false" FixedLength="false" />
+    <Property Name="Zip" Type="String" MaxLength="11" Unicode="false" FixedLength="false" />
+    <Property Name="Phone" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="BirthDate" Type="DateTime" />
+    <Property Name="Status" Type="Boolean" Nullable="false" />
+    <Property Name="JobTitleID" Type="Int32" />
+    <Property Name="ManagerID" Type="Int32" />
+    <Property Name="Salary" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Bonus" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="HealthCoverage" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="DentalCoverage" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="MoExp" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Region" Type="String" Nullable="false" MaxLength="2" Unicode="false" FixedLength="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="CurClientPhone" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="CellPhone" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Assignments" Relationship="tsdataModel.FK__Assignmen__Emplo__182C9B23" FromRole="Employees" ToRole="Assignments" />
   </EntityType>
   <EntityType Name="HourlyRate">
     <Key>
@@ -293,15 +351,6 @@
   <EntityType Name="Project">
     <Key>
       <PropertyRef Name="ProjectID" />
-      <PropertyRef Name="Project1" />
-      <PropertyRef Name="ClientID" />
-      <PropertyRef Name="AcctMngrID" />
-      <PropertyRef Name="Budget" />
-      <PropertyRef Name="Fixed" />
-      <PropertyRef Name="Prebilled" />
-      <PropertyRef Name="TaxableState" />
-      <PropertyRef Name="CreatedDate" />
-      <PropertyRef Name="CreatedBy" />
     </Key>
     <Property Name="ProjectID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Project1" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
@@ -316,6 +365,7 @@
     <Property Name="TaxableState" Type="String" Nullable="false" MaxLength="2" Unicode="false" FixedLength="false" />
     <Property Name="CreatedDate" Type="DateTime" Nullable="false" />
     <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Assignments" Relationship="tsdataModel.FK__Assignmen__Proje__1920BF5C" FromRole="Projects" ToRole="Assignments" />
   </EntityType>
   <EntityType Name="Reminder">
     <Key>
@@ -355,110 +405,27 @@
     <Property Name="ReportID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="ReportName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
   </EntityType>
-  <EntityType Name="roperty">
-    <Key>
-      <PropertyRef Name="id" />
-      <PropertyRef Name="property" />
-      <PropertyRef Name="version" />
-    </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="objectid" Type="Int32" />
-    <Property Name="property" Type="String" Nullable="false" MaxLength="64" Unicode="false" FixedLength="false" />
-    <Property Name="value" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-    <Property Name="uvalue" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-    <Property Name="lvalue" Type="Binary" MaxLength="Max" FixedLength="false" />
-    <Property Name="version" Type="Int32" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Assignment">
-    <Key>
-      <PropertyRef Name="AssignmentID" />
-    </Key>
-    <Property Type="Int32" Name="AssignmentID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="String" Name="Assignment1" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Type="Int32" Name="EmployeeID" Nullable="false" />
-    <Property Type="Int32" Name="ProjectID" Nullable="false" />
-    <Property Type="DateTime" Name="StartDate" Nullable="false" />
-    <Property Type="DateTime" Name="EndDate" />
-    <Property Type="Boolean" Name="Active" Nullable="false" />
-    <Property Type="String" Name="EmpPhone" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Type="String" Name="EmpEmail" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Type="Boolean" Name="BillableExp" Nullable="false" />
-    <Property Type="String" Name="Comments" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Type="Int32" Name="InvContactID" />
-    <Property Type="String" Name="PONumber" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Type="String" Name="WorkOrder" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Type="String" Name="Designation1" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Type="String" Name="Designation2" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Type="DateTime" Name="CreatedDate" />
-    <Property Type="String" Name="CreatedBy" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="EmployeeAssignments" Relationship="TSDataModel.FK__EmployeeA__Assig__300424B4" FromRole="Assignment" ToRole="EmployeeAssignment" />
-  </EntityType>
-  <EntityType Name="EmployeeAssignment">
-    <Key>
-      <PropertyRef Name="EmployeeAssignmentID" />
-    </Key>
-    <Property Type="Int32" Name="EmployeeAssignmentID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="Int32" Name="EmployeeID" />
-    <Property Type="Int32" Name="Assignmentid" />
-    <NavigationProperty Name="Assignment" Relationship="TSDataModel.FK__EmployeeA__Assig__300424B4" FromRole="EmployeeAssignment" ToRole="Assignment" />
-    <NavigationProperty Name="Employee" Relationship="TSDataModel.FK__EmployeeA__Emplo__2F10007B" FromRole="EmployeeAssignment" ToRole="Employee" />
-  </EntityType>
-  <EntityType Name="Employee">
-    <Key>
-      <PropertyRef Name="EmployeeID" />
-    </Key>
-    <Property Type="Int32" Name="EmployeeID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="String" Name="LogonID" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Type="String" Name="LastName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Type="String" Name="FirstName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Type="String" Name="MI" MaxLength="1" FixedLength="false" Unicode="false" />
-    <Property Type="String" Name="Title" MaxLength="5" FixedLength="false" Unicode="false" />
-    <Property Type="String" Name="Suffix" MaxLength="10" FixedLength="false" Unicode="false" />
-    <Property Type="DateTime" Name="StartDate" />
-    <Property Type="DateTime" Name="LastReviewDate" />
-    <Property Type="DateTime" Name="NextReviewDate" />
-    <Property Type="String" Name="Street" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Type="String" Name="City" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Type="String" Name="State" MaxLength="2" FixedLength="false" Unicode="false" />
-    <Property Type="String" Name="Zip" MaxLength="11" FixedLength="false" Unicode="false" />
-    <Property Type="String" Name="Phone" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Type="DateTime" Name="BirthDate" />
-    <Property Type="Boolean" Name="Status" Nullable="false" />
-    <Property Type="Int32" Name="JobTitleID" />
-    <Property Type="Int32" Name="ManagerID" />
-    <Property Type="Decimal" Name="Salary" Precision="18" Scale="2" />
-    <Property Type="Decimal" Name="Bonus" Precision="18" Scale="2" />
-    <Property Type="String" Name="HealthCoverage" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Type="String" Name="DentalCoverage" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Type="String" Name="MoExp" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Type="String" Name="Region" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
-    <Property Type="DateTime" Name="CreatedDate" Nullable="false" />
-    <Property Type="String" Name="CreatedBy" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Type="String" Name="CurClientPhone" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Type="String" Name="CellPhone" MaxLength="50" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="EmployeeAssignments" Relationship="TSDataModel.FK__EmployeeA__Emplo__2F10007B" FromRole="Employee" ToRole="EmployeeAssignment" />
-  </EntityType>
-  <Association Name="FK__EmployeeA__Assig__300424B4">
-    <End Type="TSDataModel.Assignment" Role="Assignment" Multiplicity="0..1" />
-    <End Type="TSDataModel.EmployeeAssignment" Role="EmployeeAssignment" Multiplicity="*" />
+  <Association Name="FK__Assignmen__Emplo__182C9B23">
+    <End Role="Employees" Type="tsdataModel.Employee" Multiplicity="1" />
+    <End Role="Assignments" Type="tsdataModel.Assignment" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Assignment">
-        <PropertyRef Name="AssignmentID" />
+      <Principal Role="Employees">
+        <PropertyRef Name="EmployeeID" />
       </Principal>
-      <Dependent Role="EmployeeAssignment">
-        <PropertyRef Name="Assignmentid" />
+      <Dependent Role="Assignments">
+        <PropertyRef Name="EmployeeID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__EmployeeA__Emplo__2F10007B">
-    <End Type="TSDataModel.Employee" Role="Employee" Multiplicity="0..1" />
-    <End Type="TSDataModel.EmployeeAssignment" Role="EmployeeAssignment" Multiplicity="*" />
+  <Association Name="FK__Assignmen__Proje__1920BF5C">
+    <End Role="Projects" Type="tsdataModel.Project" Multiplicity="1" />
+    <End Role="Assignments" Type="tsdataModel.Assignment" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Employee">
-        <PropertyRef Name="EmployeeID" />
+      <Principal Role="Projects">
+        <PropertyRef Name="ProjectID" />
       </Principal>
-      <Dependent Role="EmployeeAssignment">
-        <PropertyRef Name="EmployeeID" />
+      <Dependent Role="Assignments">
+        <PropertyRef Name="ProjectID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

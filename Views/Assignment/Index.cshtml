@@ -1,0 +1,129 @@
+﻿@model IEnumerable<TimesheetMVC.Models.Assignment>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            Assignment
+        </th>
+        <th>
+            EmployeeID
+        </th>
+        <th>
+            ProjectID
+        </th>
+        <th>
+            StartDate
+        </th>
+        <th>
+            EndDate
+        </th>
+        <th>
+            Active
+        </th>
+        <th>
+            EmpPhone
+        </th>
+        <th>
+            EmpEmail
+        </th>
+        <th>
+            BillableExp
+        </th>
+        <th>
+            Comments
+        </th>
+        <th>
+            InvContactID
+        </th>
+        <th>
+            PONumber
+        </th>
+        <th>
+            WorkOrder
+        </th>
+        <th>
+            Designation1
+        </th>
+        <th>
+            Designation2
+        </th>
+        <th>
+            CreatedDate
+        </th>
+        <th>
+            CreatedBy
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Assignment1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmployeeID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProjectID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StartDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EndDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Active)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmpPhone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmpEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BillableExp)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Comments)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InvContactID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PONumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WorkOrder)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Designation1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Designation2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedBy)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.AssignmentID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.AssignmentID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.AssignmentID })
+        </td>
+    </tr>
+}
+
+</table>

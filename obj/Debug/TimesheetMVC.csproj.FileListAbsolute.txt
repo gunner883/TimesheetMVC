@@ -7,3 +7,10 @@ c:\users\rocco lombardo\documents\visual studio 2010\Projects\TimesheetMVC\Times
 c:\users\rocco lombardo\documents\visual studio 2010\Projects\TimesheetMVC\TimesheetMVC\obj\Debug\TimesheetMVC.pdb
 C:\Users\Rocco Lombardo\documents\visual studio 2010\Projects\TimesheetMVC\TimesheetMVC\bin\PagedList.dll
 C:\Users\Rocco Lombardo\documents\visual studio 2010\Projects\TimesheetMVC\TimesheetMVC\bin\PagedList.xml
+C:\Users\Rocco Lombardo\Documents\Visual Studio 2010\Projects\TimesheetMVC\bin\TimesheetMVC.dll
+C:\Users\Rocco Lombardo\Documents\Visual Studio 2010\Projects\TimesheetMVC\bin\TimesheetMVC.pdb
+C:\Users\Rocco Lombardo\Documents\Visual Studio 2010\Projects\TimesheetMVC\bin\EntityFramework.xml
+C:\Users\Rocco Lombardo\Documents\Visual Studio 2010\Projects\TimesheetMVC\bin\PagedList.xml
+C:\Users\Rocco Lombardo\Documents\Visual Studio 2010\Projects\TimesheetMVC\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Rocco Lombardo\Documents\Visual Studio 2010\Projects\TimesheetMVC\obj\Debug\TimesheetMVC.dll
+C:\Users\Rocco Lombardo\Documents\Visual Studio 2010\Projects\TimesheetMVC\obj\Debug\TimesheetMVC.pdb
