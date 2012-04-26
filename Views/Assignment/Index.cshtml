@@ -5,20 +5,31 @@
 }
 
 <h2>Index</h2>
-
+<p></p>
+@using (Html.BeginForm(new { @class = "well form-search" }))
+{
+    <div class="row">
+        <div class="span8">
+            Find by name: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, new { @class = "input-medium search-query"})  
+            <input type="submit" value="Search" class="btn btn-primary" />
+        </div>
+    </div>
+}
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table>
+<table class="table">
+<thead>
     <tr>
+        <th>Action Links</th>
         <th>
             Assignment
         </th>
-        <th>
-            EmployeeID
+         <th>
+             @Html.ActionLink("Employee", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
         <th>
-            ProjectID
+             @Html.ActionLink("Project", "Index", new { sortOrder = ViewBag.ProjectSortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
         <th>
             StartDate
@@ -28,34 +39,7 @@
         </th>
         <th>
             Active
-        </th>
-        <th>
-            EmpPhone
-        </th>
-        <th>
-            EmpEmail
-        </th>
-        <th>
-            BillableExp
-        </th>
-        <th>
-            Comments
-        </th>
-        <th>
-            InvContactID
-        </th>
-        <th>
-            PONumber
-        </th>
-        <th>
-            WorkOrder
-        </th>
-        <th>
-            Designation1
-        </th>
-        <th>
-            Designation2
-        </th>
+        </th>        
         <th>
             CreatedDate
         </th>
@@ -64,17 +48,23 @@
         </th>
         <th></th>
     </tr>
+</thead>
 
 @foreach (var item in Model) {
     <tr>
         <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.AssignmentID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.AssignmentID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.AssignmentID })
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.Assignment1)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.EmployeeID)
+            @Html.DisplayFor(modelItem => item.Employee.LastName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ProjectID)
+            @Html.DisplayFor(modelItem => item.Project.Project1)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.StartDate)
@@ -89,39 +79,10 @@
             @Html.DisplayFor(modelItem => item.EmpPhone)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.EmpEmail)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BillableExp)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Comments)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.InvContactID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PONumber)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.WorkOrder)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Designation1)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Designation2)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.CreatedDate)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.CreatedBy)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.AssignmentID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.AssignmentID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.AssignmentID })
         </td>
     </tr>
 }
