@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="tsdataModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="tsdataModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="tsdataModelStoreContainer">
           <EntitySet Name="Assignments" EntityType="tsdataModel.Store.Assignments" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="ClientProjectView" EntityType="tsdataModel.Store.ClientProjectView" store:Type="Tables" store:Schema="dbo" store:Name="ClientProjectView">
@@ -16,27 +16,7 @@
       [ClientProjectView].[CreatedBy] AS [CreatedBy]
       FROM [dbo].[ClientProjectView] AS [ClientProjectView]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="Clients" EntityType="tsdataModel.Store.Clients" store:Type="Tables" store:Schema="dbo" store:Name="Clients">
-            <DefiningQuery>SELECT 
-      [Clients].[ClientID] AS [ClientID], 
-      [Clients].[Client] AS [Client], 
-      [Clients].[Street] AS [Street], 
-      [Clients].[City] AS [City], 
-      [Clients].[State] AS [State], 
-      [Clients].[Zip] AS [Zip], 
-      [Clients].[Country] AS [Country], 
-      [Clients].[Phone] AS [Phone], 
-      [Clients].[Fax] AS [Fax], 
-      [Clients].[Comments] AS [Comments], 
-      [Clients].[DirectorID] AS [DirectorID], 
-      [Clients].[Region] AS [Region], 
-      [Clients].[DefaultInvFrequency] AS [DefaultInvFrequency], 
-      [Clients].[QuickBookClientID] AS [QuickBookClientID], 
-      [Clients].[CreatedDate] AS [CreatedDate], 
-      [Clients].[CreatedBy] AS [CreatedBy], 
-      [Clients].[ClientShort] AS [ClientShort]
-      FROM [dbo].[Clients] AS [Clients]</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="Clients" EntityType="tsdataModel.Store.Clients" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Contacts" EntityType="tsdataModel.Store.Contacts" store:Type="Tables" store:Schema="dbo" store:Name="Contacts">
             <DefiningQuery>SELECT 
       [Contacts].[ContactID] AS [ContactID], 
@@ -76,25 +56,7 @@
       [HourlyRate].[CreatedBy] AS [CreatedBy]
       FROM [dbo].[HourlyRate] AS [HourlyRate]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="Hours" EntityType="tsdataModel.Store.Hours" store:Type="Tables" store:Schema="dbo" store:Name="Hours">
-            <DefiningQuery>SELECT 
-      [Hours].[HoursID] AS [HoursID], 
-      [Hours].[AssignmentID] AS [AssignmentID], 
-      [Hours].[EmployeeID] AS [EmployeeID], 
-      [Hours].[HoursDate] AS [HoursDate], 
-      [Hours].[Hours] AS [Hours], 
-      [Hours].[AdjHours] AS [AdjHours], 
-      [Hours].[Comments] AS [Comments], 
-      [Hours].[Submitted] AS [Submitted], 
-      [Hours].[AcctMgrApprBy] AS [AcctMgrApprBy], 
-      [Hours].[AcctMgrApprDate] AS [AcctMgrApprDate], 
-      [Hours].[DirApprBy] AS [DirApprBy], 
-      [Hours].[DirApprDate] AS [DirApprDate], 
-      [Hours].[InvNumber] AS [InvNumber], 
-      [Hours].[CreatedDate] AS [CreatedDate], 
-      [Hours].[CreatedBy] AS [CreatedBy]
-      FROM [dbo].[Hours] AS [Hours]</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="Hours" EntityType="tsdataModel.Store.Hours" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="InvDetail" EntityType="tsdataModel.Store.InvDetail" store:Type="Tables" store:Schema="dbo" store:Name="InvDetail">
             <DefiningQuery>SELECT 
       [InvDetail].[InvDetailID] AS [InvDetailID], 
@@ -227,6 +189,14 @@
             <End Role="Projects" EntitySet="Projects" />
             <End Role="Assignments" EntitySet="Assignments" />
           </AssociationSet>
+          <AssociationSet Name="FK__Hours__Assignmen__1ED998B2" Association="tsdataModel.Store.FK__Hours__Assignmen__1ED998B2">
+            <End Role="Assignments" EntitySet="Assignments" />
+            <End Role="Hours" EntitySet="Hours" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Projects__Client__1BFD2C07" Association="tsdataModel.Store.FK__Projects__Client__1BFD2C07">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="Projects" EntitySet="Projects" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Assignments">
           <Key>
@@ -268,16 +238,9 @@
           <Property Name="CreatedDate" Type="datetime" Nullable="false" />
           <Property Name="CreatedBy" Type="varchar" Nullable="false" MaxLength="20" />
         </EntityType>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'tsdata.dbo.Clients' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
         <EntityType Name="Clients">
           <Key>
             <PropertyRef Name="ClientID" />
-            <PropertyRef Name="Client" />
-            <PropertyRef Name="Region" />
-            <PropertyRef Name="CreatedDate" />
-            <PropertyRef Name="CreatedBy" />
           </Key>
           <Property Name="ClientID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Client" Type="varchar" Nullable="false" MaxLength="50" />
@@ -391,18 +354,9 @@
           <Property Name="CreatedDate" Type="datetime" Nullable="false" />
           <Property Name="CreatedBy" Type="varchar" Nullable="false" MaxLength="20" />
         </EntityType>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'tsdata.dbo.Hours' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
         <EntityType Name="Hours">
           <Key>
             <PropertyRef Name="HoursID" />
-            <PropertyRef Name="AssignmentID" />
-            <PropertyRef Name="HoursDate" />
-            <PropertyRef Name="Hours" />
-            <PropertyRef Name="AdjHours" />
-            <PropertyRef Name="CreatedDate" />
-            <PropertyRef Name="CreatedBy" />
           </Key>
           <Property Name="HoursID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="AssignmentID" Type="int" Nullable="false" />
@@ -680,20 +634,41 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
-    </edmx:StorageModels>
+        <Association Name="FK__Hours__Assignmen__1ED998B2">
+          <End Role="Assignments" Type="tsdataModel.Store.Assignments" Multiplicity="1" />
+          <End Role="Hours" Type="tsdataModel.Store.Hours" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Assignments">
+              <PropertyRef Name="AssignmentID" />
+            </Principal>
+            <Dependent Role="Hours">
+              <PropertyRef Name="AssignmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Projects__Client__1BFD2C07">
+          <End Role="Clients" Type="tsdataModel.Store.Clients" Multiplicity="1" />
+          <End Role="Projects" Type="tsdataModel.Store.Projects" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="ClientID" />
+            </Principal>
+            <Dependent Role="Projects">
+              <PropertyRef Name="ClientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="tsdataModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
         <EntityContainer Name="tsdataEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Assignments" EntityType="tsdataModel.Assignment" />
           <EntitySet Name="ClientProjectViews" EntityType="tsdataModel.ClientProjectView" />
-          <EntitySet Name="Clients" EntityType="tsdataModel.Client" />
           <EntitySet Name="Contacts" EntityType="tsdataModel.Contact" />
           <EntitySet Name="Days" EntityType="tsdataModel.Day" />
           <EntitySet Name="Employees" EntityType="tsdataModel.Employee" />
           <EntitySet Name="HourlyRates" EntityType="tsdataModel.HourlyRate" />
-          <EntitySet Name="Hours" EntityType="tsdataModel.Hour" />
           <EntitySet Name="InvDetails" EntityType="tsdataModel.InvDetail" />
           <EntitySet Name="InvHeaders" EntityType="tsdataModel.InvHeader" />
           <EntitySet Name="Invoices" EntityType="tsdataModel.Invoice" />
@@ -716,6 +691,16 @@
           <AssociationSet Name="FK__Assignmen__Proje__1920BF5C" Association="tsdataModel.FK__Assignmen__Proje__1920BF5C">
             <End Role="Projects" EntitySet="Projects" />
             <End Role="Assignments" EntitySet="Assignments" />
+          </AssociationSet>
+          <EntitySet Name="Clients" EntityType="tsdataModel.Client" />
+          <EntitySet Name="Hours" EntityType="tsdataModel.Hour" />
+          <AssociationSet Name="FK__Hours__Assignmen__1ED998B2" Association="tsdataModel.FK__Hours__Assignmen__1ED998B2">
+            <End Role="Assignment" EntitySet="Assignments" />
+            <End Role="Hour" EntitySet="Hours" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Projects__Client__1BFD2C07" Association="tsdataModel.FK__Projects__Client__1BFD2C07">
+            <End Role="Client" EntitySet="Clients" />
+            <End Role="Project" EntitySet="Projects" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Assignment">
@@ -742,6 +727,7 @@
           <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
           <NavigationProperty Name="Employee" Relationship="tsdataModel.FK__Assignmen__Emplo__182C9B23" FromRole="Assignments" ToRole="Employees" />
           <NavigationProperty Name="Project" Relationship="tsdataModel.FK__Assignmen__Proje__1920BF5C" FromRole="Assignments" ToRole="Projects" />
+          <NavigationProperty Name="Hours" Relationship="tsdataModel.FK__Hours__Assignmen__1ED998B2" FromRole="Assignment" ToRole="Hour" />
         </EntityType>
         <EntityType Name="ClientProjectView">
           <Key>
@@ -756,32 +742,6 @@
           <Property Name="ProjectID" Type="Int32" Nullable="false" />
           <Property Name="CreatedDate" Type="DateTime" Nullable="false" />
           <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
-        </EntityType>
-        <EntityType Name="Client">
-          <Key>
-            <PropertyRef Name="ClientID" />
-            <PropertyRef Name="Client1" />
-            <PropertyRef Name="Region" />
-            <PropertyRef Name="CreatedDate" />
-            <PropertyRef Name="CreatedBy" />
-          </Key>
-          <Property Name="ClientID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Client1" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
-          <Property Name="Street" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-          <Property Name="City" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
-          <Property Name="State" Type="String" MaxLength="2" Unicode="false" FixedLength="false" />
-          <Property Name="Zip" Type="String" MaxLength="11" Unicode="false" FixedLength="false" />
-          <Property Name="Country" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
-          <Property Name="Phone" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
-          <Property Name="Fax" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
-          <Property Name="Comments" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-          <Property Name="DirectorID" Type="Int32" />
-          <Property Name="Region" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
-          <Property Name="DefaultInvFrequency" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
-          <Property Name="QuickBookClientID" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
-          <Property Name="CreatedDate" Type="DateTime" Nullable="false" />
-          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
-          <Property Name="ClientShort" Type="String" MaxLength="5" Unicode="false" FixedLength="false" />
         </EntityType>
         <EntityType Name="Contact">
           <Key>
@@ -866,32 +826,6 @@
           <Property Name="HourlyRate1" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
           <Property Name="StartDate" Type="DateTime" Nullable="false" />
           <Property Name="EndDate" Type="DateTime" />
-          <Property Name="CreatedDate" Type="DateTime" Nullable="false" />
-          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
-        </EntityType>
-        <EntityType Name="Hour">
-          <Key>
-            <PropertyRef Name="HoursID" />
-            <PropertyRef Name="AssignmentID" />
-            <PropertyRef Name="HoursDate" />
-            <PropertyRef Name="Hours" />
-            <PropertyRef Name="AdjHours" />
-            <PropertyRef Name="CreatedDate" />
-            <PropertyRef Name="CreatedBy" />
-          </Key>
-          <Property Name="HoursID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="AssignmentID" Type="Int32" Nullable="false" />
-          <Property Name="EmployeeID" Type="Int32" />
-          <Property Name="HoursDate" Type="DateTime" Nullable="false" />
-          <Property Name="Hours" Type="Double" Nullable="false" />
-          <Property Name="AdjHours" Type="Double" Nullable="false" />
-          <Property Name="Comments" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-          <Property Name="Submitted" Type="DateTime" />
-          <Property Name="AcctMgrApprBy" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
-          <Property Name="AcctMgrApprDate" Type="DateTime" />
-          <Property Name="DirApprBy" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
-          <Property Name="DirApprDate" Type="DateTime" />
-          <Property Name="InvNumber" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
           <Property Name="CreatedDate" Type="DateTime" Nullable="false" />
           <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
         </EntityType>
@@ -1051,6 +985,7 @@
           <Property Name="CreatedDate" Type="DateTime" Nullable="false" />
           <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
           <NavigationProperty Name="Assignments" Relationship="tsdataModel.FK__Assignmen__Proje__1920BF5C" FromRole="Projects" ToRole="Assignments" />
+          <NavigationProperty Name="Client" Relationship="tsdataModel.FK__Projects__Client__1BFD2C07" FromRole="Project" ToRole="Client" />
         </EntityType>
         <EntityType Name="Reminder">
           <Key>
@@ -1114,6 +1049,74 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="ClientID" />
+          </Key>
+          <Property Type="Int32" Name="ClientID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Client1" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Street" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="City" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="State" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Zip" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Country" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Phone" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Fax" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Comments" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="DirectorID" />
+          <Property Type="String" Name="Region" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="DefaultInvFrequency" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="QuickBookClientID" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="false" />
+          <Property Type="String" Name="CreatedBy" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ClientShort" MaxLength="5" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Projects" Relationship="tsdataModel.FK__Projects__Client__1BFD2C07" FromRole="Client" ToRole="Project" />
+        </EntityType>
+        <EntityType Name="Hour">
+          <Key>
+            <PropertyRef Name="HoursID" />
+          </Key>
+          <Property Type="Int32" Name="HoursID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="AssignmentID" Nullable="false" />
+          <Property Type="Int32" Name="EmployeeID" />
+          <Property Type="DateTime" Name="HoursDate" Nullable="false" />
+          <Property Type="Double" Name="Hours" Nullable="false" />
+          <Property Type="Double" Name="AdjHours" Nullable="false" />
+          <Property Type="String" Name="Comments" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Submitted" />
+          <Property Type="String" Name="AcctMgrApprBy" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="AcctMgrApprDate" />
+          <Property Type="String" Name="DirApprBy" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="DirApprDate" />
+          <Property Type="String" Name="InvNumber" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="false" />
+          <Property Type="String" Name="CreatedBy" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Assignment" Relationship="tsdataModel.FK__Hours__Assignmen__1ED998B2" FromRole="Hour" ToRole="Assignment" />
+        </EntityType>
+        <Association Name="FK__Hours__Assignmen__1ED998B2">
+          <End Type="tsdataModel.Assignment" Role="Assignment" Multiplicity="1" />
+          <End Type="tsdataModel.Hour" Role="Hour" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Assignment">
+              <PropertyRef Name="AssignmentID" />
+            </Principal>
+            <Dependent Role="Hour">
+              <PropertyRef Name="AssignmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Projects__Client__1BFD2C07">
+          <End Type="tsdataModel.Client" Role="Client" Multiplicity="1" />
+          <End Type="tsdataModel.Project" Role="Project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="ClientID" />
+            </Principal>
+            <Dependent Role="Project">
+              <PropertyRef Name="ClientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1146,25 +1149,6 @@
             <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
             <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
             <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="Clients"><EntityTypeMapping TypeName="tsdataModel.Client"><MappingFragment StoreEntitySet="Clients">
-            <ScalarProperty Name="ClientID" ColumnName="ClientID" />
-            <ScalarProperty Name="Client1" ColumnName="Client" />
-            <ScalarProperty Name="Street" ColumnName="Street" />
-            <ScalarProperty Name="City" ColumnName="City" />
-            <ScalarProperty Name="State" ColumnName="State" />
-            <ScalarProperty Name="Zip" ColumnName="Zip" />
-            <ScalarProperty Name="Country" ColumnName="Country" />
-            <ScalarProperty Name="Phone" ColumnName="Phone" />
-            <ScalarProperty Name="Fax" ColumnName="Fax" />
-            <ScalarProperty Name="Comments" ColumnName="Comments" />
-            <ScalarProperty Name="DirectorID" ColumnName="DirectorID" />
-            <ScalarProperty Name="Region" ColumnName="Region" />
-            <ScalarProperty Name="DefaultInvFrequency" ColumnName="DefaultInvFrequency" />
-            <ScalarProperty Name="QuickBookClientID" ColumnName="QuickBookClientID" />
-            <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-            <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-            <ScalarProperty Name="ClientShort" ColumnName="ClientShort" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="Contacts"><EntityTypeMapping TypeName="tsdataModel.Contact"><MappingFragment StoreEntitySet="Contacts">
             <ScalarProperty Name="ContactID" ColumnName="ContactID" />
@@ -1226,23 +1210,6 @@
             <ScalarProperty Name="HourlyRate1" ColumnName="HourlyRate" />
             <ScalarProperty Name="StartDate" ColumnName="StartDate" />
             <ScalarProperty Name="EndDate" ColumnName="EndDate" />
-            <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-            <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="Hours"><EntityTypeMapping TypeName="tsdataModel.Hour"><MappingFragment StoreEntitySet="Hours">
-            <ScalarProperty Name="HoursID" ColumnName="HoursID" />
-            <ScalarProperty Name="AssignmentID" ColumnName="AssignmentID" />
-            <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
-            <ScalarProperty Name="HoursDate" ColumnName="HoursDate" />
-            <ScalarProperty Name="Hours" ColumnName="Hours" />
-            <ScalarProperty Name="AdjHours" ColumnName="AdjHours" />
-            <ScalarProperty Name="Comments" ColumnName="Comments" />
-            <ScalarProperty Name="Submitted" ColumnName="Submitted" />
-            <ScalarProperty Name="AcctMgrApprBy" ColumnName="AcctMgrApprBy" />
-            <ScalarProperty Name="AcctMgrApprDate" ColumnName="AcctMgrApprDate" />
-            <ScalarProperty Name="DirApprBy" ColumnName="DirApprBy" />
-            <ScalarProperty Name="DirApprDate" ColumnName="DirApprDate" />
-            <ScalarProperty Name="InvNumber" ColumnName="InvNumber" />
             <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
             <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
@@ -1356,6 +1323,50 @@
             <ScalarProperty Name="ReportID" ColumnName="ReportID" />
             <ScalarProperty Name="ReportName" ColumnName="ReportName" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Clients">
+            <EntityTypeMapping TypeName="tsdataModel.Client">
+              <MappingFragment StoreEntitySet="Clients">
+                <ScalarProperty Name="ClientShort" ColumnName="ClientShort" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="QuickBookClientID" ColumnName="QuickBookClientID" />
+                <ScalarProperty Name="DefaultInvFrequency" ColumnName="DefaultInvFrequency" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="DirectorID" ColumnName="DirectorID" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Zip" ColumnName="Zip" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Street" ColumnName="Street" />
+                <ScalarProperty Name="Client1" ColumnName="Client" />
+                <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Hours">
+            <EntityTypeMapping TypeName="tsdataModel.Hour">
+              <MappingFragment StoreEntitySet="Hours">
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="InvNumber" ColumnName="InvNumber" />
+                <ScalarProperty Name="DirApprDate" ColumnName="DirApprDate" />
+                <ScalarProperty Name="DirApprBy" ColumnName="DirApprBy" />
+                <ScalarProperty Name="AcctMgrApprDate" ColumnName="AcctMgrApprDate" />
+                <ScalarProperty Name="AcctMgrApprBy" ColumnName="AcctMgrApprBy" />
+                <ScalarProperty Name="Submitted" ColumnName="Submitted" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="AdjHours" ColumnName="AdjHours" />
+                <ScalarProperty Name="Hours" ColumnName="Hours" />
+                <ScalarProperty Name="HoursDate" ColumnName="HoursDate" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="AssignmentID" ColumnName="AssignmentID" />
+                <ScalarProperty Name="HoursID" ColumnName="HoursID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -1379,12 +1390,10 @@
       <Diagram Name="tsdataModel" ZoomLevel="59">
         <EntityTypeShape EntityType="tsdataModel.Assignment" Width="1.5" PointX="3" PointY="2.125" Height="4.8648079427083335" IsExpanded="true" />
         <EntityTypeShape EntityType="tsdataModel.ClientProjectView" Width="1.5" PointX="5.75" PointY="0.75" Height="1.9802864583333335" IsExpanded="true" />
-        <EntityTypeShape EntityType="tsdataModel.Client" Width="1.5" PointX="5.75" PointY="3.75" Height="4.2879036458333335" IsExpanded="true" />
         <EntityTypeShape EntityType="tsdataModel.Contact" Width="1.5" PointX="7.75" PointY="0.75" Height="4.2879036458333335" IsExpanded="true" />
         <EntityTypeShape EntityType="tsdataModel.Day" Width="1.5" PointX="2.75" PointY="7.75" Height="1.4033821614583317" IsExpanded="true" />
         <EntityTypeShape EntityType="tsdataModel.Employee" Width="1.5" PointX="0.75" PointY="1.125" Height="6.7878222656250014" IsExpanded="true" />
         <EntityTypeShape EntityType="tsdataModel.HourlyRate" Width="1.5" PointX="7.75" PointY="6.75" Height="2.3648893229166674" IsExpanded="true" />
-        <EntityTypeShape EntityType="tsdataModel.Hour" Width="1.5" PointX="9.75" PointY="0.75" Height="3.9033007812499996" IsExpanded="true" />
         <EntityTypeShape EntityType="tsdataModel.InvDetail" Width="1.5" PointX="4.75" PointY="9.75" Height="2.1725878906249996" IsExpanded="true" />
         <EntityTypeShape EntityType="tsdataModel.InvHeader" Width="1.5" PointX="9.75" PointY="5.75" Height="2.1725878906249996" IsExpanded="true" />
         <EntityTypeShape EntityType="tsdataModel.Invoice" Width="1.5" PointX="9.75" PointY="8.75" Height="4.0956022135416674" IsExpanded="true" />
@@ -1401,13 +1410,23 @@
         <EntityTypeShape EntityType="tsdataModel.ReportGroup" Width="1.5" PointX="4.75" PointY="13.75" Height="1.4033821614583282" IsExpanded="true" />
         <EntityTypeShape EntityType="tsdataModel.Report" Width="1.5" PointX="13.75" PointY="6.75" Height="1.4033821614583246" IsExpanded="true" />
         <AssociationConnector Association="tsdataModel.FK__Assignmen__Emplo__182C9B23" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="4.5574039713541667" />
-          <ConnectorPoint PointX="3" PointY="4.5574039713541667" />
+          <ConnectorPoint PointX="2.25" PointY="4.6535546875" />
+          <ConnectorPoint PointX="3" PointY="4.6535546875" />
         </AssociationConnector>
         <AssociationConnector Association="tsdataModel.FK__Assignmen__Proje__1920BF5C" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="10.838440755208335" />
-          <ConnectorPoint PointX="4.40625" PointY="10.838440755208335" />
-          <ConnectorPoint PointX="4.40625" PointY="6.9898079427083335" />
+          <ConnectorPoint PointX="2.25" PointY="10.934591471354166" />
+          <ConnectorPoint PointX="4.40625" PointY="10.934591471354166" />
+          <ConnectorPoint PointX="4.40625" PointY="7.182109375" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="tsdataModel.Client" Width="1.5" PointX="0.75" PointY="16.5" Height="4.480205078124996" />
+        <EntityTypeShape EntityType="tsdataModel.Hour" Width="1.5" PointX="5.25" PointY="3.625" Height="4.0956022135416674" />
+        <AssociationConnector Association="tsdataModel.FK__Hours__Assignmen__1ED998B2" >
+          <ConnectorPoint PointX="4.5" PointY="5.4035546875" />
+          <ConnectorPoint PointX="5.25" PointY="5.4035546875" />
+        </AssociationConnector>
+        <AssociationConnector Association="tsdataModel.FK__Projects__Client__1BFD2C07" >
+          <ConnectorPoint PointX="1.5" PointY="16.5" />
+          <ConnectorPoint PointX="1.5" PointY="12.65330078125" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>

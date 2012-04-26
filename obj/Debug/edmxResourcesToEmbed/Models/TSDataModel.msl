@@ -36,29 +36,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Clients">
-      <EntityTypeMapping TypeName="tsdataModel.Client">
-        <MappingFragment StoreEntitySet="Clients">
-          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
-          <ScalarProperty Name="Client1" ColumnName="Client" />
-          <ScalarProperty Name="Street" ColumnName="Street" />
-          <ScalarProperty Name="City" ColumnName="City" />
-          <ScalarProperty Name="State" ColumnName="State" />
-          <ScalarProperty Name="Zip" ColumnName="Zip" />
-          <ScalarProperty Name="Country" ColumnName="Country" />
-          <ScalarProperty Name="Phone" ColumnName="Phone" />
-          <ScalarProperty Name="Fax" ColumnName="Fax" />
-          <ScalarProperty Name="Comments" ColumnName="Comments" />
-          <ScalarProperty Name="DirectorID" ColumnName="DirectorID" />
-          <ScalarProperty Name="Region" ColumnName="Region" />
-          <ScalarProperty Name="DefaultInvFrequency" ColumnName="DefaultInvFrequency" />
-          <ScalarProperty Name="QuickBookClientID" ColumnName="QuickBookClientID" />
-          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-          <ScalarProperty Name="ClientShort" ColumnName="ClientShort" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Contacts">
       <EntityTypeMapping TypeName="tsdataModel.Contact">
         <MappingFragment StoreEntitySet="Contacts">
@@ -133,27 +110,6 @@
           <ScalarProperty Name="HourlyRate1" ColumnName="HourlyRate" />
           <ScalarProperty Name="StartDate" ColumnName="StartDate" />
           <ScalarProperty Name="EndDate" ColumnName="EndDate" />
-          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Hours">
-      <EntityTypeMapping TypeName="tsdataModel.Hour">
-        <MappingFragment StoreEntitySet="Hours">
-          <ScalarProperty Name="HoursID" ColumnName="HoursID" />
-          <ScalarProperty Name="AssignmentID" ColumnName="AssignmentID" />
-          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
-          <ScalarProperty Name="HoursDate" ColumnName="HoursDate" />
-          <ScalarProperty Name="Hours" ColumnName="Hours" />
-          <ScalarProperty Name="AdjHours" ColumnName="AdjHours" />
-          <ScalarProperty Name="Comments" ColumnName="Comments" />
-          <ScalarProperty Name="Submitted" ColumnName="Submitted" />
-          <ScalarProperty Name="AcctMgrApprBy" ColumnName="AcctMgrApprBy" />
-          <ScalarProperty Name="AcctMgrApprDate" ColumnName="AcctMgrApprDate" />
-          <ScalarProperty Name="DirApprBy" ColumnName="DirApprBy" />
-          <ScalarProperty Name="DirApprDate" ColumnName="DirApprDate" />
-          <ScalarProperty Name="InvNumber" ColumnName="InvNumber" />
           <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
           <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
         </MappingFragment>
@@ -326,6 +282,50 @@
         <MappingFragment StoreEntitySet="Reports">
           <ScalarProperty Name="ReportID" ColumnName="ReportID" />
           <ScalarProperty Name="ReportName" ColumnName="ReportName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clients">
+      <EntityTypeMapping TypeName="tsdataModel.Client">
+        <MappingFragment StoreEntitySet="Clients">
+          <ScalarProperty Name="ClientShort" ColumnName="ClientShort" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="QuickBookClientID" ColumnName="QuickBookClientID" />
+          <ScalarProperty Name="DefaultInvFrequency" ColumnName="DefaultInvFrequency" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="DirectorID" ColumnName="DirectorID" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="Zip" ColumnName="Zip" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Street" ColumnName="Street" />
+          <ScalarProperty Name="Client1" ColumnName="Client" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Hours">
+      <EntityTypeMapping TypeName="tsdataModel.Hour">
+        <MappingFragment StoreEntitySet="Hours">
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="InvNumber" ColumnName="InvNumber" />
+          <ScalarProperty Name="DirApprDate" ColumnName="DirApprDate" />
+          <ScalarProperty Name="DirApprBy" ColumnName="DirApprBy" />
+          <ScalarProperty Name="AcctMgrApprDate" ColumnName="AcctMgrApprDate" />
+          <ScalarProperty Name="AcctMgrApprBy" ColumnName="AcctMgrApprBy" />
+          <ScalarProperty Name="Submitted" ColumnName="Submitted" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="AdjHours" ColumnName="AdjHours" />
+          <ScalarProperty Name="Hours" ColumnName="Hours" />
+          <ScalarProperty Name="HoursDate" ColumnName="HoursDate" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="AssignmentID" ColumnName="AssignmentID" />
+          <ScalarProperty Name="HoursID" ColumnName="HoursID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

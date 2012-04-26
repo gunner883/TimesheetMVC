@@ -30,8 +30,9 @@ namespace TimesheetMVC.Controllers
                 page = 1;
             }
 
-            var assignments = from s in db.Assignments.Include("Employee").Include("Project")
+            var assignments = from s in db.Assignments.Include("Employee").Include("Project").Include("Hours")
                             select s;
+
             if (!String.IsNullOrEmpty(searchString))
             {
                 assignments = assignments.Where(s => s.Employee.LastName.ToUpper().Contains(searchString.ToUpper())

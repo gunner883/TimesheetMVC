@@ -3,12 +3,10 @@
   <EntityContainer Name="tsdataEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Assignments" EntityType="tsdataModel.Assignment" />
     <EntitySet Name="ClientProjectViews" EntityType="tsdataModel.ClientProjectView" />
-    <EntitySet Name="Clients" EntityType="tsdataModel.Client" />
     <EntitySet Name="Contacts" EntityType="tsdataModel.Contact" />
     <EntitySet Name="Days" EntityType="tsdataModel.Day" />
     <EntitySet Name="Employees" EntityType="tsdataModel.Employee" />
     <EntitySet Name="HourlyRates" EntityType="tsdataModel.HourlyRate" />
-    <EntitySet Name="Hours" EntityType="tsdataModel.Hour" />
     <EntitySet Name="InvDetails" EntityType="tsdataModel.InvDetail" />
     <EntitySet Name="InvHeaders" EntityType="tsdataModel.InvHeader" />
     <EntitySet Name="Invoices" EntityType="tsdataModel.Invoice" />
@@ -31,6 +29,16 @@
     <AssociationSet Name="FK__Assignmen__Proje__1920BF5C" Association="tsdataModel.FK__Assignmen__Proje__1920BF5C">
       <End Role="Projects" EntitySet="Projects" />
       <End Role="Assignments" EntitySet="Assignments" />
+    </AssociationSet>
+    <EntitySet Name="Clients" EntityType="tsdataModel.Client" />
+    <EntitySet Name="Hours" EntityType="tsdataModel.Hour" />
+    <AssociationSet Name="FK__Hours__Assignmen__1ED998B2" Association="tsdataModel.FK__Hours__Assignmen__1ED998B2">
+      <End Role="Assignment" EntitySet="Assignments" />
+      <End Role="Hour" EntitySet="Hours" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Projects__Client__1BFD2C07" Association="tsdataModel.FK__Projects__Client__1BFD2C07">
+      <End Role="Client" EntitySet="Clients" />
+      <End Role="Project" EntitySet="Projects" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="Assignment">
@@ -57,6 +65,7 @@
     <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
     <NavigationProperty Name="Employee" Relationship="tsdataModel.FK__Assignmen__Emplo__182C9B23" FromRole="Assignments" ToRole="Employees" />
     <NavigationProperty Name="Project" Relationship="tsdataModel.FK__Assignmen__Proje__1920BF5C" FromRole="Assignments" ToRole="Projects" />
+    <NavigationProperty Name="Hours" Relationship="tsdataModel.FK__Hours__Assignmen__1ED998B2" FromRole="Assignment" ToRole="Hour" />
   </EntityType>
   <EntityType Name="ClientProjectView">
     <Key>
@@ -71,32 +80,6 @@
     <Property Name="ProjectID" Type="Int32" Nullable="false" />
     <Property Name="CreatedDate" Type="DateTime" Nullable="false" />
     <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
-  </EntityType>
-  <EntityType Name="Client">
-    <Key>
-      <PropertyRef Name="ClientID" />
-      <PropertyRef Name="Client1" />
-      <PropertyRef Name="Region" />
-      <PropertyRef Name="CreatedDate" />
-      <PropertyRef Name="CreatedBy" />
-    </Key>
-    <Property Name="ClientID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Client1" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
-    <Property Name="Street" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-    <Property Name="City" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
-    <Property Name="State" Type="String" MaxLength="2" Unicode="false" FixedLength="false" />
-    <Property Name="Zip" Type="String" MaxLength="11" Unicode="false" FixedLength="false" />
-    <Property Name="Country" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
-    <Property Name="Phone" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
-    <Property Name="Fax" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
-    <Property Name="Comments" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-    <Property Name="DirectorID" Type="Int32" />
-    <Property Name="Region" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
-    <Property Name="DefaultInvFrequency" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
-    <Property Name="QuickBookClientID" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
-    <Property Name="CreatedDate" Type="DateTime" Nullable="false" />
-    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
-    <Property Name="ClientShort" Type="String" MaxLength="5" Unicode="false" FixedLength="false" />
   </EntityType>
   <EntityType Name="Contact">
     <Key>
@@ -181,32 +164,6 @@
     <Property Name="HourlyRate1" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
     <Property Name="StartDate" Type="DateTime" Nullable="false" />
     <Property Name="EndDate" Type="DateTime" />
-    <Property Name="CreatedDate" Type="DateTime" Nullable="false" />
-    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
-  </EntityType>
-  <EntityType Name="Hour">
-    <Key>
-      <PropertyRef Name="HoursID" />
-      <PropertyRef Name="AssignmentID" />
-      <PropertyRef Name="HoursDate" />
-      <PropertyRef Name="Hours" />
-      <PropertyRef Name="AdjHours" />
-      <PropertyRef Name="CreatedDate" />
-      <PropertyRef Name="CreatedBy" />
-    </Key>
-    <Property Name="HoursID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="AssignmentID" Type="Int32" Nullable="false" />
-    <Property Name="EmployeeID" Type="Int32" />
-    <Property Name="HoursDate" Type="DateTime" Nullable="false" />
-    <Property Name="Hours" Type="Double" Nullable="false" />
-    <Property Name="AdjHours" Type="Double" Nullable="false" />
-    <Property Name="Comments" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-    <Property Name="Submitted" Type="DateTime" />
-    <Property Name="AcctMgrApprBy" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
-    <Property Name="AcctMgrApprDate" Type="DateTime" />
-    <Property Name="DirApprBy" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
-    <Property Name="DirApprDate" Type="DateTime" />
-    <Property Name="InvNumber" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
     <Property Name="CreatedDate" Type="DateTime" Nullable="false" />
     <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
   </EntityType>
@@ -366,6 +323,7 @@
     <Property Name="CreatedDate" Type="DateTime" Nullable="false" />
     <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
     <NavigationProperty Name="Assignments" Relationship="tsdataModel.FK__Assignmen__Proje__1920BF5C" FromRole="Projects" ToRole="Assignments" />
+    <NavigationProperty Name="Client" Relationship="tsdataModel.FK__Projects__Client__1BFD2C07" FromRole="Project" ToRole="Client" />
   </EntityType>
   <EntityType Name="Reminder">
     <Key>
@@ -426,6 +384,74 @@
       </Principal>
       <Dependent Role="Assignments">
         <PropertyRef Name="ProjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="ClientID" />
+    </Key>
+    <Property Type="Int32" Name="ClientID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Client1" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Street" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="City" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="State" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Zip" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Country" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Phone" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Fax" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Comments" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="DirectorID" />
+    <Property Type="String" Name="Region" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="DefaultInvFrequency" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="QuickBookClientID" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="false" />
+    <Property Type="String" Name="CreatedBy" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ClientShort" MaxLength="5" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Projects" Relationship="tsdataModel.FK__Projects__Client__1BFD2C07" FromRole="Client" ToRole="Project" />
+  </EntityType>
+  <EntityType Name="Hour">
+    <Key>
+      <PropertyRef Name="HoursID" />
+    </Key>
+    <Property Type="Int32" Name="HoursID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="AssignmentID" Nullable="false" />
+    <Property Type="Int32" Name="EmployeeID" />
+    <Property Type="DateTime" Name="HoursDate" Nullable="false" />
+    <Property Type="Double" Name="Hours" Nullable="false" />
+    <Property Type="Double" Name="AdjHours" Nullable="false" />
+    <Property Type="String" Name="Comments" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Submitted" />
+    <Property Type="String" Name="AcctMgrApprBy" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="AcctMgrApprDate" />
+    <Property Type="String" Name="DirApprBy" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="DirApprDate" />
+    <Property Type="String" Name="InvNumber" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="false" />
+    <Property Type="String" Name="CreatedBy" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Assignment" Relationship="tsdataModel.FK__Hours__Assignmen__1ED998B2" FromRole="Hour" ToRole="Assignment" />
+  </EntityType>
+  <Association Name="FK__Hours__Assignmen__1ED998B2">
+    <End Type="tsdataModel.Assignment" Role="Assignment" Multiplicity="1" />
+    <End Type="tsdataModel.Hour" Role="Hour" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Assignment">
+        <PropertyRef Name="AssignmentID" />
+      </Principal>
+      <Dependent Role="Hour">
+        <PropertyRef Name="AssignmentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Projects__Client__1BFD2C07">
+    <End Type="tsdataModel.Client" Role="Client" Multiplicity="1" />
+    <End Type="tsdataModel.Project" Role="Project" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="ClientID" />
+      </Principal>
+      <Dependent Role="Project">
+        <PropertyRef Name="ClientID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

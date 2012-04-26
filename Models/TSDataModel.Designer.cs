@@ -20,6 +20,8 @@ using System.Runtime.Serialization;
 
 [assembly: EdmRelationshipAttribute("tsdataModel", "FK__Assignmen__Emplo__182C9B23", "Employees", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(TimesheetMVC.Models.Employee), "Assignments", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(TimesheetMVC.Models.Assignment), true)]
 [assembly: EdmRelationshipAttribute("tsdataModel", "FK__Assignmen__Proje__1920BF5C", "Projects", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(TimesheetMVC.Models.Project), "Assignments", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(TimesheetMVC.Models.Assignment), true)]
+[assembly: EdmRelationshipAttribute("tsdataModel", "FK__Hours__Assignmen__1ED998B2", "Assignment", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(TimesheetMVC.Models.Assignment), "Hour", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(TimesheetMVC.Models.Hour), true)]
+[assembly: EdmRelationshipAttribute("tsdataModel", "FK__Projects__Client__1BFD2C07", "Client", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(TimesheetMVC.Models.Client), "Project", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(TimesheetMVC.Models.Project), true)]
 
 #endregion
 
@@ -106,22 +108,6 @@ namespace TimesheetMVC.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<Client> Clients
-        {
-            get
-            {
-                if ((_Clients == null))
-                {
-                    _Clients = base.CreateObjectSet<Client>("Clients");
-                }
-                return _Clients;
-            }
-        }
-        private ObjectSet<Client> _Clients;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<Contact> Contacts
         {
             get
@@ -182,22 +168,6 @@ namespace TimesheetMVC.Models
             }
         }
         private ObjectSet<HourlyRate> _HourlyRates;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<Hour> Hours
-        {
-            get
-            {
-                if ((_Hours == null))
-                {
-                    _Hours = base.CreateObjectSet<Hour>("Hours");
-                }
-                return _Hours;
-            }
-        }
-        private ObjectSet<Hour> _Hours;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -438,6 +408,38 @@ namespace TimesheetMVC.Models
             }
         }
         private ObjectSet<Report> _Reports;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Client> Clients
+        {
+            get
+            {
+                if ((_Clients == null))
+                {
+                    _Clients = base.CreateObjectSet<Client>("Clients");
+                }
+                return _Clients;
+            }
+        }
+        private ObjectSet<Client> _Clients;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Hour> Hours
+        {
+            get
+            {
+                if ((_Hours == null))
+                {
+                    _Hours = base.CreateObjectSet<Hour>("Hours");
+                }
+                return _Hours;
+            }
+        }
+        private ObjectSet<Hour> _Hours;
 
         #endregion
         #region AddTo Methods
@@ -456,14 +458,6 @@ namespace TimesheetMVC.Models
         public void AddToClientProjectViews(ClientProjectView clientProjectView)
         {
             base.AddObject("ClientProjectViews", clientProjectView);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the Clients EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToClients(Client client)
-        {
-            base.AddObject("Clients", client);
         }
     
         /// <summary>
@@ -496,14 +490,6 @@ namespace TimesheetMVC.Models
         public void AddToHourlyRates(HourlyRate hourlyRate)
         {
             base.AddObject("HourlyRates", hourlyRate);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the Hours EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToHours(Hour hour)
-        {
-            base.AddObject("Hours", hour);
         }
     
         /// <summary>
@@ -624,6 +610,22 @@ namespace TimesheetMVC.Models
         public void AddToReports(Report report)
         {
             base.AddObject("Reports", report);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Clients EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToClients(Client client)
+        {
+            base.AddObject("Clients", client);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Hours EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToHours(Hour hour)
+        {
+            base.AddObject("Hours", hour);
         }
 
         #endregion
@@ -1186,6 +1188,28 @@ namespace TimesheetMVC.Models
                 }
             }
         }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("tsdataModel", "FK__Hours__Assignmen__1ED998B2", "Hour")]
+        public EntityCollection<Hour> Hours
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Hour>("tsdataModel.FK__Hours__Assignmen__1ED998B2", "Hour");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Hour>("tsdataModel.FK__Hours__Assignmen__1ED998B2", "Hour", value);
+                }
+            }
+        }
 
         #endregion
     }
@@ -1252,7 +1276,7 @@ namespace TimesheetMVC.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Client1
         {
@@ -1262,14 +1286,11 @@ namespace TimesheetMVC.Models
             }
             set
             {
-                if (_Client1 != value)
-                {
-                    OnClient1Changing(value);
-                    ReportPropertyChanging("Client1");
-                    _Client1 = StructuralObject.SetValidValue(value, false);
-                    ReportPropertyChanged("Client1");
-                    OnClient1Changed();
-                }
+                OnClient1Changing(value);
+                ReportPropertyChanging("Client1");
+                _Client1 = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Client1");
+                OnClient1Changed();
             }
         }
         private global::System.String _Client1;
@@ -1495,7 +1516,7 @@ namespace TimesheetMVC.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Region
         {
@@ -1505,14 +1526,11 @@ namespace TimesheetMVC.Models
             }
             set
             {
-                if (_Region != value)
-                {
-                    OnRegionChanging(value);
-                    ReportPropertyChanging("Region");
-                    _Region = StructuralObject.SetValidValue(value, false);
-                    ReportPropertyChanged("Region");
-                    OnRegionChanged();
-                }
+                OnRegionChanging(value);
+                ReportPropertyChanging("Region");
+                _Region = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Region");
+                OnRegionChanged();
             }
         }
         private global::System.String _Region;
@@ -1570,7 +1588,7 @@ namespace TimesheetMVC.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.DateTime CreatedDate
         {
@@ -1580,14 +1598,11 @@ namespace TimesheetMVC.Models
             }
             set
             {
-                if (_CreatedDate != value)
-                {
-                    OnCreatedDateChanging(value);
-                    ReportPropertyChanging("CreatedDate");
-                    _CreatedDate = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("CreatedDate");
-                    OnCreatedDateChanged();
-                }
+                OnCreatedDateChanging(value);
+                ReportPropertyChanging("CreatedDate");
+                _CreatedDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("CreatedDate");
+                OnCreatedDateChanged();
             }
         }
         private global::System.DateTime _CreatedDate;
@@ -1597,7 +1612,7 @@ namespace TimesheetMVC.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String CreatedBy
         {
@@ -1607,14 +1622,11 @@ namespace TimesheetMVC.Models
             }
             set
             {
-                if (_CreatedBy != value)
-                {
-                    OnCreatedByChanging(value);
-                    ReportPropertyChanging("CreatedBy");
-                    _CreatedBy = StructuralObject.SetValidValue(value, false);
-                    ReportPropertyChanged("CreatedBy");
-                    OnCreatedByChanged();
-                }
+                OnCreatedByChanging(value);
+                ReportPropertyChanging("CreatedBy");
+                _CreatedBy = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("CreatedBy");
+                OnCreatedByChanged();
             }
         }
         private global::System.String _CreatedBy;
@@ -1647,6 +1659,31 @@ namespace TimesheetMVC.Models
 
         #endregion
     
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("tsdataModel", "FK__Projects__Client__1BFD2C07", "Project")]
+        public EntityCollection<Project> Projects
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Project>("tsdataModel.FK__Projects__Client__1BFD2C07", "Project");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Project>("tsdataModel.FK__Projects__Client__1BFD2C07", "Project", value);
+                }
+            }
+        }
+
+        #endregion
     }
     
     /// <summary>
@@ -3195,7 +3232,7 @@ namespace TimesheetMVC.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 AssignmentID
         {
@@ -3205,14 +3242,11 @@ namespace TimesheetMVC.Models
             }
             set
             {
-                if (_AssignmentID != value)
-                {
-                    OnAssignmentIDChanging(value);
-                    ReportPropertyChanging("AssignmentID");
-                    _AssignmentID = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("AssignmentID");
-                    OnAssignmentIDChanged();
-                }
+                OnAssignmentIDChanging(value);
+                ReportPropertyChanging("AssignmentID");
+                _AssignmentID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("AssignmentID");
+                OnAssignmentIDChanged();
             }
         }
         private global::System.Int32 _AssignmentID;
@@ -3246,7 +3280,7 @@ namespace TimesheetMVC.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.DateTime HoursDate
         {
@@ -3256,14 +3290,11 @@ namespace TimesheetMVC.Models
             }
             set
             {
-                if (_HoursDate != value)
-                {
-                    OnHoursDateChanging(value);
-                    ReportPropertyChanging("HoursDate");
-                    _HoursDate = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("HoursDate");
-                    OnHoursDateChanged();
-                }
+                OnHoursDateChanging(value);
+                ReportPropertyChanging("HoursDate");
+                _HoursDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("HoursDate");
+                OnHoursDateChanged();
             }
         }
         private global::System.DateTime _HoursDate;
@@ -3273,7 +3304,7 @@ namespace TimesheetMVC.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Double Hours
         {
@@ -3283,14 +3314,11 @@ namespace TimesheetMVC.Models
             }
             set
             {
-                if (_Hours != value)
-                {
-                    OnHoursChanging(value);
-                    ReportPropertyChanging("Hours");
-                    _Hours = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("Hours");
-                    OnHoursChanged();
-                }
+                OnHoursChanging(value);
+                ReportPropertyChanging("Hours");
+                _Hours = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Hours");
+                OnHoursChanged();
             }
         }
         private global::System.Double _Hours;
@@ -3300,7 +3328,7 @@ namespace TimesheetMVC.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Double AdjHours
         {
@@ -3310,14 +3338,11 @@ namespace TimesheetMVC.Models
             }
             set
             {
-                if (_AdjHours != value)
-                {
-                    OnAdjHoursChanging(value);
-                    ReportPropertyChanging("AdjHours");
-                    _AdjHours = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("AdjHours");
-                    OnAdjHoursChanged();
-                }
+                OnAdjHoursChanging(value);
+                ReportPropertyChanging("AdjHours");
+                _AdjHours = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("AdjHours");
+                OnAdjHoursChanged();
             }
         }
         private global::System.Double _AdjHours;
@@ -3495,7 +3520,7 @@ namespace TimesheetMVC.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.DateTime CreatedDate
         {
@@ -3505,14 +3530,11 @@ namespace TimesheetMVC.Models
             }
             set
             {
-                if (_CreatedDate != value)
-                {
-                    OnCreatedDateChanging(value);
-                    ReportPropertyChanging("CreatedDate");
-                    _CreatedDate = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("CreatedDate");
-                    OnCreatedDateChanged();
-                }
+                OnCreatedDateChanging(value);
+                ReportPropertyChanging("CreatedDate");
+                _CreatedDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("CreatedDate");
+                OnCreatedDateChanged();
             }
         }
         private global::System.DateTime _CreatedDate;
@@ -3522,7 +3544,7 @@ namespace TimesheetMVC.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String CreatedBy
         {
@@ -3532,14 +3554,11 @@ namespace TimesheetMVC.Models
             }
             set
             {
-                if (_CreatedBy != value)
-                {
-                    OnCreatedByChanging(value);
-                    ReportPropertyChanging("CreatedBy");
-                    _CreatedBy = StructuralObject.SetValidValue(value, false);
-                    ReportPropertyChanged("CreatedBy");
-                    OnCreatedByChanged();
-                }
+                OnCreatedByChanging(value);
+                ReportPropertyChanging("CreatedBy");
+                _CreatedBy = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("CreatedBy");
+                OnCreatedByChanged();
             }
         }
         private global::System.String _CreatedBy;
@@ -3548,6 +3567,47 @@ namespace TimesheetMVC.Models
 
         #endregion
     
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("tsdataModel", "FK__Hours__Assignmen__1ED998B2", "Assignment")]
+        public Assignment Assignment
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Assignment>("tsdataModel.FK__Hours__Assignmen__1ED998B2", "Assignment").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Assignment>("tsdataModel.FK__Hours__Assignmen__1ED998B2", "Assignment").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Assignment> AssignmentReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Assignment>("tsdataModel.FK__Hours__Assignmen__1ED998B2", "Assignment");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Assignment>("tsdataModel.FK__Hours__Assignmen__1ED998B2", "Assignment", value);
+                }
+            }
+        }
+
+        #endregion
     }
     
     /// <summary>
@@ -5967,6 +6027,44 @@ namespace TimesheetMVC.Models
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Assignment>("tsdataModel.FK__Assignmen__Proje__1920BF5C", "Assignments", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("tsdataModel", "FK__Projects__Client__1BFD2C07", "Client")]
+        public Client Client
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Client>("tsdataModel.FK__Projects__Client__1BFD2C07", "Client").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Client>("tsdataModel.FK__Projects__Client__1BFD2C07", "Client").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Client> ClientReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Client>("tsdataModel.FK__Projects__Client__1BFD2C07", "Client");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Client>("tsdataModel.FK__Projects__Client__1BFD2C07", "Client", value);
                 }
             }
         }
